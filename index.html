@@ -1,0 +1,1098 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>МАДИС Инжиниринг — проекты производства работ для мостов</title>
+<meta name="description" content="Проектная организация: ППР и ППРк, ПОС с экспертизой, СВСиУ и ВЗиС, BIM-модели для мостов, путепроводов и дорог. Волга, Кама, Нева, Волхов, Москва-река.">
+<meta name="robots" content="noindex, nofollow">
+<meta name="author" content="Денис Стрепенюк">
+<meta property="og:title" content="МАДИС Инжиниринг — знаем, как построить мост">
+<meta property="og:description" content="ППР, ПОС, СВСиУ, ВЗиС и BIM для мостов и путепроводов.">
+<meta property="og:image" content="og.jpg">
+<meta name="theme-color" content="#161719">
+<link rel="icon" href="img/logo-mark.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Forum&family=Onest:wght@300;400;500&display=swap" rel="stylesheet">
+<!-- Сайт ООО «МАДИС Инжиниринг». Дизайн и разработка — Денис Стрепенюк, +7 977 393-80-33 -->
+<script>
+  try { if (!sessionStorage.getItem('madis-pre') && !matchMedia('(prefers-reduced-motion: reduce)').matches) { document.documentElement.classList.add('js-loading'); sessionStorage.setItem('madis-pre','1'); setTimeout(()=>document.documentElement.classList.remove('js-loading'),6000); } } catch(e) {}
+  document.documentElement.classList.add('js');
+</script>
+<style>
+:root{
+  --night:#161719; --night2:#1f2023; --night-ink:#ECEAE5; --night-mut:#8E8C87; --night-line:rgba(236,234,229,.14);
+  --paper:#F1F2F2; --white:#fff; --ink:#141516; --mut:#5F6366; --line:#D9DBDC;
+  --steel:#2A6783; --steel2:#235770; --red:#C3161C; --sky:#2B8FD0;
+  --serif:'Forum', 'Times New Roman', serif; --sans:'Onest', system-ui, sans-serif;
+  --gut:64px; --hdr:76px; --r:6px;
+}
+@media (max-width:900px){ :root{ --gut:20px; --hdr:104px; } }
+*{box-sizing:border-box;margin:0;padding:0}
+html{-webkit-text-size-adjust:100%; scroll-behavior:auto; overflow-x:clip}
+html.lenis, html.lenis body{height:auto}
+.lenis:not(.lenis-autoToggle).lenis-stopped{overflow:clip}
+.lenis [data-lenis-prevent]{overscroll-behavior:contain}
+.lenis.lenis-smooth iframe{pointer-events:none}
+body{background:var(--paper);color:var(--ink);font:300 17px/1.6 var(--sans);overflow-x:clip}
+img{display:block;max-width:100%}
+a{color:inherit}
+button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
+:focus-visible{outline:2px solid var(--sky);outline-offset:3px}
+.wrap{padding:0 var(--gut);max-width:1600px;margin:0 auto}
+.h-serif{font-family:var(--serif);font-weight:400;text-transform:uppercase;letter-spacing:.01em;line-height:.98}
+.mut{color:var(--mut)}
+.dia{display:inline-block;width:7px;height:7px;background:var(--red);transform:rotate(45deg);margin-right:10px;vertical-align:.12em}
+.pill{display:inline-flex;align-items:center;gap:10px;height:46px;padding:0 24px;border:1px solid currentColor;border-radius:40px;font:400 15px var(--sans);text-decoration:none;white-space:nowrap;transition:background .25s,color .25s,border-color .25s}
+.pill:hover{background:var(--ink);color:var(--paper);border-color:var(--ink)}
+.pill.solid{background:var(--ink);color:#fff;border-color:var(--ink)}
+.pill.solid:hover{background:var(--steel);border-color:var(--steel)}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+
+/* ---------- preloader ---------- */
+.pre{position:fixed;inset:0;z-index:100;background:var(--night);color:var(--night-ink);display:none;place-items:center}
+.js-loading .pre{display:grid}
+.pre-in{text-align:center}
+.pre-pk{font:400 clamp(56px,9vw,128px)/1 var(--serif);letter-spacing:.02em;font-variant-numeric:tabular-nums}
+.pre-bar{width:min(420px,70vw);height:1px;background:var(--night-line);margin:28px auto 14px;position:relative;overflow:hidden}
+.pre-bar i{position:absolute;inset:0;background:var(--red);transform-origin:0 50%;transform:scaleX(0)}
+.pre-cap{font:300 13px var(--sans);color:var(--night-mut);letter-spacing:.04em}
+
+/* ---------- header ---------- */
+.hdr{position:fixed;top:0;left:0;right:0;z-index:50;color:var(--night-ink);transition:background .35s,color .35s,box-shadow .35s}
+.hdr-row{height:76px;display:flex;align-items:center;gap:40px;padding:0 var(--gut);max-width:1600px;margin:0 auto}
+.logo{display:flex;align-items:center;gap:12px;text-decoration:none;flex:none}
+.logo img{height:34px;width:auto}
+.logo b{font:400 22px/1 var(--serif);letter-spacing:.06em}
+.logo small{display:block;font:400 10px/1 var(--sans);letter-spacing:.32em;text-transform:uppercase;opacity:.7;margin-top:5px}
+.nav{display:flex;gap:30px;margin-left:auto}
+.nav a{font:400 14px var(--sans);text-decoration:none;opacity:.78;position:relative;padding:6px 0;white-space:nowrap}
+.nav a:hover,.nav a.on{opacity:1}
+.nav a.on::after{content:"";position:absolute;left:50%;bottom:-6px;width:5px;height:5px;background:var(--red);transform:translateX(-50%) rotate(45deg)}
+.hdr .pill{height:40px;padding:0 18px;font-size:14px}
+.hdr .pill:hover{background:var(--night-ink);color:var(--night);border-color:var(--night-ink)}
+.hdr-prog{position:absolute;left:0;bottom:0;height:1px;width:100%;background:var(--red);transform-origin:0 50%;transform:scaleX(0)}
+.hdr.day{background:rgba(241,242,242,.9);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);color:var(--ink);box-shadow:0 1px 0 var(--line)}
+.hdr.day .pill:hover{background:var(--ink);color:#fff;border-color:var(--ink)}
+.hdr.dark-sec{background:rgba(22,23,25,.86);color:var(--night-ink);box-shadow:0 1px 0 var(--night-line)}
+.hdr.steel{background:rgba(35,87,112,.9);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);color:#fff;box-shadow:0 1px 0 rgba(255,255,255,.15)}
+.no-x .hero{height:auto}
+.no-x .hero-day{display:none}
+@media (max-width:900px){
+  .hdr-row{height:58px;gap:12px}
+  .logo img{height:28px} .logo b{font-size:19px}
+  .hdr .pill{display:none}
+  .nav{position:absolute;left:0;right:0;top:58px;height:46px;margin:0;padding:0 var(--gut);gap:24px;overflow-x:auto;scrollbar-width:none;align-items:center;border-top:1px solid var(--night-line);background:inherit}
+  .nav::-webkit-scrollbar{display:none}
+  .hdr{background:rgba(22,23,25,.72);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px)}
+  .hdr.day .nav{border-top-color:var(--line)}
+  .nav a.on::after{bottom:-2px}
+}
+
+/* ---------- hero ---------- */
+.hero{position:relative;background:var(--night);color:var(--night-ink)}
+.js .hero{height:300vh}
+@media (max-width:900px){ .js .hero{height:210vh} }
+.hero-pin{position:sticky;top:0;height:100vh;height:100dvh;overflow:hidden;isolation:isolate}
+.hero-sky{position:absolute;inset:0;z-index:-3;background:radial-gradient(120% 70% at 50% 100%,#2b2a2a 0%,#1b1c1e 45%,var(--night) 80%)}
+.hero-photo{position:absolute;inset:0;z-index:-2;overflow:hidden}
+.hero-photo img{width:100%;height:100%;object-fit:cover;object-position:40% 55%;transform-origin:55% 60%;filter:saturate(.85) brightness(.82)}
+.hero-photo::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(22,23,25,.78) 0%,rgba(22,23,25,.25) 38%,rgba(22,23,25,.35) 70%,rgba(22,23,25,.92) 100%)}
+.has-3d .hero-photo{display:none}
+.hero-title{position:absolute;left:0;right:0;top:calc(var(--hdr) + 3vh);z-index:-1;text-align:center;font:400 clamp(54px,10.6vw,200px)/.9 var(--serif);text-transform:uppercase;letter-spacing:.005em;pointer-events:none}
+.hero-title span{display:block;white-space:nowrap}
+.hero-bridge{position:absolute;inset:0;width:100%;height:100%;z-index:0;pointer-events:none;display:none}
+.has-3d .hero-bridge{display:block}
+.hero-tags{position:absolute;inset:0;z-index:2;list-style:none;pointer-events:none;font:400 12px/1.35 var(--sans);letter-spacing:.08em;text-transform:uppercase}
+.hero-tags li{position:absolute;max-width:190px}
+.hero-tags li:nth-child(1){left:var(--gut);top:58%}
+.hero-tags li:nth-child(2){right:var(--gut);top:46%;text-align:left}
+.hero-tags li:nth-child(3){right:16%;top:72%}
+.hero-foot{position:absolute;left:0;right:0;bottom:0;z-index:3;padding:0 var(--gut) 28px;display:flex;align-items:flex-end;gap:24px}
+.hero-lead{max-width:430px;font:300 16px/1.55 var(--sans);color:#d9d7d2}
+.quick{display:flex;gap:10px;flex-wrap:wrap;margin-left:auto;justify-content:flex-end;max-width:760px}
+.quick a{display:flex;flex-direction:column;gap:2px;padding:12px 16px 11px;border:1px solid var(--night-line);border-radius:var(--r);text-decoration:none;background:rgba(22,23,25,.45);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);transition:border-color .25s,background .25s;min-width:150px}
+.quick a:hover{border-color:rgba(236,234,229,.5);background:rgba(22,23,25,.7)}
+.quick b{font:400 21px/1.1 var(--serif);letter-spacing:.01em}
+.quick small{font:300 12.5px/1.3 var(--sans);color:var(--night-mut)}
+.hero-line{position:absolute;left:var(--gut);right:var(--gut);bottom:calc(100% + 18px);height:1px;background:var(--night-line)}
+.hero-day{position:absolute;inset:0;z-index:4;background:var(--paper);transform:translateY(101%);pointer-events:none}
+.cross{position:absolute;inset:0;z-index:2;pointer-events:none;opacity:0;transition:opacity .3s}
+.cross.on{opacity:1}
+.cross i{position:absolute;background:rgba(236,234,229,.18)}
+.cross .cx{top:0;bottom:0;width:1px;left:0}
+.cross .cy{left:0;right:0;height:1px;top:0}
+.cross span{position:absolute;left:0;top:0;font:400 11px/1 var(--sans);letter-spacing:.06em;color:#d9d7d2;white-space:nowrap;padding:6px 8px;background:rgba(22,23,25,.55);border-radius:3px}
+@media (max-width:900px){
+  .hero-title{top:calc(var(--hdr) + 4vh);font-size:clamp(40px,12vw,80px);line-height:.95}
+  .hero-title .l2{white-space:normal}
+  .hero-tags{display:none}
+  .hero-foot{flex-direction:column;align-items:stretch;gap:16px;padding-bottom:calc(84px + env(safe-area-inset-bottom))}
+  .hero-lead{font-size:14.5px}
+  .quick{margin:0;justify-content:flex-start;gap:8px;flex-wrap:nowrap;overflow-x:auto;scrollbar-width:none;margin-right:calc(var(--gut) * -1);padding-right:var(--gut)}
+  .quick::-webkit-scrollbar{display:none}
+  .quick a{min-width:142px;flex:none}
+  .hero-photo img{object-position:30% 50%}
+}
+
+/* ---------- section basics ---------- */
+section{position:relative}
+.sec{padding:140px 0}
+.sec-head{display:grid;grid-template-columns:repeat(12,1fr);gap:24px;align-items:end;margin-bottom:64px}
+.sec-head h2{grid-column:1 / span 9;font:400 clamp(44px,5.4vw,96px)/.95 var(--serif);text-transform:uppercase;overflow-wrap:normal;word-break:keep-all;hyphens:none}
+.sec-head p{grid-column:10 / span 3;font-size:16px;color:var(--mut)}
+@media (max-width:900px){
+  .sec{padding:84px 0}
+  .sec-head{grid-template-columns:1fr;gap:18px;margin-bottom:40px}
+  .sec-head h2,.sec-head p{grid-column:1}
+  .sec-head h2{font-size:clamp(30px,8.6vw,52px)}
+}
+
+/* ---------- services ---------- */
+#services{background:var(--paper)}
+.marq{position:relative;height:min(64vh,620px);display:grid;place-items:center;overflow:hidden;margin-bottom:120px}
+.marq-circle{width:min(46vh,440px);aspect-ratio:1;border-radius:50%;overflow:hidden;position:relative}
+.marq-circle img{width:100%;height:120%;object-fit:cover;position:absolute;top:-10%}
+.marq-track{position:absolute;left:0;top:50%;transform:translateY(-50%);display:flex;white-space:nowrap;color:#fff;mix-blend-mode:difference;font:400 clamp(72px,11vw,190px)/1 var(--serif);will-change:transform}
+.marq-track span{padding-right:.5em}
+.marq-track span i{display:inline-block;width:.14em;height:.14em;background:currentColor;transform:rotate(45deg);vertical-align:.32em;margin-left:.5em}
+.svc{list-style:none;border-top:1px solid var(--line)}
+.svc li{display:grid;grid-template-columns:repeat(12,1fr);gap:24px;padding:34px 0 32px;border-bottom:1px solid var(--line);align-items:baseline;position:relative}
+.svc h3{grid-column:1 / span 5;font:400 clamp(28px,2.6vw,42px)/1.02 var(--serif);text-transform:uppercase}
+.svc p{grid-column:6 / span 4;font-size:16px}
+.svc .codes{grid-column:10 / span 3;display:flex;flex-wrap:wrap;gap:6px;justify-content:flex-end}
+.code{display:inline-block;padding:3px 9px;border:1px solid var(--line);border-radius:30px;font:400 12.5px/1.4 var(--sans);color:var(--mut);white-space:nowrap}
+.svc li.key h3::after{content:"основное";display:inline-block;vertical-align:super;margin-left:12px;font:400 11px var(--sans);letter-spacing:.08em;text-transform:none;color:var(--red)}
+.svc a.more{grid-column:6 / span 4;font:400 14px var(--sans);color:var(--steel);text-decoration:none;margin-top:-10px}
+.svc a.more:hover{text-decoration:underline}
+.peek{position:fixed;left:0;top:0;width:280px;aspect-ratio:3/2;z-index:40;pointer-events:none;border-radius:var(--r);overflow:hidden;opacity:0;transform:scale(.85);box-shadow:0 24px 50px rgba(0,0,0,.18)}
+.peek img{width:100%;height:100%;object-fit:cover}
+@media (max-width:900px){
+  .marq{height:420px;margin-bottom:64px}
+  .svc li{grid-template-columns:1fr;gap:12px;padding:26px 0}
+  .svc h3,.svc p,.svc .codes,.svc a.more{grid-column:1}
+  .svc .codes{justify-content:flex-start}
+  .svc a.more{margin-top:0}
+  .peek{display:none}
+}
+
+/* ---------- objects ---------- */
+#objects{background:var(--white)}
+.xp{position:relative;height:100vh;height:100dvh;overflow:hidden;background:var(--white)}
+.xp-h{position:absolute;left:0;right:0;top:50%;transform:translateY(-50%);z-index:2;padding:0 var(--gut);font:400 clamp(46px,8.2vw,150px)/.96 var(--serif);text-transform:uppercase;pointer-events:none}
+.xp-h span{display:block;white-space:nowrap}
+.xp-h .l2{color:var(--ink)}
+.xp-h .l1,.xp-h .l3{color:#a7abae}
+.xp-h .l2{display:flex;align-items:center;gap:.25em}
+.xp-slot{display:inline-block;width:3em;height:.92em;flex:none}
+.xp-media{position:absolute;inset:0;z-index:1;clip-path:inset(40% 30% 40% 52% round 6px)}
+.xp-media img{width:100%;height:100%;object-fit:cover}
+.xp-media::after{content:"";position:absolute;inset:0;background:linear-gradient(0deg,rgba(0,0,0,.55),rgba(0,0,0,0) 45%);opacity:var(--shade,0)}
+.xp-cap{position:absolute;left:var(--gut);bottom:44px;z-index:3;max-width:520px;color:#fff;opacity:0}
+.xp-cap b{display:block;font:400 clamp(28px,3vw,46px)/1 var(--serif);text-transform:uppercase;margin-bottom:12px}
+.xp-cap p{font-size:15.5px;color:#e9e9e6}
+.no-x .xp{height:auto;padding:120px 0 40px}
+.no-x .xp-h{position:static;transform:none}
+.no-x .xp-media{position:relative;clip-path:none;height:60vh;margin:40px var(--gut) 0;border-radius:var(--r);overflow:hidden}
+.no-x .xp-cap{position:static;opacity:1;color:var(--ink);padding:20px var(--gut) 0}
+.no-x .xp-cap p{color:var(--mut)}
+.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:24px;padding:110px 0 90px;border-bottom:1px solid var(--line)}
+.stat b{display:block;font:400 clamp(56px,6vw,96px)/.9 var(--serif)}
+.stat span{display:block;margin-top:14px;font-size:15px;color:var(--mut);max-width:260px}
+.flt{display:flex;flex-wrap:wrap;gap:8px;margin:60px 0 36px;align-items:center}
+.flt span{font:400 14px var(--sans);color:var(--mut);margin-right:10px}
+.flt button{height:40px;padding:0 18px;border:1px solid var(--line);border-radius:40px;font:400 14px var(--sans);transition:all .2s}
+.flt button[aria-pressed="true"]{background:var(--ink);color:#fff;border-color:var(--ink)}
+.flt button:hover{border-color:var(--ink)}
+.flt button sup{font-size:10px;margin-left:4px;opacity:.6}
+.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:48px 24px}
+.card{display:flex;flex-direction:column}
+.card[hidden]{display:none}
+.card-fig{position:relative;aspect-ratio:3/2;border-radius:var(--r);overflow:hidden;background:#e9ebec;cursor:zoom-in}
+.card-fig img{width:100%;height:100%;object-fit:cover;transition:transform .9s cubic-bezier(.2,.7,.2,1)}
+.card-fig.draw img{object-fit:contain;background:#fff;padding:4%}
+.card:hover .card-fig img{transform:scale(1.035)}
+.card-place{margin-top:18px;font:400 13px/1.35 var(--sans);color:var(--mut)}
+.card h3{margin-top:6px;font:400 26px/1.04 var(--serif);text-transform:uppercase}
+.card p{margin-top:10px;font-size:15px;line-height:1.55;color:#3c4043}
+.card-foot{margin-top:auto;padding-top:16px;display:flex;align-items:center;gap:6px;flex-wrap:wrap}
+.add{margin-left:auto;height:34px;padding:0 14px;border:1px solid var(--line);border-radius:30px;font:400 13px var(--sans);white-space:nowrap;transition:all .2s}
+.add:hover{border-color:var(--ink)}
+.add[aria-pressed="true"]{background:var(--steel);border-color:var(--steel);color:#fff}
+.more-list{margin-top:90px;display:grid;grid-template-columns:repeat(12,1fr);gap:24px;padding-top:40px;border-top:1px solid var(--line)}
+.more-list h3{grid-column:1 / span 4;font:400 34px/1 var(--serif);text-transform:uppercase}
+.more-list ul{grid-column:5 / span 8;list-style:none;columns:2;column-gap:40px}
+.more-list li{break-inside:avoid;padding:0 0 16px;font-size:15px}
+.more-list li b{display:block;font-weight:400;color:var(--ink)}
+.more-list li span{color:var(--mut)}
+@media (max-width:1100px){ .grid{grid-template-columns:repeat(2,1fr)} }
+@media (max-width:900px){
+  .xp-h{font-size:clamp(34px,10.6vw,64px)}
+  .xp-slot{width:2.2em}
+  .stats{grid-template-columns:1fr 1fr;gap:36px 18px;padding:64px 0 56px}
+  .grid{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;gap:14px;margin:0 calc(var(--gut) * -1);padding:0 var(--gut) 8px;scrollbar-width:none}
+  .grid::-webkit-scrollbar{display:none}
+  .card{flex:0 0 82%;scroll-snap-align:start}
+  .flt{margin:40px 0 24px;flex-wrap:nowrap;overflow-x:auto;margin-right:calc(var(--gut) * -1);padding-right:var(--gut);scrollbar-width:none}
+  .flt button{flex:none}
+  .flt span{display:none}
+  .more-list{grid-template-columns:1fr;margin-top:56px}
+  .more-list h3,.more-list ul{grid-column:1}
+  .more-list ul{columns:1}
+}
+
+/* spravka bar */
+.sbar{position:fixed;left:50%;bottom:24px;z-index:45;transform:translate(-50%,160%);display:flex;align-items:center;gap:14px;padding:10px 10px 10px 22px;background:var(--ink);color:#fff;border-radius:50px;box-shadow:0 18px 40px rgba(0,0,0,.25);transition:transform .45s cubic-bezier(.2,.8,.2,1);font-size:14px;max-width:calc(100vw - 24px)}
+.sbar.on{transform:translate(-50%,0)}
+.sbar b{font-weight:500}
+.sbar button,.sbar a{height:38px;padding:0 16px;border-radius:30px;border:1px solid rgba(255,255,255,.25);font:400 13.5px var(--sans);text-decoration:none;display:inline-flex;align-items:center;white-space:nowrap}
+.sbar .go{background:#fff;color:var(--ink);border-color:#fff}
+.sbar .x{border:0;padding:0 10px;opacity:.7}
+@media (max-width:900px){ .sbar{bottom:calc(72px + env(safe-area-inset-bottom));gap:6px;padding:8px 8px 8px 16px;font-size:13px} .sbar .mail{display:none} }
+
+/* lightbox */
+.lb{position:fixed;inset:0;z-index:80;display:none;background:rgba(15,16,17,.92);color:var(--night-ink)}
+.lb.open{display:grid;grid-template-columns:minmax(0,1fr) 400px}
+.lb-media{position:relative;display:grid;place-items:center;padding:40px;min-height:0}
+.lb-media img{max-width:100%;max-height:calc(100vh - 80px);border-radius:var(--r);object-fit:contain}
+.lb-side{padding:90px 40px 40px;border-left:1px solid var(--night-line);overflow:auto;display:flex;flex-direction:column;gap:18px}
+.lb-side small{color:var(--night-mut);font-size:13px}
+.lb-side h3{font:400 38px/1 var(--serif);text-transform:uppercase}
+.lb-side p{font-size:15.5px;color:#d6d4cf}
+.lb-thumbs{display:flex;gap:10px}
+.lb-thumbs button{width:96px;aspect-ratio:3/2;border-radius:4px;overflow:hidden;opacity:.55;border:1px solid transparent}
+.lb-thumbs button[aria-current="true"]{opacity:1;border-color:var(--night-ink)}
+.lb-thumbs img{width:100%;height:100%;object-fit:cover}
+.lb-side .code{border-color:var(--night-line);color:#cfcdc8}
+.lb-act{display:flex;flex-direction:column;gap:10px;margin-top:auto}
+.lb-act .pill{justify-content:center;color:var(--night-ink)}
+.lb-act .pill:hover{background:var(--night-ink);color:var(--night)}
+.lb-x{position:absolute;right:24px;top:22px;width:46px;height:46px;border:1px solid var(--night-line);border-radius:50%;z-index:2;color:var(--night-ink);font-size:22px;line-height:1}
+.lb .lb-media img.wm{display:none}
+@media (max-width:900px){
+  .lb.open{grid-template-columns:1fr;grid-template-rows:auto 1fr;overflow:auto}
+  .lb-media{padding:70px 12px 12px}
+  .lb-media img{max-height:50vh}
+  .lb-side{padding:20px;border:0}
+  .lb-x{right:12px;top:12px}
+}
+
+/* ---------- process (steel) ---------- */
+#process{background:var(--steel);color:#fff}
+#process .sec-head p{color:#cfe0e8}
+.steps{display:grid;grid-template-columns:repeat(5,1fr);gap:24px;position:relative;padding-top:46px}
+.steps-line{position:absolute;left:0;right:0;top:0;height:1px;background:rgba(255,255,255,.25)}
+.steps-line i{position:absolute;inset:0;background:#fff;transform-origin:0 50%;transform:scaleX(var(--k,1))}
+.step b{display:block;font:400 64px/1 var(--serif);margin-bottom:18px;opacity:.95}
+.step h3{font:400 24px/1.05 var(--serif);text-transform:uppercase;margin-bottom:12px}
+.step p{font-size:15px;color:#d8e6ec}
+.ba{margin-top:120px;display:grid;grid-template-columns:repeat(12,1fr);gap:24px;align-items:center}
+.ba-box{grid-column:1 / span 8;position:relative;aspect-ratio:16/10;border-radius:var(--r);overflow:hidden;background:#fff;touch-action:pan-y;user-select:none;cursor:ew-resize}
+.ba-box img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;pointer-events:none;-webkit-user-drag:none}
+.ba-box .ba-draw{object-fit:contain;background:#fff}
+.ba-top{position:absolute;inset:0;clip-path:inset(0 0 0 var(--x,50%))}
+.ba-h{position:absolute;top:0;bottom:0;left:var(--x,50%);width:2px;background:#fff;transform:translateX(-1px);box-shadow:0 0 0 1px rgba(0,0,0,.08)}
+.ba-h button{position:absolute;top:50%;left:50%;width:52px;height:52px;margin:-26px 0 0 -26px;border-radius:50%;background:#fff;color:var(--steel);font-size:15px;box-shadow:0 6px 18px rgba(0,0,0,.2)}
+.ba-lab{position:absolute;bottom:14px;padding:5px 10px;border-radius:30px;font:400 12.5px var(--sans);background:rgba(20,21,22,.72);color:#fff}
+.ba-lab.l{left:14px}.ba-lab.r{right:14px}
+.ba-txt{grid-column:9 / span 4}
+.ba-txt h3{font:400 40px/1 var(--serif);text-transform:uppercase;margin-bottom:18px}
+.ba-txt p{color:#d8e6ec;font-size:15.5px}
+.agree{margin-top:120px;display:grid;grid-template-columns:repeat(12,1fr);gap:24px;border-top:1px solid rgba(255,255,255,.25);padding-top:40px}
+.agree h3{grid-column:1 / span 4;font:400 34px/1 var(--serif);text-transform:uppercase}
+.agree ul{grid-column:5 / span 8;list-style:none;display:grid;grid-template-columns:1fr 1fr;gap:0 40px}
+.agree li{padding:12px 0;border-bottom:1px solid rgba(255,255,255,.16);font-size:15.5px}
+.agree li small{display:block;color:#b9d2dd;font-size:13px}
+@media (max-width:900px){
+  .steps{grid-template-columns:1fr;gap:34px;padding-top:30px}
+  .step b{font-size:48px;margin-bottom:8px}
+  .ba{grid-template-columns:1fr;margin-top:72px}
+  .ba-box,.ba-txt{grid-column:1}
+  .ba-box{aspect-ratio:4/3}
+  .agree{grid-template-columns:1fr;margin-top:72px}
+  .agree h3,.agree ul{grid-column:1}
+  .agree ul{grid-template-columns:1fr 1fr;gap:0 16px}
+  .agree li{font-size:14px}
+  .agree li small{display:none}
+  .map{height:240px}
+}
+
+/* ---------- clients ---------- */
+#clients{background:var(--paper)}
+.cl{display:grid;grid-template-columns:repeat(3,1fr);border-top:1px solid var(--line);border-left:1px solid var(--line)}
+.cl li{list-style:none;border-right:1px solid var(--line);border-bottom:1px solid var(--line);padding:38px 30px;min-height:150px;display:flex;align-items:flex-end;font:400 clamp(22px,2vw,30px)/1.1 var(--serif);text-transform:uppercase}
+.cl li small{display:block;font:300 12px var(--sans);text-transform:none;color:var(--mut);margin-bottom:8px}
+.lic{margin-top:110px;display:grid;grid-template-columns:repeat(12,1fr);gap:24px}
+.lic h3{grid-column:1 / span 4;font:400 40px/1 var(--serif);text-transform:uppercase}
+.lic-cards{grid-column:5 / span 8;display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+.lic-card{border-top:1px solid var(--ink);padding-top:18px}
+.lic-card b{display:block;font:400 26px/1 var(--serif);text-transform:uppercase;margin-bottom:12px}
+.lic-card p{font-size:14.5px;color:var(--mut)}
+.lic-card code{font:400 13px var(--sans);color:var(--ink);display:block;margin-top:10px;word-break:break-all}
+@media (max-width:900px){
+  .cl{grid-template-columns:1fr 1fr}
+  .cl li{padding:22px 16px;min-height:104px;font-size:19px}
+  .lic{grid-template-columns:1fr;margin-top:72px}
+  .lic h3,.lic-cards{grid-column:1}
+  .lic-cards{grid-template-columns:1fr}
+}
+
+/* ---------- landscape ---------- */
+#landscape{background:var(--white)}
+.ls{display:grid;grid-template-columns:repeat(12,1fr);gap:24px}
+.ls-photos{grid-column:1 / span 12;display:grid;grid-template-columns:2fr 1fr 1fr;gap:24px;margin-bottom:56px}
+.ls-photos figure{border-radius:var(--r);overflow:hidden;aspect-ratio:16/10;cursor:zoom-in;position:relative}
+.ls-photos figure:first-child{aspect-ratio:auto}
+.ls-photos img{width:100%;height:100%;object-fit:cover}
+.ls-photos figcaption{position:absolute;left:12px;bottom:12px;padding:4px 10px;border-radius:30px;background:rgba(255,255,255,.88);font:400 12.5px var(--sans)}
+.ls-list{grid-column:1 / span 6;list-style:none;border-top:1px solid var(--line)}
+.ls-list li{padding:18px 0;border-bottom:1px solid var(--line);display:flex;gap:18px;align-items:baseline}
+.ls-list li b{font:400 22px/1.1 var(--serif);text-transform:uppercase;min-width:0}
+.ls-list li span{margin-left:auto;font-size:14px;color:var(--mut);text-align:right;max-width:52%}
+.ls-proj{grid-column:8 / span 5}
+.ls-proj h3{font:400 30px/1 var(--serif);text-transform:uppercase;margin-bottom:18px}
+.ls-proj p{font-size:15.5px;padding:12px 0;border-bottom:1px solid var(--line)}
+@media (max-width:900px){
+  .ls{grid-template-columns:1fr}
+  .ls-photos{grid-column:1;display:flex;overflow-x:auto;scroll-snap-type:x mandatory;margin:0 calc(var(--gut) * -1) 40px;padding:0 var(--gut);gap:12px;scrollbar-width:none}
+  .ls-photos figure{flex:0 0 82%;scroll-snap-align:start;aspect-ratio:16/10!important}
+  .ls-list,.ls-proj{grid-column:1}
+  .ls-list li{flex-direction:column;gap:4px}
+  .ls-list li span{margin:0;text-align:left;max-width:none}
+  .ls-proj{margin-top:40px}
+}
+
+/* ---------- contacts / footer ---------- */
+#contacts{background:var(--night);color:var(--night-ink)}
+#contacts .sec-head p{color:var(--night-mut)}
+.ct{display:grid;grid-template-columns:repeat(12,1fr);gap:24px}
+.form{grid-column:1 / span 7;display:grid;grid-template-columns:1fr 1fr;gap:16px 24px}
+.fld{display:flex;flex-direction:column;gap:8px}
+.fld.w{grid-column:1 / -1}
+.fld label,.fld legend{font:400 13px var(--sans);color:var(--night-mut)}
+.fld input,.fld textarea{width:100%;background:transparent;border:0;border-bottom:1px solid var(--night-line);color:var(--night-ink);font:300 17px var(--sans);padding:10px 0;outline:none;border-radius:0}
+.fld input:focus,.fld textarea:focus{border-bottom-color:var(--night-ink)}
+.fld textarea{min-height:90px;resize:vertical}
+fieldset.fld{border:0}
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.chips label{position:relative}
+.chips input{position:absolute;opacity:0}
+.chips span{display:inline-block;padding:7px 14px;border:1px solid var(--night-line);border-radius:30px;font:400 14px var(--sans);color:#d5d3ce;cursor:pointer;transition:all .2s}
+.chips input:checked + span{background:var(--night-ink);color:var(--night);border-color:var(--night-ink)}
+.chips input:focus-visible + span{outline:2px solid var(--sky);outline-offset:2px}
+.form-act{grid-column:1 / -1;display:flex;gap:14px;align-items:center;flex-wrap:wrap;margin-top:10px}
+.form-act .pill{color:var(--night-ink)}
+.form-act .pill.solid{background:var(--night-ink);color:var(--night);border-color:var(--night-ink)}
+.form-act .pill.solid:hover{background:#fff}
+.form-act small{color:var(--night-mut);font-size:13px;max-width:330px}
+.ct-info{grid-column:9 / span 4;display:flex;flex-direction:column;gap:26px}
+.ct-info small{display:block;color:var(--night-mut);font-size:13px;margin-bottom:6px}
+.ct-info a,.ct-info span{font:400 24px/1.25 var(--serif);text-decoration:none;display:block}
+.ct-info a:hover{color:#fff;text-decoration:underline}
+.map{margin-top:90px;height:380px;border-radius:var(--r);overflow:hidden;position:relative;background:#232427;display:grid;place-items:center;border:1px solid var(--night-line)}
+.map iframe{position:absolute;inset:0;width:100%;height:100%;border:0;filter:grayscale(.6) invert(.9) hue-rotate(180deg) brightness(.95)}
+.map button{color:var(--night-ink)}
+.ft{background:var(--night);color:var(--night-ink);padding:60px 0 30px;overflow:hidden}
+.ft-big{font:400 clamp(110px,24vw,420px)/.8 var(--serif);letter-spacing:-.01em;text-transform:uppercase;white-space:nowrap;color:#26272a;margin:0 0 30px -.04em;user-select:none}
+.ft-row{display:flex;flex-wrap:wrap;gap:10px 30px;justify-content:space-between;font-size:13px;color:var(--night-mut);border-top:1px solid var(--night-line);padding-top:22px}
+.ft-row a{color:var(--night-mut)}
+@media (max-width:900px){
+  .ct{grid-template-columns:1fr}
+  .form,.ct-info{grid-column:1}
+  .form{grid-template-columns:1fr}
+  .ct-info{margin-top:40px}
+  .map{height:300px;margin-top:56px}
+  .ft{padding-bottom:calc(96px + env(safe-area-inset-bottom))}
+}
+
+/* mobile action bar */
+.mbar{display:none}
+@media (max-width:900px){
+  .mbar{display:grid;grid-template-columns:1.3fr 1fr 1fr;position:fixed;left:10px;right:10px;bottom:calc(10px + env(safe-area-inset-bottom));z-index:46;background:rgba(20,21,22,.92);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border-radius:16px;overflow:hidden;border:1px solid rgba(255,255,255,.1)}
+  .mbar a{height:52px;display:grid;place-items:center;color:#fff;text-decoration:none;font:400 14px var(--sans)}
+  .mbar a+a{border-left:1px solid rgba(255,255,255,.12)}
+  .mbar a:first-child{background:var(--steel)}
+}
+
+/* ---------- print: справка об опыте ---------- */
+#spravka{display:none}
+@media print{
+  @page{size:A4 landscape;margin:0}
+  body{background:#fff!important}
+  body > *:not(#spravka){display:none!important}
+  #spravka{display:block;font:11pt/1.4 'Onest',sans-serif;color:#000}
+  .sp-sheet{position:relative;width:297mm;height:210mm;padding:5mm 5mm 5mm 20mm;page-break-after:always}
+  .sp-frame{position:absolute;left:20mm;top:5mm;right:5mm;bottom:5mm;border:.6mm solid #000}
+  .sp-in{position:absolute;left:26mm;top:12mm;right:12mm;bottom:52mm}
+  .sp-in h1{font:400 20pt/1.1 'Forum',serif;text-transform:uppercase;margin-bottom:2mm}
+  .sp-in .sub{font-size:10pt;margin-bottom:6mm}
+  .sp-in table{width:100%;border-collapse:collapse;font-size:9.5pt}
+  .sp-in th,.sp-in td{border:.25mm solid #000;padding:1.6mm 2.4mm;vertical-align:top;text-align:left}
+  .sp-in th{font-weight:500}
+  .sp-stamp{position:absolute;right:5mm;bottom:5mm;width:185mm;border-collapse:collapse;font-size:8.5pt}
+  .sp-stamp td{border:.4mm solid #000;padding:1mm 2mm;height:7mm}
+  .sp-stamp .big{font:400 14pt 'Forum',serif;text-transform:uppercase}
+}
+
+@media (prefers-reduced-motion: reduce){
+  *{transition:none!important;animation:none!important}
+  .marq-track{animation:none}
+}
+</style>
+</head>
+<body>
+
+<div class="pre" aria-hidden="true"><div class="pre-in"><div class="pre-pk">ПК <span id="prePk">0+00</span></div><div class="pre-bar"><i></i></div><div class="pre-cap">Разбиваем трассу</div></div></div>
+
+<header class="hdr" id="hdr">
+  <div class="hdr-row">
+    <a class="logo" href="#top" aria-label="МАДИС Инжиниринг — в начало">
+      <img src="img/logo-mark.png" alt="" width="471" height="307">
+      <span><b>МАДИС</b><small>Инжиниринг</small></span>
+    </a>
+    <nav class="nav" aria-label="Разделы">
+      <a href="#services">Услуги</a>
+      <a href="#objects">Объекты</a>
+      <a href="#process">Как работаем</a>
+      <a href="#clients">Заказчики</a>
+      <a href="#landscape">Благоустройство</a>
+      <a href="#contacts">Контакты</a>
+    </nav>
+    <a class="pill" href="#contacts">Отправить ТЗ</a>
+  </div>
+  <i class="hdr-prog" id="hdrProg"></i>
+</header>
+
+<main>
+<!-- ============ HERO ============ -->
+<section class="hero" id="top" aria-label="МАДИС Инжиниринг">
+  <div class="hero-pin" id="heroPin">
+    <div class="hero-sky"></div>
+    <div class="hero-photo"><img src="img/hero-night-1600.webp" srcset="img/hero-night-800.webp 800w, img/hero-night-1600.webp 1600w, img/hero-night-2400.webp 2400w" sizes="100vw" alt="Ночной монтаж пролётного строения краном, трасса Р-22 «Каспий»" fetchpriority="high"></div>
+    <h1 class="hero-title" id="heroTitle"><span class="l1">Знаем, как</span><span class="l2">построить мост</span></h1>
+    <canvas class="hero-bridge" id="bridge" aria-hidden="true"></canvas>
+    <ul class="hero-tags" aria-hidden="true">
+      <li><i class="dia"></i>Волга · Кама · Нева<br>Волхов · Москва-река</li>
+      <li><i class="dia"></i>ППР и ППРк<br>надвижка, плавсредства</li>
+      <li><i class="dia"></i>ПОС в МГЭ, ГГЭ<br>и МОГЭ</li>
+    </ul>
+    <div class="cross" id="cross" aria-hidden="true"><i class="cx"></i><i class="cy"></i><span></span></div>
+    <div class="hero-foot">
+      <i class="hero-line"></i>
+      <p class="hero-lead">МАДИС Инжиниринг — проектная организация. Разрабатываем проекты производства работ, ПОС и временные сооружения для мостов, путепроводов и дорог.</p>
+      <nav class="quick" aria-label="Коротко об услугах">
+        <a href="#svc-ppr"><b>ППР и ППРк</b><small>как и чем строить мост</small></a>
+        <a href="#svc-pos"><b>ПОС</b><small>с экспертизой МГЭ, ГГЭ</small></a>
+        <a href="#svc-rd"><b>СВСиУ и ВЗиС</b><small>рабочая документация</small></a>
+        <a href="#svc-bim"><b>BIM</b><small>модели для экспертизы</small></a>
+      </nav>
+    </div>
+    <div class="hero-day" id="heroDay"></div>
+  </div>
+</section>
+
+<!-- ============ SERVICES ============ -->
+<section class="sec" id="services" aria-labelledby="svcH">
+  <div class="marq" aria-hidden="true">
+    <div class="marq-circle"><img src="img/lattice-1000.webp" alt="" loading="lazy"></div>
+    <div class="marq-track" id="marq"><span>ППР<i></i></span><span>ПОС<i></i></span><span>СВСиУ<i></i></span><span>ВЗиС<i></i></span><span>BIM<i></i></span><span>ППР<i></i></span><span>ПОС<i></i></span><span>СВСиУ<i></i></span><span>ВЗиС<i></i></span><span>BIM<i></i></span></div>
+  </div>
+  <div class="wrap">
+    <div class="sec-head">
+      <h2 id="svcH" class="split">Что мы делаем</h2>
+      <p>Берём на себя технологию: как, в каком порядке и какой техникой строить сооружение — и документы, чтобы это согласовали.</p>
+    </div>
+    <ul class="svc" id="svcList">
+      <li id="svc-ppr" class="key" data-peek="neva">
+        <h3>Проекты производства работ</h3>
+        <p>Комплексные ППР (ППРк) на строительство, реконструкцию и капремонт искусственных сооружений — с учётом техники и ресурсов вашей организации. Надвижка пролётных строений, работа с плавсредств, монтаж кранами, демонтаж.</p>
+        <div class="codes"><span class="code">ППР</span><span class="code">ППРк</span><span class="code">техрегламенты</span></div>
+        <a class="more" href="#objects" data-filter="ППР">Объекты с ППР →</a>
+      </li>
+      <li id="svc-pos" data-peek="tpu">
+        <h3>Проектная документация</h3>
+        <p>Разделы ПОС и ТКР со сводными и локальными решениями. Сопровождаем в экспертизах: Мосгосэкспертиза, Главгосэкспертиза, МОГЭ, региональные и частные.</p>
+        <div class="codes"><span class="code">ПОС</span><span class="code">ТКР</span><span class="code">стадия П</span></div>
+        <a class="more" href="#objects" data-filter="ПОС">Объекты с ПОС →</a>
+      </li>
+      <li id="svc-rd" data-peek="m11">
+        <h3>Рабочая документация</h3>
+        <p>Временные здания и сооружения, вспомогательные сооружения и устройства для строительства опор и пролётов, конструктивные разделы.</p>
+        <div class="codes"><span class="code">СВСиУ</span><span class="code">ВЗиС</span><span class="code">КР</span><span class="code">КМ</span><span class="code">КЖ</span><span class="code">АР</span></div>
+        <a class="more" href="#objects" data-filter="СВСиУ">Объекты с СВСиУ и ВЗиС →</a>
+      </li>
+      <li id="svc-bim" data-peek="myas">
+        <h3>BIM-проектирование</h3>
+        <p>Цифровые информационные модели дорог и искусственных сооружений (ЦИММ) — для экспертизы и для стройки.</p>
+        <div class="codes"><span class="code">ЦИММ</span><span class="code">BIM</span></div>
+        <a class="more" href="#objects" data-filter="BIM">Объекты с BIM →</a>
+      </li>
+      <li id="svc-agr" data-peek="r22">
+        <h3>Разрешения и техусловия</h3>
+        <p>Согласуем ППР в полосе отвода РЖД, в ГКУ «Организатор перевозок», изменение движения в Департаменте транспорта Москвы, работы у сетей МОЭК, Россетей, Мосводоканала и других.</p>
+        <div class="codes"><span class="code">акты-допуски</span><span class="code">наряды-допуски</span></div>
+        <a class="more" href="#agree">Список согласований →</a>
+      </li>
+    </ul>
+  </div>
+  <div class="peek" id="peek" aria-hidden="true"><img alt=""></div>
+</section>
+
+<!-- ============ OBJECTS ============ -->
+<section id="objects" aria-labelledby="objH">
+  <div class="xp" id="xp">
+    <h2 class="xp-h" id="objH"><span class="l1">Мосты через</span><span class="l2">Волгу, Каму <i class="xp-slot" id="xpSlot"></i></span><span class="l3">Неву и Волхов</span></h2>
+    <div class="xp-media" id="xpMedia"><img src="img/volhov-wide-1600.webp" srcset="img/volhov-wide-800.webp 800w, img/volhov-wide-1600.webp 1600w, img/volhov-wide-2400.webp 2400w" sizes="100vw" alt="Реконструкция моста через Волхов на трассе М-10: плавучие опоры и краны у пролётов" loading="lazy"></div>
+    <div class="xp-cap" id="xpCap"><b>М-10 «Россия», мост через Волхов</b><p>Комплексный ППР на реконструкцию моста: этапы демонтажа блоков пролётного строения с воды, работа плавсредств, временные опоры.</p></div>
+  </div>
+  <div class="wrap">
+    <div class="stats" id="stats">
+      <div class="stat"><b data-n="23">23</b><span>объекта в портфолио — от пешеходного моста до переходов через Волгу</span></div>
+      <div class="stat"><b data-n="6">6</b><span>рек: Волга, Кама, Нева, Волхов, Москва, Сура</span></div>
+      <div class="stat"><b data-n="4">4</b><span>вида экспертиз: МГЭ, ГГЭ, МОГЭ, региональные</span></div>
+      <div class="stat"><b data-n="11">11</b><span>организаций, с которыми согласовываем работы</span></div>
+    </div>
+    <div class="flt" id="flt" role="group" aria-label="Фильтр по виду работ">
+      <span>Показать опыт по</span>
+      <button aria-pressed="true" data-f="*">Все</button>
+      <button aria-pressed="false" data-f="ППР">ППР</button>
+      <button aria-pressed="false" data-f="ПОС">ПОС</button>
+      <button aria-pressed="false" data-f="СВСиУ">СВСиУ и ВЗиС</button>
+      <button aria-pressed="false" data-f="BIM">BIM</button>
+    </div>
+    <div class="grid" id="grid"></div>
+    <div class="more-list">
+      <h3>Ещё в портфолио</h3>
+      <ul>
+        <li><b>Северо-Восточная хорда, эстакады А и Б</b><span>ППР, опускание пролётного строения на опорные части, СВСиУ</span></li>
+        <li><b>Дублёр Кутузовского проспекта</b><span>проекты производства работ</span></li>
+        <li><b>М-5 «Урал», мост через Москву-реку</b><span>надвижка пролётного строения, строповка, демонтаж СВСиУ, план работ на высоте</span></li>
+        <li><b>Мост через Суру</b><span>ППР на надвижку пролётного строения</span></li>
+        <li><b>«Арена», Новосибирск</b><span>комплексный ППР и СВСиУ</span></li>
+        <li><b>Солнцево — Бутово</b><span>проект производства работ</span></li>
+      </ul>
+    </div>
+  </div>
+  <div style="height:140px"></div>
+</section>
+
+<!-- ============ PROCESS ============ -->
+<section class="sec" id="process" aria-labelledby="prH">
+  <div class="wrap">
+    <div class="sec-head">
+      <h2 id="prH" class="split">Порядок производства работ</h2>
+      <p>Так выглядит наш проект от запроса до стройки. Сроки фиксируем в договоре и выдерживаем.</p>
+    </div>
+    <div class="steps" id="steps">
+      <div class="steps-line"><i id="stepsLine"></i></div>
+      <div class="step"><b>01</b><h3>Исходные данные</h3><p>Изучаем рабочую документацию, ПОС и условия площадки. Узнаём, какая техника и плавсредства есть у подрядчика.</p></div>
+      <div class="step"><b>02</b><h3>Технология</h3><p>Сравниваем способы: надвижка, монтаж краном, с воды. Считаем временные опоры, строповку, нагрузки от техники.</p></div>
+      <div class="step"><b>03</b><h3>Документ</h3><p>Графическая часть по этапам и пояснительная записка: ППР, ППРк, СВСиУ, ВЗиС, ПОС.</p></div>
+      <div class="step"><b>04</b><h3>Согласования</h3><p>Проводим проект через экспертизу и владельцев сетей и дорог: РЖД, Мосгортранс, Департамент транспорта.</p></div>
+      <div class="step"><b>05</b><h3>Сопровождение</h3><p>Отвечаем на замечания, корректируем решения под реальную обстановку на объекте.</p></div>
+    </div>
+
+    <div class="ba">
+      <div class="ba-box" id="ba" style="--x:50%">
+        <img class="ba-draw" src="img/dem-sheet-2000.webp" srcset="img/dem-sheet-1000.webp 1000w, img/dem-sheet-2000.webp 2000w, img/dem-sheet-3200.webp 3200w" sizes="(max-width:900px) 100vw, 66vw" alt="Лист ППР: этапы демонтажа блоков пролётного строения моста через Волхов" loading="lazy">
+        <div class="ba-top"><img src="img/volhov-1600.webp" srcset="img/volhov-800.webp 800w, img/volhov-1600.webp 1600w" sizes="(max-width:900px) 100vw, 66vw" alt="Мост через Волхов во время работ: краны и плавсредства у опор" loading="lazy"></div>
+        <div class="ba-h"><button type="button" aria-label="Сдвиньте, чтобы сравнить чертёж и фото">⟷</button></div>
+        <span class="ba-lab l">На чертеже</span><span class="ba-lab r">На реке</span>
+      </div>
+      <div class="ba-txt">
+        <h3>Один мост — два вида</h3>
+        <p>Слева — лист нашего ППР «Этапы демонтажа блоков пролётного строения» для капремонта моста через Волхов на М-10. Справа — тот же мост во время работ. Потяните шторку.</p>
+      </div>
+    </div>
+
+    <div class="agree" id="agree">
+      <h3>Согласовываем с</h3>
+      <ul>
+        <li>АО «РЖД»<small>ППР в полосе отвода, акты-допуски, наряды-допуски</small></li>
+        <li>ГКУ «Организатор перевозок»<small>проекты производства работ</small></li>
+        <li>Департамент транспорта Москвы<small>изменение движения транспорта</small></li>
+        <li>ПАО «МОЭК»<small>работы у тепловых сетей</small></li>
+        <li>ПАО «Россети Московский регион»<small>работы у электросетей</small></li>
+        <li>АО «Москоллектор»</li>
+        <li>АО «Мосводоканал»</li>
+        <li>ГУП «Мосводосток»</li>
+        <li>АО «Мосгаз»</li>
+        <li>АО «ОЭК» и ГУП «Моссвет»</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ============ CLIENTS ============ -->
+<section class="sec" id="clients" aria-labelledby="clH">
+  <div class="wrap">
+    <div class="sec-head">
+      <h2 id="clH" class="split">С нами работают</h2>
+      <p>Генподрядчики и проектные институты, которые строят мосты и дороги по всей стране.</p>
+    </div>
+    <ul class="cl">
+      <li><span><small>генподрядчик</small>АО «Дороги и мосты»</span></li>
+      <li><span><small>институт</small>АО «Институт «Стройпроект»</span></li>
+      <li><span><small>генподрядчик</small>ООО «Мостдорстрой»</span></li>
+      <li><span><small>&nbsp;</small>АО «МИСК»</span></li>
+      <li><span><small>&nbsp;</small>ООО «Транспроект»</span></li>
+      <li><span><small>&nbsp;</small>ООО «ИЦ «МиТ»</span></li>
+      <li><span><small>&nbsp;</small>ООО «Гео-Проект»</span></li>
+      <li><span><small>&nbsp;</small>ООО «АльмакорГруп»</span></li>
+      <li><span><small>&nbsp;</small>ООО ПК «ЛИДЕРГРУПП»</span></li>
+    </ul>
+    <div class="lic">
+      <h3>Допуски</h3>
+      <div class="lic-cards">
+        <div class="lic-card"><b>СРО</b><p>Член СРО в области инженерных изысканий и архитектурно-строительного проектирования.</p><code>рег. № П-065-009717109625-0397</code></div>
+        <div class="lic-card"><b>НОПРИЗ</b><p>Наши специалисты состоят в Национальном реестре специалистов НОПРИЗ.</p></div>
+        <div class="lic-card"><b>Ростехнадзор</b><p>Сотрудники аттестованы в Ростехнадзоре.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ LANDSCAPE ============ -->
+<section class="sec" id="landscape" aria-labelledby="lsH">
+  <div class="wrap">
+    <div class="sec-head">
+      <h2 id="lsH" class="split">Благоустройство территорий</h2>
+      <p>Второе направление — комплексное благоустройство городских кварталов и улиц Москвы: от проекта до авторского надзора.</p>
+    </div>
+    <div class="ls">
+      <div class="ls-photos">
+        <figure data-lb="blag-1"><img src="img/blag-6-1600.webp" srcset="img/blag-6-800.webp 800w, img/blag-6-1600.webp 1600w" sizes="(max-width:900px) 82vw, 50vw" alt="Визуализация благоустройства жилого квартала: дворы, площадки, озеленение" loading="lazy"><figcaption>Благоустройство кварталов</figcaption></figure>
+        <figure data-lb="blag-2"><img src="img/blag-1-800.webp" srcset="img/blag-1-800.webp 800w, img/blag-1-1400.webp 1400w" sizes="(max-width:900px) 82vw, 25vw" alt="Детская площадка во дворе после благоустройства" loading="lazy"><figcaption>Кварталы ВАО</figcaption></figure>
+        <figure data-lb="blag-3"><img src="img/blag-3-800.webp" srcset="img/blag-3-800.webp 800w, img/blag-3-1400.webp 1400w" sizes="(max-width:900px) 82vw, 25vw" alt="Улица Москвы после комплексного благоустройства: новая разметка и тротуары" loading="lazy"><figcaption>Улицы Москвы, 2025–2026</figcaption></figure>
+      </div>
+      <ul class="ls-list">
+        <li><b>Проектная документация</b><span>по постановлению № 1013-ПП: ПЗ, АПОТ, АКР, ИОТ, ПОС, МООС, ССР, ВОР, СМ, АГР</span></li>
+        <li><b>Сметная документация</b><span>с прохождением экспертизы</span></li>
+        <li><b>Авторский надзор</b><span>на объекте во время работ</span></li>
+        <li><b>Разрешения и ТУ</b><span>взаимодействие со смежными организациями</span></li>
+      </ul>
+      <div class="ls-proj">
+        <h3>Работы</h3>
+        <p>Благоустройство территорий кварталов Восточного административного округа Москвы.</p>
+        <p>Проектно-сметная документация на комплексное благоустройство улиц и территорий административных округов Москвы, 2025–2026.</p>
+        <p>Презентационные материалы по программе комплексного благоустройства объектов Москвы.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ CONTACTS ============ -->
+<section class="sec" id="contacts" aria-labelledby="ctH">
+  <div class="wrap">
+    <div class="sec-head">
+      <h2 id="ctH" class="split">Обсудим ваш объект</h2>
+      <p>Пришлите техзадание или опишите задачу — оценим объём и сроки. Цену подбираем под бюджет заказчика.</p>
+    </div>
+    <div class="ct">
+      <form class="form" id="form" novalidate>
+        <div class="fld"><label for="fName">Как к вам обращаться</label><input id="fName" name="name" autocomplete="name"></div>
+        <div class="fld"><label for="fOrg">Компания</label><input id="fOrg" name="org" autocomplete="organization"></div>
+        <div class="fld w"><label for="fObj">Объект</label><input id="fObj" name="obj" placeholder="Например: путепровод на км 42, капремонт"></div>
+        <fieldset class="fld w"><legend>Что нужно</legend>
+          <div class="chips">
+            <label><input type="checkbox" name="need" value="ППР / ППРк"><span>ППР / ППРк</span></label>
+            <label><input type="checkbox" name="need" value="ПОС и ТКР"><span>ПОС и ТКР</span></label>
+            <label><input type="checkbox" name="need" value="СВСиУ"><span>СВСиУ</span></label>
+            <label><input type="checkbox" name="need" value="ВЗиС"><span>ВЗиС</span></label>
+            <label><input type="checkbox" name="need" value="BIM-модель"><span>BIM-модель</span></label>
+            <label><input type="checkbox" name="need" value="Согласования"><span>Согласования</span></label>
+            <label><input type="checkbox" name="need" value="Благоустройство"><span>Благоустройство</span></label>
+          </div>
+        </fieldset>
+        <div class="fld"><label for="fWhen">Сроки</label><input id="fWhen" name="when" placeholder="к какой дате нужен проект"></div>
+        <div class="fld"><label for="fCt">Телефон или почта</label><input id="fCt" name="ct" autocomplete="tel"></div>
+        <div class="fld w"><label for="fMsg">Комментарий</label><textarea id="fMsg" name="msg"></textarea></div>
+        <div class="form-act">
+          <button class="pill solid" type="submit">Отправить письмо с запросом</button>
+          <small id="formNote">Откроется ваша почта с готовым письмом на post@madis.pro — останется приложить ТЗ.</small>
+        </div>
+      </form>
+      <div class="ct-info">
+        <div><small>Телефоны</small><a href="tel:+74957900992">+7 (495) 790-09-92</a><a href="tel:+79104210997">+7 (910) 421-09-97</a></div>
+        <div><small>Почта</small><a href="mailto:post@madis.pro">post@madis.pro</a></div>
+        <div><small>Офис</small><span>Москва, ул. Академика Королёва, 13, стр. 1</span></div>
+      </div>
+    </div>
+    <div class="map" id="map"><button class="pill" type="button" id="mapBtn">Показать офис на карте</button></div>
+  </div>
+</section>
+</main>
+
+<footer class="ft">
+  <div class="wrap">
+    <div class="ft-big" aria-hidden="true">МАДИС</div>
+    <div class="ft-row">
+      <span>ООО «МАДИС Инжиниринг» · ИНН 9717109625 · ОГРН 1227700004113</span>
+      <span>Москва, ул. Академика Королёва, 13, стр. 1 · <a href="mailto:post@madis.pro">post@madis.pro</a></span>
+      <span>Сайт — Денис Стрепенюк</span>
+    </div>
+  </div>
+</footer>
+
+<div class="mbar" aria-label="Связаться">
+  <a href="#contacts">Отправить ТЗ</a>
+  <a href="tel:+74957900992">Позвонить</a>
+  <a href="mailto:post@madis.pro">Написать</a>
+</div>
+
+<div class="sbar" id="sbar" role="region" aria-label="Справка об опыте">
+  <span>В справке: <b id="sbN">0</b></span>
+  <button class="go" type="button" id="sbPrint">Скачать справку (PDF)</button>
+  <a class="mail" id="sbMail" href="#">Запросить КП</a>
+  <button class="x" type="button" id="sbClear" aria-label="Очистить справку">✕</button>
+</div>
+
+<div class="lb" id="lb" role="dialog" aria-modal="true" aria-labelledby="lbT" hidden>
+  <button class="lb-x" id="lbX" type="button" aria-label="Закрыть">×</button>
+  <div class="lb-media"><img id="lbImg" alt=""></div>
+  <div class="lb-side">
+    <small id="lbPlace"></small>
+    <h3 id="lbT"></h3>
+    <p id="lbTxt"></p>
+    <div class="card-foot" id="lbTags" style="padding:0"></div>
+    <div class="lb-thumbs" id="lbTh"></div>
+    <div class="lb-act">
+      <button class="pill" type="button" id="lbAdd">Добавить в справку</button>
+      <a class="pill" href="#contacts" id="lbAsk">Обсудить похожий объект</a>
+    </div>
+  </div>
+</div>
+
+<div id="spravka" aria-hidden="true"></div>
+
+<script src="js/gsap.min.js"></script>
+<script src="js/ScrollTrigger.min.js"></script>
+<script src="js/SplitText.min.js"></script>
+<script src="js/Flip.min.js"></script>
+<script src="js/lenis.min.js"></script>
+<script>
+console.log('%cМАДИС Инжиниринг — сайт сделал Денис Стрепенюк, +7 977 393-80-33','font:14px serif');
+const $=(s,r=document)=>r.querySelector(s), $$=(s,r=document)=>[...r.querySelectorAll(s)];
+const reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
+const fine=matchMedia('(pointer: fine)').matches;
+const isMob=()=>innerWidth<=900;
+const Q=new URLSearchParams(location.search);
+
+/* ---------------- data ---------------- */
+const OBJ=[
+ {id:'neva',t:'Мост через Неву',pl:'Санкт-Петербург · створ Б. Смоленского пр. — ул. Коллонтай',k:['ППР'],tx:'Новая транспортная магистраль с мостом через Неву, 1-й и 2-й этапы. Комплекс ППР на сооружение моста, в том числе работа с плавсредств.',im:['neva','neva-2']},
+ {id:'kama',t:'Мост через Каму, Пермь',pl:'Северный ж/д обход Перми · 5-й этап',k:['ППР'],tx:'Мостовой переход через Каму на северном железнодорожном обходе Перми. Комплекс ППР на сооружение моста, в том числе надвижка пролётного строения.',im:['kama','kama-2']},
+ {id:'m12',t:'Мост через Волгу, М-12',pl:'Трасса М-12 «Восток»',k:['ППР'],tx:'Комплексная разработка ППР на строительство моста через Волгу.',im:['m12','m12-2']},
+ {id:'m11',t:'Мост через Волгу, М-11',pl:'Трасса М-11 «Нева» · Тверская область',k:['ППР'],tx:'Комплексная разработка ППР на строительство моста через Волгу, включая продольную надвижку пролётного строения.',im:['m11','m11-2']},
+ {id:'volhov',t:'Мост через Волхов',pl:'Трасса М-10 «Россия» · Новгородская область',k:['ППР'],tx:'Комплексная разработка ППР на капитальный ремонт моста: этапы демонтажа блоков пролётного строения с воды.',im:['volhov','volhov-2']},
+ {id:'nkamsk',t:'Мост через Каму, Нижнекамск',pl:'Обход города Нижнекамска',k:['ППР','СВСиУ'],tx:'Технологический регламент на работу флота и якорных устройств для сооружения русловых опор, СВСиУ для сооружения опор, перевозка бурового оборудования.',im:['nkamsk','nkamsk-2']},
+ {id:'myas',t:'Мост через Москву-реку',pl:'Москва · створ улицы Мясищева',k:['BIM','ППР','СВСиУ'],tx:'Цифровая информационная (BIM) модель автомобильной дороги и искусственных сооружений. ППР на замыкание пролётного строения и СВСиУ для него.',im:['myas','myas-2']},
+ {id:'r22',t:'Путепроводы на Р-22',pl:'Трасса Р-22 «Каспий»',k:['ППР','ПОС'],tx:'Комплексная разработка ППР на строительство путепроводов и корректировка стадии «П» с сопровождением в Главгосэкспертизе.',im:['r22','r22-2']},
+ {id:'m1',t:'Развязка на 59 км М-1',pl:'Трасса М-1 «Беларусь» · у парка «Патриот»',k:['СВСиУ'],tx:'Рабочая документация раздела «ВЗиС» для строительства развязки.',im:['m1','m1-2'],vz:1},
+ {id:'lub',t:'Путепровод в Люберцах',pl:'Московская область · проезд № 4037',k:['ПОС','BIM'],tx:'Сводный ПОС и ТКР на путепровод с сопровождением в МОГЭ, ЦИММ-модель объекта.',im:['lub']},
+ {id:'tpu',t:'Улично-дорожная сеть ТПУ «Сити»',pl:'Москва',k:['ПОС','BIM'],tx:'Сводный и локальные ПОС для транспортного обслуживания ТПУ «Сити» с сопровождением в Мосгосэкспертизе, ЦИММ-модель.',im:['tpu']},
+ {id:'yuvh',t:'Юго-Восточная хорда',pl:'Москва · от Павелецкого направления МЖД до МКАД',k:['ПОС','СВСиУ'],tx:'Улично-дорожная сеть с искусственными сооружениями и переустройством коммуникаций. Разделы ПОС, ТКР, СВСиУ с сопровождением в Мосгосэкспертизе.',im:['yuvh'],d:1},
+ {id:'tzhk',t:'Путепроводы ООО «ТЖК»',pl:'Объекты железнодорожной инфраструктуры',k:['ПОС'],tx:'Сводный ПОС и ТКР на путепроводы с сопровождением в Главгосэкспертизе.',im:['tzhk'],d:1},
+ {id:'m4',t:'М-4 «Дон» и Р-217 «Кавказ»',pl:'Автомобильная дорога',k:['ПОС','СВСиУ'],tx:'Раздел ПОС, включая снос и СВСиУ.',im:['m4'],d:1},
+ {id:'zlat',t:'Велопешеходный мост, Златоуст',pl:'Челябинская область',k:['ПОС'],tx:'Стадия «П»: разделы ПОС и ТКР с сопровождением в экспертизе.',im:['zlat','zlat-2'],d:1},
+ {id:'poch',t:'Террасный парк в Почаинском овраге',pl:'Нижний Новгород',k:['ПОС','СВСиУ'],tx:'Сводный ПОС и СВСиУ, стадии П и РД, с сопровождением в региональной экспертизе.',im:['poch'],d:1},
+ {id:'m04',t:'Путепроводы на М-04',pl:'Знаменка — Луганск — Изварино',k:['СВСиУ'],tx:'Рабочая документация раздела «ВЗиС» для капремонта путепроводов.',im:['m04'],d:1,vz:1},
+];
+const tagLabel=(o)=>o.k.map(k=>k==='СВСиУ'&&o.vz?'ВЗиС':k);
+const src=(n,w)=>`img/${n}-${w}.webp`;
+const SINGLE800=new Set(['neva-2','m12-2','volhov-2','nkamsk-2','r22-2','m11-2','myas-2','m1-2','zlat-2']);
+const big=n=>SINGLE800.has(n)?src(n,800):src(n,1600);
+
+/* ---------------- cards ---------------- */
+const grid=$('#grid');
+grid.innerHTML=OBJ.map(o=>`
+ <article class="card" data-id="${o.id}" data-k="${o.k.join(' ')}">
+  <button class="card-fig${o.d?' draw':''}" type="button" aria-label="Открыть: ${o.t}">
+   <img src="${src(o.im[0],800)}" srcset="${src(o.im[0],800)} 800w, ${src(o.im[0],1600)} 1600w" sizes="(max-width:900px) 82vw, (max-width:1100px) 46vw, 31vw" alt="${o.t}" loading="lazy" data-flip-id="f-${o.id}">
+  </button>
+  <div class="card-place">${o.pl}</div>
+  <h3>${o.t}</h3>
+  <p>${o.tx}</p>
+  <div class="card-foot">${tagLabel(o).map(k=>`<span class="code">${k}</span>`).join('')}<button class="add" type="button" aria-pressed="false" data-add="${o.id}">+ в справку</button></div>
+ </article>`).join('');
+
+/* filter */
+function setFilter(f){
+  $$('#flt button').forEach(b=>b.setAttribute('aria-pressed', String(b.dataset.f===f)));
+  const st=(!reduce && window.Flip)?Flip.getState('.card'):null;
+  $$('.card').forEach(c=>{ c.hidden = !(f==='*' || c.dataset.k.split(' ').includes(f)); });
+  if(st && !isMob()) Flip.from(st,{duration:.6,ease:'power2.inOut',absolute:true,onEnter:e=>gsap.fromTo(e,{opacity:0,scale:.96},{opacity:1,scale:1,duration:.5}),onLeave:e=>gsap.to(e,{opacity:0,duration:.3}),onComplete:()=>window.ScrollTrigger&&ScrollTrigger.refresh()});
+  else window.ScrollTrigger&&ScrollTrigger.refresh();
+}
+$$('#flt button').forEach(b=>b.addEventListener('click',()=>setFilter(b.dataset.f)));
+$$('[data-filter]').forEach(a=>a.addEventListener('click',()=>setFilter(a.dataset.filter)));
+// counts
+$$('#flt button').forEach(b=>{const f=b.dataset.f; const n=f==='*'?OBJ.length:OBJ.filter(o=>o.k.includes(f)).length; b.insertAdjacentHTML('beforeend',`<sup>${n}</sup>`)});
+
+/* ---------------- справка ---------------- */
+const picked=new Set();
+function syncPicked(){
+  $$('[data-add]').forEach(b=>{const on=picked.has(b.dataset.add); b.setAttribute('aria-pressed',String(on)); b.textContent=on?'✓ в справке':'+ в справку'});
+  $('#sbN').textContent=picked.size+' '+plural(picked.size,['объект','объекта','объектов']);
+  $('#sbar').classList.toggle('on',picked.size>0);
+  const list=[...picked].map((id,i)=>{const o=OBJ.find(x=>x.id===id);return `${i+1}. ${o.t} (${o.pl}) — ${tagLabel(o).join(', ')}`}).join('\n');
+  $('#sbMail').href='mailto:post@madis.pro?subject='+encodeURIComponent('Запрос КП — МАДИС Инжиниринг')+'&body='+encodeURIComponent('Здравствуйте!\n\nНужен проект по нашему объекту. Интересует ваш опыт по объектам:\n'+list+'\n\nОбъект: \nСроки: \nКонтакт: ');
+  if(curLb) $('#lbAdd').textContent=picked.has(curLb.id)?'Убрать из справки':'Добавить в справку';
+}
+function plural(n,f){const a=n%10,b=n%100;return f[(a===1&&b!==11)?0:(a>=2&&a<=4&&(b<10||b>=20))?1:2]}
+document.addEventListener('click',e=>{const b=e.target.closest('[data-add]'); if(!b) return; const id=b.dataset.add; picked.has(id)?picked.delete(id):picked.add(id); syncPicked();});
+$('#sbClear').addEventListener('click',()=>{picked.clear();syncPicked()});
+function buildSpravka(){
+  const rows=[...picked].map(id=>OBJ.find(x=>x.id===id));
+  const d=new Date().toLocaleDateString('ru-RU');
+  const per=14, pages=[]; for(let i=0;i<rows.length;i+=per) pages.push(rows.slice(i,i+per));
+  $('#spravka').innerHTML=pages.map((pg,pi)=>`<div class="sp-sheet"><div class="sp-frame"></div><div class="sp-in">
+   <h1>Справка об опыте выполнения аналогичных работ</h1>
+   <div class="sub">ООО «МАДИС Инжиниринг» · проектная организация · член СРО, рег. № П-065-009717109625-0397 · ${d}</div>
+   <table><thead><tr><th style="width:9mm">№</th><th>Объект</th><th style="width:70mm">Местоположение</th><th style="width:30mm">Вид работ</th><th>Что выполнено</th></tr></thead><tbody>
+   ${pg.map((o,i)=>`<tr><td>${pi*per+i+1}</td><td>${o.t}</td><td>${o.pl}</td><td>${tagLabel(o).join(', ')}</td><td>${o.tx}</td></tr>`).join('')}</tbody></table></div>
+   <table class="sp-stamp"><tr><td style="width:30mm">Организация</td><td colspan="3" class="big">ООО «МАДИС Инжиниринг»</td></tr>
+   <tr><td>Телефон</td><td>+7 (495) 790-09-92, +7 (910) 421-09-97</td><td style="width:16mm">Лист</td><td style="width:14mm">${pi+1}</td></tr>
+   <tr><td>Почта</td><td>post@madis.pro</td><td>Листов</td><td>${pages.length}</td></tr>
+   <tr><td>Адрес</td><td colspan="3">129515, г. Москва, ул. Академика Королёва, д. 13, стр. 1</td></tr></table></div>`).join('');
+}
+$('#sbPrint').addEventListener('click',()=>{buildSpravka(); setTimeout(()=>print(),60)});
+window.__spravka={pick:id=>{picked.add(id);syncPicked()},build:()=>{buildSpravka();return $$('#spravka .sp-in tbody tr').length}};
+
+/* ---------------- lightbox ---------------- */
+let curLb=null, lbFrom=null, lastFocus=null;
+const lb=$('#lb'), lbImg=$('#lbImg');
+function openLb(o,srcImg){
+  curLb=o; lastFocus=document.activeElement; lbFrom=srcImg||null;
+  $('#lbT').textContent=o.t; $('#lbPlace').textContent=o.pl; $('#lbTxt').textContent=o.tx;
+  $('#lbTags').innerHTML=tagLabel(o).map(k=>`<span class="code">${k}</span>`).join('');
+  $('#lbTh').innerHTML=o.im.length>1?o.im.map((n,i)=>`<button type="button" data-n="${n}" aria-current="${i===0}" aria-label="Фото ${i+1}"><img src="${src(n,800)}" alt=""></button>`).join(''):'';
+  $('#lbAsk').onclick=()=>{closeLb(); const f=$('#fObj'); if(f && !f.value) f.value='Похожий на: '+o.t;};
+  lbImg.src=big(o.im[0]); lbImg.alt=o.t;
+  lb.hidden=false; lb.classList.add('open'); window.lenis&&lenis.stop(); document.body.style.overflow='hidden';
+  syncPicked();
+  if(srcImg && !reduce && window.Flip){
+    lbImg.dataset.flipId=srcImg.dataset.flipId||'';
+    const st=Flip.getState(srcImg);
+    lbImg.decode().catch(()=>{}).finally(()=>Flip.from(st,{targets:lbImg,duration:.65,ease:'power3.inOut',scale:true}));
+  }
+  $('#lbX').focus();
+}
+function closeLb(){
+  if(lb.hidden) return;
+  $('#lbAdd').style.display='';
+  lb.classList.remove('open'); lb.hidden=true; window.lenis&&lenis.start(); document.body.style.overflow='';
+  curLb=null; lastFocus&&lastFocus.focus&&lastFocus.focus();
+}
+grid.addEventListener('click',e=>{const f=e.target.closest('.card-fig'); if(!f) return; const id=f.closest('.card').dataset.id; openLb(OBJ.find(o=>o.id===id), f.querySelector('img'));});
+$('#lbTh').addEventListener('click',e=>{const b=e.target.closest('button'); if(!b||b.onclick) return; $$('#lbTh button').forEach(x=>x.setAttribute('aria-current',String(x===b))); lbImg.src=big(b.dataset.n); gsap.fromTo(lbImg,{opacity:.3},{opacity:1,duration:.4});});
+$('#lbAdd').addEventListener('click',()=>{ if(!curLb) return; picked.has(curLb.id)?picked.delete(curLb.id):picked.add(curLb.id); syncPicked();});
+$('#lbX').addEventListener('click',closeLb);
+lb.addEventListener('click',e=>{ if(e.target===lb || e.target.classList.contains('lb-media')) closeLb(); });
+addEventListener('keydown',e=>{
+  if(lb.hidden) return;
+  if(e.key==='Escape') closeLb();
+  if(e.key==='Tab'){ const f=$$('button,a,[tabindex]',lb).filter(x=>!x.disabled&&x.offsetParent); const a=f[0], z=f[f.length-1]; if(e.shiftKey&&document.activeElement===a){e.preventDefault();z.focus()} else if(!e.shiftKey&&document.activeElement===z){e.preventDefault();a.focus()} }
+});
+// landscape photos into the same viewer
+const LS={'blag-1':{id:'ls1',t:'Благоустройство кварталов',pl:'Москва',k:[],tx:'Комплексное благоустройство городских территорий: дворы, площадки, озеленение.',im:['blag-6','blag-2']},
+ 'blag-2':{id:'ls2',t:'Кварталы ВАО',pl:'Восточный административный округ Москвы',k:[],tx:'Выполнение работ по благоустройству территорий кварталов.',im:['blag-1','blag-2']},
+ 'blag-3':{id:'ls3',t:'Улицы Москвы, 2025–2026',pl:'Административные округа Москвы',k:[],tx:'Проектно-сметная документация на комплексное благоустройство улиц и территорий.',im:['blag-3','blag-4','blag-5']}};
+const lsBig=n=>src(n,n==='blag-6'?1600:1400);
+$$('[data-lb]').forEach(f=>{ f.tabIndex=0; f.setAttribute('role','button');
+  const go=()=>{ const o=LS[f.dataset.lb]; openLb(o,null); $('#lbAdd').style.display='none'; $('#lbTags').innerHTML=''; lbImg.src=lsBig(o.im[0]); $$('#lbTh button').forEach(b=>b.onclick=e=>{e.stopPropagation(); $$('#lbTh button').forEach(x=>x.setAttribute('aria-current',String(x===b))); lbImg.src=lsBig(b.dataset.n)}); };
+  f.addEventListener('click',go); f.addEventListener('keydown',e=>{ if(e.key==='Enter'||e.key===' '){e.preventDefault();go()} }); });
+
+/* ---------------- before / after ---------------- */
+(()=>{const box=$('#ba'); if(!box) return; let drag=false;
+ const set=x=>{ window.__baTouched=1; window.__baHint&&window.__baHint.kill(); const r=box.getBoundingClientRect(); const p=Math.min(97,Math.max(3,(x-r.left)/r.width*100)); box.style.setProperty('--x',p+'%');};
+ box.addEventListener('pointerdown',e=>{e.preventDefault(); drag=true; box.setPointerCapture(e.pointerId); set(e.clientX)});
+ box.addEventListener('pointermove',e=>{ if(drag) set(e.clientX)});
+ box.addEventListener('pointerup',()=>drag=false); box.addEventListener('pointercancel',()=>drag=false);
+ $('.ba-h button',box).addEventListener('keydown',e=>{ const cur=parseFloat(box.style.getPropertyValue('--x'))||50; if(e.key==='ArrowLeft'){box.style.setProperty('--x',Math.max(3,cur-5)+'%');e.preventDefault()} if(e.key==='ArrowRight'){box.style.setProperty('--x',Math.min(97,cur+5)+'%');e.preventDefault()} });
+})();
+
+/* ---------------- form → mailto ---------------- */
+$('#form').addEventListener('submit',e=>{
+  e.preventDefault(); const f=e.target; const v=n=>(f.elements[n]&&f.elements[n].value||'').trim();
+  const need=$$('input[name=need]:checked',f).map(i=>i.value).join(', ');
+  if(!v('ct')){ $('#formNote').textContent='Оставьте телефон или почту — иначе нам некуда ответить.'; $('#fCt').focus(); return; }
+  const body=`Здравствуйте!\n\nИмя: ${v('name')}\nКомпания: ${v('org')}\nОбъект: ${v('obj')}\nЧто нужно: ${need||'—'}\nСроки: ${v('when')}\nКонтакт: ${v('ct')}\n\n${v('msg')}\n\n(ТЗ прикладываю к письму)`;
+  location.href='mailto:post@madis.pro?subject='+encodeURIComponent('Запрос с сайта: '+(v('obj')||'новый объект'))+'&body='+encodeURIComponent(body);
+  $('#formNote').textContent='Письмо готово в вашей почте — приложите ТЗ и отправьте.';
+});
+
+/* ---------------- map on click ---------------- */
+$('#mapBtn').addEventListener('click',()=>{ $('#map').innerHTML='<iframe title="Офис МАДИС Инжиниринг на карте" src="https://yandex.ru/map-widget/v1/?text='+encodeURIComponent('Москва, улица Академика Королёва, 13с1')+'&z=16" allowfullscreen loading="lazy"></iframe>'; });
+
+/* ---------------- 3D bridge slot ---------------- */
+const hero={frames:[],n:0,ready:false,p:0,fixed:Q.has('s')?Math.min(1,Math.max(0,parseFloat(Q.get('s'))||0)):null};
+const cv=$('#bridge'), cx=cv.getContext('2d');
+function sizeCanvas(){const d=Math.min(devicePixelRatio||1,2); cv.width=Math.round(cv.clientWidth*d)||1; cv.height=Math.round(cv.clientHeight*d)||1; drawBridge();}
+function drawFrame(img,alpha){
+  if(!img||!img.complete||!img.naturalWidth) return false;
+  const W=cv.width,H=cv.height, s=Math.max(W/img.naturalWidth,H/img.naturalHeight)*(isMob()?1.0:1);
+  const w=img.naturalWidth*s,h=img.naturalHeight*s; cx.globalAlpha=alpha; cx.drawImage(img,(W-w)/2,(H-h)/2,w,h); cx.globalAlpha=1; return true;
+}
+function drawBridge(){
+  if(!hero.ready) return;
+  const f=Math.min(1,hero.p/0.75)*(hero.n-1), a=Math.floor(f), b=Math.min(hero.n-1,a+1), t=f-a;
+  cx.clearRect(0,0,cv.width,cv.height);
+  const ia=near(a), ib=near(b);
+  drawFrame(ia,1); if(t>0.02 && ib!==ia) drawFrame(ib,t);
+}
+function near(i){ for(let d=0;d<hero.n;d++){ const x=hero.frames[i-d]||hero.frames[i+d]; if(x&&x.complete&&x.naturalWidth) return x; } return null; }
+fetch('img/3d/bridge.json',{cache:'no-cache'}).then(r=>r.ok?r.json():null).then(m=>{
+  if(!m||!m.frames) return;
+  const pat=(isMob()&&m.mobile)?m.mobile:m.pattern, pad=m.pad||3;
+  hero.n=m.frames;
+  const url=i=>pat.replace('{i}',String(i).padStart(pad,'0'));
+  const order=[]; for(let step=Math.max(1,Math.floor(m.frames/8));step>=1;step=Math.floor(step/2)){ for(let i=0;i<m.frames;i+=step) if(!order.includes(i)) order.push(i); if(step===1) break; }
+  for(let i=0;i<m.frames;i++) if(!order.includes(i)) order.push(i);
+  let k=0; const next=()=>{ if(k>=order.length) return; const i=order[k++]; const im=new Image(); im.decoding='async'; im.onload=()=>{ if(i===0||!hero.ready){ if(!hero.ready&&im.naturalWidth){hero.ready=true; document.documentElement.classList.add('has-3d'); sizeCanvas();} } drawBridge(); next(); }; im.onerror=next; im.src=url(i); hero.frames[i]=im; };
+  for(let c=0;c<4;c++) next();
+}).catch(()=>{});
+addEventListener('resize',()=>{ if(hero.ready) sizeCanvas(); });
+window.__hero={state:()=>({p:+hero.p.toFixed(3),frames:hero.n,ready:hero.ready,frame:hero.ready?Math.round(Math.min(1,hero.p/0.75)*(hero.n-1)):null})};
+
+/* ---------------- crosshair cursor in hero ---------------- */
+if(fine && !reduce){
+  const cr=$('#cross'), pin=$('#heroPin'), lab=$('span',cr), vx=$('.cx',cr), vy=$('.cy',cr);
+  pin.addEventListener('pointerenter',()=>cr.classList.add('on'));
+  pin.addEventListener('pointerleave',()=>cr.classList.remove('on'));
+  pin.addEventListener('pointermove',e=>{
+    const r=pin.getBoundingClientRect(), x=e.clientX-r.left, y=e.clientY-r.top;
+    vx.style.transform=`translateX(${x}px)`; vy.style.transform=`translateY(${y}px)`;
+    const m=Math.round(4200+ x/r.width*1260), pk=Math.floor(m/100), plus=(m%100).toFixed(0).padStart(2,'0');
+    const elev=(48.6-(y/r.height)*36).toFixed(2).replace('.',',');
+    lab.textContent=`ПК ${pk}+${plus} · отм. ${elev}`;
+    lab.style.transform=`translate(${Math.min(x+14,r.width-170)}px,${y+14}px)`;
+  });
+}
+
+/* ---------------- header state & nav ---------------- */
+const hdr=$('#hdr');
+const navLinks=$$('.nav a');
+function markNav(id){ const nav=$('.nav'); navLinks.forEach(a=>{const on=a.getAttribute('href')==='#'+id; a.classList.toggle('on',on); if(on&&isMob()) nav.scrollTo({left:a.offsetLeft-nav.clientWidth/2+a.offsetWidth/2,behavior:'smooth'});}); }
+
+/* ---------------- motion ---------------- */
+function preloader(done){
+  const html=document.documentElement;
+  if(!html.classList.contains('js-loading')){ done(); return; }
+  const pk=$('#prePk'), bar=$('.pre-bar i'), t0=performance.now(); let shown=0;
+  const ready=Promise.all([document.fonts.ready, new Promise(r=>{const im=$('.hero-photo img'); im.complete?r():(im.onload=im.onerror=r)})]);
+  let loaded=false; ready.then(()=>loaded=true);
+  const tick=()=>{ const el=performance.now()-t0; const target=loaded?100:Math.min(88,el/30); shown+= (target-shown)*0.12 + (loaded?0.6:0); if(el<1400) shown=Math.min(shown, el/14); shown=Math.min(100,shown);
+    pk.textContent=`${Math.floor(shown/100)}+${String(Math.floor(shown)%100).padStart(2,'0')}`; bar.style.transform=`scaleX(${shown/100})`;
+    if((shown>=99.5 && el>1400) || el>4500){ pk.textContent='1+00'; bar.style.transform='scaleX(1)';
+      gsap.to('.pre',{clipPath:'inset(0 0 100% 0)',duration:.8,ease:'power3.inOut',delay:.15,onComplete:()=>{html.classList.remove('js-loading'); $('.pre').style.clipPath='';}}); setTimeout(done,350); return; }
+    requestAnimationFrame(tick); };
+  tick();
+}
+
+function intro(){
+  if(reduce) return;
+  const t=SplitText.create('#heroTitle span',{type:'words,chars',charsClass:'ch'});
+  gsap.from(t.chars,{opacity:0,filter:'blur(14px)',yPercent:30,duration:1.1,ease:'power3.out',stagger:.035});
+  gsap.from('.hero-photo img',{scale:1.18,duration:2.4,ease:'power2.out'});
+  gsap.from(['.hero-lead','.quick a','.hero-tags li'],{opacity:0,y:18,duration:.9,ease:'power2.out',stagger:.07,delay:.5});
+}
+
+if(!reduce){
+  gsap.registerPlugin(ScrollTrigger,SplitText,Flip);
+  const lenis=new Lenis({autoRaf:false,anchors:{offset:-(isMob()?104:76)}});
+  window.lenis=lenis;
+  lenis.on('scroll',ScrollTrigger.update);
+  gsap.ticker.add(t=>lenis.raf(t*1000)); gsap.ticker.lagSmoothing(0);
+  if(document.documentElement.classList.contains('js-loading')) lenis.stop();
+  preloader(()=>{lenis.start(); intro();});
+
+  document.fonts.ready.then(()=>{
+    const theme=t=>{ hdr.classList.toggle('day',t==='day'); hdr.classList.toggle('steel',t==='steel'); hdr.classList.toggle('dark-sec',t==='dark'); };
+    /* hero scroll (top-most) */
+    const H=gsap.timeline({defaults:{ease:'none'},scrollTrigger:{trigger:'.hero',start:'top top',end:'bottom bottom',scrub:hero.fixed===null?0.6:false,
+      onUpdate:s=>{ if(hero.fixed===null){hero.p=s.progress; drawBridge();} if(s.isActive) theme(s.progress>.9?'day':'night'); }}});
+    H.to('.hero-photo img',{scale:1.32,yPercent:5,duration:.75},0)
+     .to('.hero-tags li',{opacity:0,y:-14,stagger:.03,duration:.2},.05)
+     .to('#heroTitle .l1',{xPercent:-14,opacity:0,duration:.33},.42)
+     .to('#heroTitle .l2',{xPercent:14,opacity:0,duration:.33},.42)
+     .to('.hero-foot',{opacity:0,y:30,duration:.2},.3)
+     .to('#bridge',{scale:1.06,duration:.3},.7)
+     .to('#heroDay',{yPercent:-101,duration:.28,ease:'power1.inOut'},.72)
+     .to({},{duration:.0},1);
+    if(hero.fixed!==null){ hero.p=hero.fixed; H.progress(hero.fixed); drawBridge(); }
+
+    /* header theme follows the section under it + progress */
+    [['#services','day'],['#objects','day'],['#process','steel'],['#clients','day'],['#landscape','day'],['#contacts','dark'],['.ft','dark']].forEach(([sel,t])=>
+      ScrollTrigger.create({trigger:sel,start:'top 70px',end:'bottom 70px',onToggle:s=>{ if(s.isActive) theme(t); }}));
+    ScrollTrigger.create({trigger:'.hero',start:'top top',end:'bottom 70px',onToggle:s=>{ if(s.isActive) theme('night'); }});
+    ScrollTrigger.create({start:0,end:'max',onUpdate:s=>$('#hdrProg').style.transform=`scaleX(${s.progress})`});
+    ['services','objects','process','clients','landscape','contacts'].forEach(id=>ScrollTrigger.create({trigger:'#'+id,start:'top 45%',end:'bottom 45%',onToggle:s=>s.isActive&&markNav(id)}));
+    ScrollTrigger.create({trigger:'.hero',start:'top top',end:'bottom 45%',onToggle:s=>s.isActive&&markNav('top')});
+
+    /* marquee: drifts with time and scroll */
+    const mq=$('#marq'); const half=()=>mq.scrollWidth/2; let mx=0, vel=0;
+    lenis.on('scroll',e=>{vel=e.velocity});
+    gsap.ticker.add(()=>{ mx-= 1.1 + Math.abs(vel)*.35; if(-mx>=half()) mx+=half(); mq.style.transform=`translate(${mx}px,-50%)`; });
+    gsap.fromTo('.marq-circle img',{yPercent:-8},{yPercent:8,ease:'none',scrollTrigger:{trigger:'.marq',start:'top bottom',end:'bottom top',scrub:true}});
+    gsap.from('.marq-circle',{scale:.55,ease:'none',scrollTrigger:{trigger:'.marq',start:'top 95%',end:'center 50%',scrub:true}});
+
+    /* split headings */
+    $$('.split').forEach(h=>{ const s=SplitText.create(h,{type:'words,chars',charsClass:'ch'}); gsap.from(s.chars,{opacity:0,filter:'blur(10px)',yPercent:24,stagger:.018,duration:.9,ease:'power3.out',scrollTrigger:{trigger:h,start:'top 82%'}}); });
+
+    /* services rows reveal + photo peek */
+    gsap.from('.svc li',{opacity:0,y:28,duration:.8,ease:'power2.out',stagger:.08,scrollTrigger:{trigger:'#svcList',start:'top 80%'}});
+    if(fine){
+      const pk=$('#peek'), pim=$('img',pk), qx=gsap.quickTo(pk,'x',{duration:.5,ease:'power3'}), qy=gsap.quickTo(pk,'y',{duration:.5,ease:'power3'});
+      $$('.svc li').forEach(li=>{
+        li.addEventListener('pointerenter',()=>{ pim.src=src(li.dataset.peek,800); gsap.to(pk,{opacity:1,scale:1,duration:.35,ease:'power2.out'}); });
+        li.addEventListener('pointerleave',()=>gsap.to(pk,{opacity:0,scale:.85,duration:.25}));
+        li.addEventListener('pointermove',e=>{ qx(e.clientX+28); qy(e.clientY-90); });
+      });
+    }
+
+    /* objects: scroll media expansion */
+    const mm=gsap.matchMedia();
+    const xpInset=()=>{ const s=$('#xpSlot').getBoundingClientRect(), b=$('#xp').getBoundingClientRect();
+      return `inset(${s.top-b.top}px ${b.right-s.right}px ${b.bottom-s.bottom}px ${s.left-b.left}px round 6px)`; };
+    const X=gsap.timeline({scrollTrigger:{trigger:'#xp',start:'top top',end:()=>'+='+innerHeight*(isMob()?1.2:1.6),pin:true,scrub:.6,invalidateOnRefresh:true}});
+    X.fromTo('#xpMedia',{clipPath:xpInset},{clipPath:'inset(0px 0px 0px 0px round 0px)',ease:'power2.inOut',duration:.6},0)
+     .to('.xp-h .l1',{xPercent:-30,opacity:0,duration:.45,ease:'power1.in'},.08)
+     .to('.xp-h .l3',{xPercent:30,opacity:0,duration:.45,ease:'power1.in'},.08)
+     .to('.xp-h .l2',{opacity:0,duration:.3},.2)
+     .fromTo('#xpMedia img',{scale:1.25},{scale:1,duration:.7,ease:'power2.out'},0)
+     .to('#xpMedia',{'--shade':1,duration:.2},.6)
+     .fromTo('#xpCap',{opacity:0,y:30},{opacity:1,y:0,duration:.25},.66)
+     .to({},{duration:.15});
+
+    /* stats count up */
+    $$('.stat b').forEach(b=>{ const n=+b.dataset.n, o={v:0}; gsap.to(o,{v:n,duration:1.4,ease:'power2.out',scrollTrigger:{trigger:'#stats',start:'top 80%'},onUpdate:()=>b.textContent=Math.round(o.v)}); });
+
+    /* cards reveal */
+    ScrollTrigger.batch('.card',{start:'top 88%',onEnter:els=>gsap.from(els,{opacity:0,y:40,duration:.8,ease:'power2.out',stagger:.08,overwrite:true}),once:true});
+
+    /* process line */
+    gsap.fromTo('#stepsLine',{'--k':0},{'--k':1,ease:'none',scrollTrigger:{trigger:'#steps',start:'top 80%',end:'bottom 60%',scrub:true}});
+    gsap.from('.step',{opacity:0,y:30,duration:.8,stagger:.12,ease:'power2.out',scrollTrigger:{trigger:'#steps',start:'top 78%'}});
+    /* before/after: hint sweep once */
+    ScrollTrigger.create({trigger:'#ba',start:'top 70%',once:true,onEnter:()=>{ if(window.__baTouched) return; const b=$('#ba'), o={x:50}; window.__baHint=gsap.to(o,{x:22,duration:.9,ease:'power2.inOut',yoyo:true,repeat:1,onUpdate:()=>{ if(window.__baTouched){window.__baHint.kill();return;} b.style.setProperty('--x',o.x+'%')}}); }});
+
+    /* clients, license, landscape reveals */
+    gsap.from('.cl li',{opacity:0,y:20,duration:.6,stagger:.05,ease:'power2.out',scrollTrigger:{trigger:'.cl',start:'top 82%'}});
+    gsap.from('.ls-photos figure',{clipPath:'inset(100% 0 0 0)',duration:1.1,ease:'power3.inOut',stagger:.12,scrollTrigger:{trigger:'.ls-photos',start:'top 80%'}});
+    gsap.from('.ft-big',{yPercent:40,opacity:0,ease:'none',scrollTrigger:{trigger:'.ft',start:'top bottom',end:'bottom bottom',scrub:true}});
+
+    addEventListener('load',()=>ScrollTrigger.refresh());
+    ScrollTrigger.refresh();
+  });
+} else {
+  document.documentElement.classList.add('no-x');
+  document.documentElement.classList.remove('js-loading');
+  hdr.classList.add('dark-sec');
+  addEventListener('scroll',()=>{ const p=scrollY/(document.documentElement.scrollHeight-innerHeight); $('#hdrProg').style.transform=`scaleX(${p})`; },{passive:true});
+}
+syncPicked();
+</script>
+</body>
+</html>

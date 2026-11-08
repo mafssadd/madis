@@ -104,11 +104,6 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
 .hero-title span{display:block;white-space:nowrap}
 .hero-bridge{position:absolute;inset:0;width:100%;height:100%;z-index:0;pointer-events:none;display:none}
 .has-3d .hero-bridge{display:block}
-.hero-tags{position:absolute;inset:0;z-index:2;list-style:none;pointer-events:none;font:400 12px/1.35 var(--sans);letter-spacing:.08em;text-transform:uppercase}
-.hero-tags li{position:absolute;max-width:190px}
-.hero-tags li:nth-child(1){left:var(--gut);top:58%}
-.hero-tags li:nth-child(2){right:var(--gut);top:46%;text-align:left}
-.hero-tags li:nth-child(3){right:16%;top:72%}
 .hero-foot{position:absolute;left:0;right:0;bottom:0;z-index:3;padding:0 var(--gut) 28px;display:flex;align-items:flex-end;gap:24px}
 .hero-lead{max-width:430px;font:300 16px/1.55 var(--sans);color:#d9d7d2}
 .quick{display:flex;gap:10px;flex-wrap:wrap;margin-left:auto;justify-content:flex-end;max-width:760px}
@@ -121,7 +116,6 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
 @media (max-width:900px){
   .hero-title{top:calc(var(--hdr) + 4vh);font-size:clamp(40px,12vw,80px);line-height:.95}
   .hero-title .l2{white-space:normal}
-  .hero-tags{display:none}
   .hero-foot{flex-direction:column;align-items:stretch;gap:16px;padding-bottom:calc(84px + env(safe-area-inset-bottom))}
   .hero-lead{font-size:14.5px}
   .quick{margin:0;justify-content:flex-start;gap:8px;flex-wrap:nowrap;overflow-x:auto;scrollbar-width:none;margin-right:calc(var(--gut) * -1);padding-right:var(--gut)}
@@ -146,9 +140,11 @@ section{position:relative}
 /* ---------- services ---------- */
 #services{background:var(--paper)}
 .marq{position:relative;height:min(64vh,620px);display:grid;place-items:center;overflow:hidden;margin-bottom:120px}
-.marq-circle{width:min(46vh,440px);aspect-ratio:1;border-radius:50%;overflow:hidden;position:relative}
-.marq-circle img{width:100%;height:120%;object-fit:cover;position:absolute;top:-10%}
-.marq-track{position:absolute;left:0;top:50%;transform:translateY(-50%);display:flex;white-space:nowrap;color:#fff;mix-blend-mode:difference;font:400 clamp(72px,11vw,190px)/1 var(--serif);will-change:transform}
+.marq-circle{--d:min(46vh,440px);width:var(--d);aspect-ratio:1;border-radius:50%;overflow:hidden;position:relative}
+.marq-circle img{width:100%;height:116%;object-fit:cover;object-position:62% 50%;position:absolute;top:-8%}
+.marq-track{position:absolute;left:0;top:50%;transform:translateY(-50%);display:flex;white-space:nowrap;color:var(--ink);font:400 clamp(72px,11vw,190px)/1 var(--serif);will-change:transform}
+.marq-over{position:absolute;inset:0;pointer-events:none;clip-path:circle(calc(min(46vh,440px) / 2) at 50% 50%)}
+.marq-over .marq-track{color:#fff}
 .marq-track span{padding-right:.5em}
 .marq-track span i{display:inline-block;width:.14em;height:.14em;background:currentColor;transform:rotate(45deg);vertical-align:.32em;margin-left:.5em}
 .abbr{display:grid;grid-template-columns:repeat(7,1fr);gap:0 20px;margin:-64px 0 110px;border-top:1px solid var(--line)}
@@ -171,6 +167,8 @@ section{position:relative}
 .svc-b .more{display:inline-block;margin-top:18px;font:400 14px var(--sans);color:var(--steel);text-decoration:underline;text-underline-offset:4px}
 @media (max-width:900px){
   .marq{height:420px;margin-bottom:40px}
+  .marq-circle{width:300px}
+  .marq-over{clip-path:circle(150px at 50% 50%)}
   .abbr{grid-template-columns:1fr 1fr;gap:0 16px;margin:0 0 64px}
   .abbr div{padding:12px 0}
   .abbr dt{font-size:20px}
@@ -433,9 +431,11 @@ fieldset.fld{border:0}
 .ct-info{grid-column:9 / span 4;display:flex;flex-direction:column;gap:26px}
 .ct-info small{display:block;color:var(--night-mut);font-size:13px;margin-bottom:6px}
 .ct-info a,.ct-info span{font:400 24px/1.25 var(--serif);text-decoration:none;display:block}
+.ct-way{font-size:15px;line-height:1.55;color:#cfcdc8}
+.ct-info a.ct-route{font:400 15px var(--sans);text-decoration:underline;margin-top:8px}
 .ct-info a:hover{color:#fff;text-decoration:underline}
 .map{margin-top:90px;height:380px;border-radius:var(--r);overflow:hidden;position:relative;background:#232427;display:grid;place-items:center;border:1px solid var(--night-line)}
-.map iframe{position:absolute;inset:0;width:100%;height:100%;border:0;filter:grayscale(.6) invert(.9) hue-rotate(180deg) brightness(.95)}
+.map iframe{position:absolute;inset:0;width:100%;height:100%;border:0;}
 .map button{color:var(--night-ink)}
 .ft{background:var(--night);color:var(--night-ink);padding:60px 0 30px;overflow:hidden}
 .ft-big{font:400 clamp(110px,24vw,420px)/.8 var(--serif);letter-spacing:-.01em;text-transform:uppercase;white-space:nowrap;color:#26272a;margin:0 0 30px -.04em;user-select:none}
@@ -517,11 +517,6 @@ fieldset.fld{border:0}
     <div class="hero-photo"><img src="img/hero-night-1600.webp" srcset="img/hero-night-800.webp 800w, img/hero-night-1600.webp 1600w, img/hero-night-2400.webp 2400w" sizes="100vw" alt="Ночной монтаж пролётного строения краном, трасса Р-22 «Каспий»" fetchpriority="high"></div>
     <h1 class="hero-title" id="heroTitle"><span class="l1">Знаем, как</span><span class="l2">построить мост</span></h1>
     <canvas class="hero-bridge" id="bridge" aria-hidden="true"></canvas>
-    <ul class="hero-tags" aria-hidden="true">
-      <li><i class="dia"></i>Волга · Кама · Нева<br>Волхов · Мста · Москва-река</li>
-      <li><i class="dia"></i>ППР и ППРк<br>надвижка, плавсредства</li>
-      <li><i class="dia"></i>ПОС в МГЭ, ГГЭ<br>и МОГЭ</li>
-    </ul>
     <div class="hero-foot">
       <i class="hero-line"></i>
       <p class="hero-lead">МАДИС Инжиниринг — проектная организация. Основное направление — сопровождение проектирования и строительства мостовых сооружений: ППР, ПОС, исполнительная и рабочая документация.</p>
@@ -539,8 +534,9 @@ fieldset.fld{border:0}
 <!-- ============ SERVICES ============ -->
 <section class="sec" id="services" aria-labelledby="svcH">
   <div class="marq" aria-hidden="true">
-    <div class="marq-circle"><img src="img/lattice-1000.webp" alt="" loading="lazy"></div>
+    <div class="marq-circle"><img src="img/kama-2-1600.webp" srcset="img/kama-2-800.webp 800w, img/kama-2-1600.webp 1600w" sizes="440px" alt="" loading="lazy"></div>
     <div class="marq-track" id="marq"><span>ППР<i></i></span><span>ПОС<i></i></span><span>ТКР<i></i></span><span>СВСиУ<i></i></span><span>ВЗиС<i></i></span><span>ИД<i></i></span><span>BIM<i></i></span><span>ППР<i></i></span><span>ПОС<i></i></span><span>ТКР<i></i></span><span>СВСиУ<i></i></span><span>ВЗиС<i></i></span><span>ИД<i></i></span><span>BIM<i></i></span></div>
+    <div class="marq-over"><div class="marq-track" id="marq2"><span>ППР<i></i></span><span>ПОС<i></i></span><span>ТКР<i></i></span><span>СВСиУ<i></i></span><span>ВЗиС<i></i></span><span>ИД<i></i></span><span>BIM<i></i></span><span>ППР<i></i></span><span>ПОС<i></i></span><span>ТКР<i></i></span><span>СВСиУ<i></i></span><span>ВЗиС<i></i></span><span>ИД<i></i></span><span>BIM<i></i></span></div></div>
   </div>
   <div class="wrap">
     <dl class="abbr" aria-label="Расшифровка сокращений">
@@ -559,7 +555,7 @@ fieldset.fld{border:0}
     <div class="scope">
       <div><small>Объекты</small><p>Линейные объекты капитального строительства: мосты, путепроводы, эстакады, автомобильные и железные дороги, улично-дорожная сеть.</p></div>
       <div><small>Нормативная база</small><p>Проектную документацию выпускаем по составу и содержанию Постановления Правительства РФ № 87 — разделы для линейных объектов.</p></div>
-      <div><small>Стадии</small><p>Проектная документация (П), рабочая документация (РД), документация на производство работ и сдачу объекта.</p></div>
+      <div><small>Виды документации</small><p>Проектная (П) и рабочая (Р) документация — ГОСТ Р 21.101. Организационно-технологическая документация (ППР, ППРк) — СП 48.13330.2019. Исполнительная документация — приказ Минстроя России № 344/пр.</p></div>
     </div>
     <ul class="svc" id="svcList">
       <li id="svc-ppr">
@@ -584,7 +580,7 @@ fieldset.fld{border:0}
       <li id="svc-id">
         <h3>Исполнительная документация<small>ИД</small></h3>
         <div class="svc-b">
-          <p>Комплект в объёме, достаточном для сдачи объекта в эксплуатацию, по требованиям Минстроя России к составу и порядку ведения ИД.</p>
+          <p>Комплект в объёме, достаточном для сдачи объекта в эксплуатацию, по приказу Минстроя России от 16.05.2023 № 344/пр.</p>
           <ul>
             <li>акты освидетельствования скрытых работ (АОСР)</li>
             <li>акты освидетельствования ответственных конструкций</li>
@@ -723,19 +719,19 @@ fieldset.fld{border:0}
   <div class="wrap">
     <div class="sec-head">
       <h2 id="exH" class="split">Примеры работ</h2>
-      <p>Листы из наших проектов производства работ и ПОС — и тот же объект на стройке. Нажмите на лист, чтобы рассмотреть.</p>
+      <p>Листы из наших проектов производства работ и ПОС и тот же объект на стройке.</p>
     </div>
     <div class="ba">
       <div class="ba-box" id="ba" style="--x:50%">
         <img class="ba-draw" src="img/dem-sheet-2000.webp" srcset="img/dem-sheet-1000.webp 1000w, img/dem-sheet-2000.webp 2000w, img/dem-sheet-3200.webp 3200w" sizes="(max-width:900px) 100vw, 66vw" alt="Лист ППР: этапы демонтажа блоков пролётного строения моста через Волхов" loading="lazy">
         <div class="ba-top"><img src="img/volhov-1600.webp" srcset="img/volhov-800.webp 800w, img/volhov-1600.webp 1600w" sizes="(max-width:900px) 100vw, 66vw" alt="Мост через Волхов во время работ: краны и плавсредства у опор" loading="lazy"></div>
-        <div class="ba-h"><button type="button" aria-label="Сдвиньте, чтобы сравнить чертёж и фото">⟷</button></div>
+        <div class="ba-h"><button type="button" aria-label="Граница между чертежом и фото">⟷</button></div>
         <span class="ba-lab l">На чертеже</span><span class="ba-lab r">На реке</span>
       </div>
       <div class="ba-txt">
         <small>М-10 «Россия» · капитальный ремонт</small>
         <h3>Мост через Волхов: проект и объект</h3>
-        <p>Слева — лист нашего ППР «Этапы демонтажа блоков пролётного строения». Справа — тот же мост во время работ: плавучие опоры, краны, демонтируемые пролёты. Сдвиньте шторку, чтобы сравнить.</p>
+        <p>Лист нашего ППР «Этапы демонтажа блоков пролётного строения» и тот же мост во время работ: плавучие опоры, краны, демонтируемые пролёты.</p>
       </div>
     </div>
 
@@ -874,6 +870,7 @@ fieldset.fld{border:0}
         <div><small>Телефоны</small><a href="tel:+74957900992">+7 (495) 790-09-92</a><a href="tel:+79104210997">+7 (910) 421-09-97</a></div>
         <div><small>Почта</small><a href="mailto:post@madis.pro">post@madis.pro</a></div>
         <div><small>Офис</small><span>Москва, ул. Академика Королёва, 13, стр. 1</span></div>
+        <div><small>Вход</small><p class="ct-way">5 подъезд в северо-западном углу внутреннего двора. Пешком — с Новомосковской улицы, между магазином «Да!» и автомойкой. На машине — через шлагбаум со стороны Аргуновской улицы. Трамвай 11, 17, 25 до «Аргуновская улица» — 5 минут пешком, метро ВДНХ — 20 минут.</p><a class="ct-route" href="https://yandex.ru/maps/?rtext=~55.819901,37.618427&rtt=pd" target="_blank" rel="noopener">Маршрут в Яндекс Картах</a></div>
       </div>
     </div>
     <div class="map" id="map"><button class="pill" type="button" id="mapBtn">Показать офис на карте</button></div>
@@ -946,8 +943,8 @@ const OBJ=[
  {id:'volhov',g:'most',t:'Мост через Волхов',pl:'Трасса М-10 «Россия» · Новгородская область',k:['ППР'],tx:'Комплексная разработка ППР на капитальный ремонт моста: этапы демонтажа блоков пролётного строения с воды.',im:['volhov','volhov-2']},
  {id:'nkamsk',g:'most',t:'Мост через Каму, Нижнекамск',pl:'Обход города Нижнекамска',k:['ППР','СВСиУ'],tx:'Технологический регламент на работу флота и якорных устройств для сооружения русловых опор, СВСиУ для сооружения опор, перевозка бурового оборудования.',im:['nkamsk','nkamsk-2']},
  {id:'myas',g:'most',t:'Мост через Москву-реку',pl:'Москва · створ улицы Мясищева',k:['BIM','ППР','СВСиУ'],tx:'Цифровая информационная (BIM) модель автомобильной дороги и искусственных сооружений. ППР на замыкание пролётного строения и СВСиУ для него.',im:['myas','myas-2']},
- {id:'zlat',g:'most',t:'Велопешеходный мост, Златоуст',pl:'Челябинская область',k:['ПОС'],tx:'Стадия «П»: разделы ПОС и ТКР с сопровождением в экспертизе.',im:['zlat','zlat-2'],d:1},
- {id:'r22',g:'put',t:'Путепроводы на Р-22',pl:'Трасса Р-22 «Каспий»',k:['ППР','ПОС'],tx:'Комплексная разработка ППР на строительство путепроводов и корректировка стадии «П» с сопровождением в Главгосэкспертизе.',im:['r22','r22-2']},
+ {id:'zlat',g:'most',t:'Велопешеходный мост, Златоуст',pl:'Челябинская область',k:['ПОС'],tx:'Проектная документация: разделы ПОС и ТКР с сопровождением в экспертизе.',im:['zlat','zlat-2'],d:1},
+ {id:'r22',g:'put',t:'Путепроводы на Р-22',pl:'Трасса Р-22 «Каспий»',k:['ППР','ПОС'],tx:'Комплексная разработка ППР на строительство путепроводов и корректировка проектной документации с сопровождением в Главгосэкспертизе.',im:['r22','r22-2']},
  {id:'m1',g:'put',t:'Развязка на 59 км М-1',pl:'Трасса М-1 «Беларусь» · у парка «Патриот»',k:['СВСиУ'],tx:'Рабочая документация раздела «ВЗиС» для строительства развязки.',im:['m1','m1-2'],vz:1},
  {id:'lub',g:'put',t:'Путепровод в Люберцах',pl:'Московская область · проезд № 4037',k:['ПОС','BIM'],tx:'Сводный ПОС и ТКР на путепровод с сопровождением в МОГЭ, ЦИММ-модель объекта.',im:['lub']},
  {id:'tzhk',g:'put',t:'Путепроводы ООО «ТЖК»',pl:'Объекты железнодорожной инфраструктуры',k:['ПОС'],tx:'Сводный ПОС и ТКР на путепроводы с сопровождением в Главгосэкспертизе.',im:['tzhk'],d:1},
@@ -955,7 +952,7 @@ const OBJ=[
  {id:'tpu',g:'dor',t:'Улично-дорожная сеть ТПУ «Сити»',pl:'Москва',k:['ПОС','BIM'],tx:'Сводный и локальные ПОС для транспортного обслуживания ТПУ «Сити» с сопровождением в Мосгосэкспертизе, ЦИММ-модель.',im:['tpu']},
  {id:'yuvh',g:'dor',t:'Юго-Восточная хорда',pl:'Москва · от Павелецкого направления МЖД до МКАД',k:['ПОС','СВСиУ'],tx:'Улично-дорожная сеть с искусственными сооружениями и переустройством коммуникаций. Разделы ПОС, ТКР, СВСиУ с сопровождением в Мосгосэкспертизе.',im:['yuvh'],d:1},
  {id:'m4',g:'dor',t:'М-4 «Дон» и Р-217 «Кавказ»',pl:'Автомобильные дороги',k:['ПОС','СВСиУ'],tx:'Раздел ПОС, включая снос и СВСиУ.',im:['m4'],d:1},
- {id:'poch',g:'dor',t:'Террасный парк в Почаинском овраге',pl:'Нижний Новгород',k:['ПОС','СВСиУ'],tx:'Сводный ПОС и СВСиУ, стадии П и РД, с сопровождением в региональной экспертизе.',im:['poch'],d:1},
+ {id:'poch',g:'dor',t:'Террасный парк в Почаинском овраге',pl:'Нижний Новгород',k:['ПОС','СВСиУ'],tx:'Сводный ПОС и СВСиУ, проектная и рабочая документация, с сопровождением в региональной экспертизе.',im:['poch'],d:1},
 ];
 const GROUPS=[['most','Мостовые сооружения'],['put','Путепроводы и развязки'],['dor','Объекты дорожной и городской инфраструктуры']];
 const tagLabel=(o)=>o.k.map(k=>k==='СВСиУ'&&o.vz?'ВЗиС':k);
@@ -1072,9 +1069,9 @@ const SHEETS=[
  {n:'vszhm-kotl',w:[800,3200],o:'ВСЖМ, переход через Мсту',t:'СВСиУ для сооружения опор: ограждения котлованов',tx:'Проектирование и расчёт СВСиУ для сооружения опор: фасады ограждений по группам опор, таблица переменных величин для 41 опоры, ведомость объёмов работ.'},
  {n:'kama-sheet',w:[800,3200],o:'Мост через Каму, Пермь',t:'Монтаж раскосов пролётного строения',tx:'Комплекс ППР на сооружение моста: технологическая схема монтажа раскосов и связей пролётного строения гусеничными кранами, таблица монтажных элементов, грузовые характеристики кранов.'},
  {n:'dem-sheet',w:[1000,2000],o:'М-10 «Россия», мост через Волхов',t:'Этапы демонтажа блоков пролётного строения',tx:'Проект производства работ на капитальный ремонт моста: последовательность демонтажа блоков с воды.'},
- {n:'zlat',w:[800,1600],o:'Велопешеходный мост, Златоуст',t:'Стадия «П»: ПОС и ТКР',tx:'Разделы проектной документации с сопровождением в экспертизе.'},
+ {n:'zlat',w:[800,1600],o:'Велопешеходный мост, Златоуст',t:'Проектная документация: ПОС и ТКР',tx:'Разделы проектной документации с сопровождением в экспертизе.'},
  {n:'m4',w:[800,1600],o:'М-4 «Дон» и Р-217 «Кавказ»',t:'ПОС, включая снос и СВСиУ',tx:'Раздел «Проект организации строительства».'},
- {n:'poch',w:[800,1600],o:'Террасный парк в Почаинском овраге',t:'Сводный ПОС и СВСиУ',tx:'Стадии П и РД, сопровождение в региональной экспертизе.'},
+ {n:'poch',w:[800,1600],o:'Террасный парк в Почаинском овраге',t:'Сводный ПОС и СВСиУ',tx:'Проектная и рабочая документация, сопровождение в региональной экспертизе.'},
 ];
 $('#sheets').innerHTML=SHEETS.map((h,i)=>`<button class="sheet" type="button" data-sheet="${i}"><span class="sheet-fig"><img src="${src(h.n,h.w[0])}" alt="${h.t}" loading="lazy"></span><small>${h.o}</small><b>${h.t}</b></button>`).join('');
 $('#sheets').addEventListener('click',e=>{ const b=e.target.closest('[data-sheet]'); if(!b) return; const h=SHEETS[+b.dataset.sheet];
@@ -1106,7 +1103,7 @@ $('#form').addEventListener('submit',e=>{
 });
 
 /* ---------------- map on click ---------------- */
-$('#mapBtn').addEventListener('click',()=>{ $('#map').innerHTML='<iframe title="Офис МАДИС Инжиниринг на карте" src="https://yandex.ru/map-widget/v1/?text='+encodeURIComponent('Москва, улица Академика Королёва, 13с1')+'&z=16" allowfullscreen loading="lazy"></iframe>'; });
+$('#mapBtn').addEventListener('click',()=>{ $('#map').innerHTML='<iframe title="Вход в офис МАДИС Инжиниринг на карте" src="https://yandex.ru/map-widget/v1/?ll=37.618600,55.819650&z=17&pt=37.618427,55.819901,pm2rdl" allowfullscreen loading="lazy"></iframe>'; });
 
 /* ---------------- 3D bridge slot ---------------- */
 const hero={frames:[],n:0,ready:false,p:0,fixed:Q.has('s')?Math.min(1,Math.max(0,parseFloat(Q.get('s'))||0)):null};
@@ -1163,7 +1160,7 @@ function intro(){
   const t=SplitText.create('#heroTitle span',{type:'words,chars',charsClass:'ch'});
   gsap.from(t.chars,{opacity:0,filter:'blur(14px)',yPercent:30,duration:1.1,ease:'power3.out',stagger:.035});
   gsap.from('.hero-photo img',{scale:1.18,duration:2.4,ease:'power2.out'});
-  gsap.from(['.hero-lead','.quick a','.hero-tags li'],{opacity:0,y:18,duration:.9,ease:'power2.out',stagger:.07,delay:.5});
+  gsap.from(['.hero-lead','.quick a'],{opacity:0,y:18,duration:.9,ease:'power2.out',stagger:.07,delay:.5});
 }
 
 if(!reduce){
@@ -1181,7 +1178,6 @@ if(!reduce){
     const H=gsap.timeline({defaults:{ease:'none'},scrollTrigger:{trigger:'.hero',start:'top top',end:'bottom bottom',scrub:hero.fixed===null?0.6:false,
       onUpdate:s=>{ if(hero.fixed===null){hero.p=s.progress; drawBridge();} if(s.isActive) theme(s.progress>.9?'day':'night'); }}});
     H.to('.hero-photo img',{scale:1.32,yPercent:5,duration:.75},0)
-     .to('.hero-tags li',{opacity:0,y:-14,stagger:.03,duration:.2},.05)
      .to('#heroTitle .l1',{xPercent:-14,opacity:0,duration:.33},.42)
      .to('#heroTitle .l2',{xPercent:14,opacity:0,duration:.33},.42)
      .to('.hero-foot',{opacity:0,y:30,duration:.2},.3)
@@ -1199,11 +1195,10 @@ if(!reduce){
     ScrollTrigger.create({trigger:'.hero',start:'top top',end:'bottom 45%',refreshPriority:-1,onToggle:s=>s.isActive&&markNav('top')});
 
     /* marquee: drifts with time and scroll */
-    const mq=$('#marq'); const half=()=>mq.scrollWidth/2; let mx=0, vel=0;
+    const mq=$('#marq'), mq2=$('#marq2'); const half=()=>mq.scrollWidth/2; let mx=0, vel=0;
     lenis.on('scroll',e=>{vel=e.velocity});
-    gsap.ticker.add(()=>{ mx-= 1.1 + Math.abs(vel)*.35; if(-mx>=half()) mx+=half(); mq.style.transform=`translate(${mx}px,-50%)`; });
+    gsap.ticker.add(()=>{ mx-= 1.1 + Math.abs(vel)*.35; if(-mx>=half()) mx+=half(); mq.style.transform=mq2.style.transform=`translate(${mx}px,-50%)`; });
     gsap.fromTo('.marq-circle img',{yPercent:-8},{yPercent:8,ease:'none',scrollTrigger:{trigger:'.marq',start:'top bottom',end:'bottom top',scrub:true}});
-    gsap.from('.marq-circle',{scale:.55,ease:'none',scrollTrigger:{trigger:'.marq',start:'top 95%',end:'center 50%',scrub:true}});
 
     /* split headings */
     $$('.split').forEach(h=>{ const s=SplitText.create(h,{type:'words,chars',charsClass:'ch'}); gsap.from(s.chars,{opacity:0,filter:'blur(10px)',yPercent:24,stagger:.018,duration:.9,ease:'power3.out',scrollTrigger:{trigger:h,start:'top 82%'}}); });

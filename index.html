@@ -1109,30 +1109,44 @@ $('#form').addEventListener('submit',e=>{
 $('#mapBtn').addEventListener('click',()=>{ $('#map').innerHTML='<iframe title="Вход в офис МАДИС Инжиниринг на карте" src="https://yandex.ru/map-widget/v1/?ll=37.618600,55.819650&z=17&pt=37.618427,55.819901,pm2rdl" allowfullscreen loading="lazy"></iframe>'; });
 
 /* ---------------- 3D bridge slot ---------------- */
-const hero={frames:[],n:0,ready:false,p:0,fixed:Q.has('s')?Math.min(1,Math.max(0,parseFloat(Q.get('s'))||0)):null};
+/* frames[i]: ImageBitmap = распакован, 0 = распаковывается, null/пусто = нет. Рисуем только готовые ImageBitmap:
+   <img> на canvas распаковывается в главном потоке (~12 мс на кадр) — отсюда были рывки при прокрутке */
+const hero={frames:[],blobs:[],n:0,ready:false,p:0,k:0,fixed:Q.has('s')?Math.min(1,Math.max(0,parseFloat(Q.get('s'))||0)):null};
 const cv=$('#bridge'), cx=cv.getContext('2d');
 function sizeCanvas(){const d=Math.min(devicePixelRatio||1,2); cv.width=Math.round(cv.clientWidth*d)||1; cv.height=Math.round(cv.clientHeight*d)||1; drawBridge();}
 function drawFrame(img,alpha){
-  if(!img||!img.complete||!img.naturalWidth) return false;
-  const W=cv.width,H=cv.height, s=Math.max(W/img.naturalWidth,H/img.naturalHeight)*(isMob()?1.0:1);
-  const w=img.naturalWidth*s,h=img.naturalHeight*s; cx.globalAlpha=alpha; cx.drawImage(img,(W-w)/2,(H-h)/2,w,h); cx.globalAlpha=1; return true;
+  if(!img) return false;
+  const W=cv.width,H=cv.height, s=Math.max(W/img.width,H/img.height);
+  const w=img.width*s,h=img.height*s; cx.globalAlpha=alpha; cx.drawImage(img,(W-w)/2,(H-h)/2,w,h); cx.globalAlpha=1; return true;
 }
 function drawBridge(){
   if(!hero.ready) return;
-  const f=Math.min(1,hero.p/0.75)*(hero.n-1), a=Math.floor(f), b=Math.min(hero.n-1,a+1), t=f-a;
-  cx.clearRect(0,0,cv.width,cv.height);
+  let f=Math.min(1,hero.p/0.75)*(hero.n-1); f+=(Math.round(f)-f)*hero.k; /* k→1 на остановке: целый кадр, без двоения */
+  const a=Math.floor(f), b=Math.min(hero.n-1,a+1), t=f-a;
   const ia=near(a), ib=near(b);
-  drawFrame(ia,1); if(t>0.02 && ib!==ia) drawFrame(ib,t);
+  if(ia){ cx.clearRect(0,0,cv.width,cv.height); drawFrame(ia,1); if(t>0.02 && ib!==ia) drawFrame(ib,t); }
+  want(Math.round(f));
 }
-function near(i){ for(let d=0;d<hero.n;d++){ const x=hero.frames[i-d]||hero.frames[i+d]; if(x&&x.complete&&x.naturalWidth) return x; } return null; }
+function near(i){ for(let d=0;d<hero.n;d++){ const x=hero.frames[i-d]||hero.frames[i+d]; if(x) return x; } return null; }
+/* держим распакованными кадры c±WIN (≈100 МБ на 1600×900), остальные освобождаем */
+const WIN=8; let busy=0;
+function want(c){
+  let best=-1; for(let d=0;d<hero.n&&best<0;d++){ if(hero.blobs[c+d]) best=c+d; else if(hero.blobs[c-d]) best=c-d; } /* пока грузится — ближайший из скачанных */
+  hero.frames.forEach((x,i)=>{ if(x&&Math.abs(i-c)>WIN+4&&i!==best){ x.close(); hero.frames[i]=null; } });
+  const ask=i=>{ if(busy>=4||!hero.blobs[i]||hero.frames[i]!=null) return; busy++; hero.frames[i]=0;
+    createImageBitmap(hero.blobs[i]).then(x=>{ busy--; hero.frames[i]=x; drawBridge(); },()=>{ busy--; hero.frames[i]=null; }); };
+  if(best>=0) ask(best);
+  for(let d=0;d<=WIN;d++){ ask(c+d); ask(c-d); }
+}
 fetch('img/3d/bridge.json',{cache:'no-cache'}).then(r=>r.ok?r.json():null).then(m=>{
-  if(!m||!m.frames) return;
+  if(!m||!m.frames||!window.createImageBitmap) return;
   const pat=(isMob()&&m.mobile)?m.mobile:m.pattern, pad=m.pad||3;
   hero.n=m.frames;
   const url=i=>pat.replace('{i}',String(i).padStart(pad,'0'));
   const order=[]; for(let step=Math.max(1,Math.floor(m.frames/8));step>=1;step=Math.floor(step/2)){ for(let i=0;i<m.frames;i+=step) if(!order.includes(i)) order.push(i); if(step===1) break; }
   for(let i=0;i<m.frames;i++) if(!order.includes(i)) order.push(i);
-  let k=0; const next=()=>{ if(k>=order.length) return; const i=order[k++]; const im=new Image(); im.decoding='async'; im.onload=()=>{ if(i===0||!hero.ready){ if(!hero.ready&&im.naturalWidth){hero.ready=true; document.documentElement.classList.add('has-3d'); sizeCanvas();} } drawBridge(); next(); }; im.onerror=next; im.src=url(i); hero.frames[i]=im; };
+  let k=0; const next=()=>{ if(k>=order.length) return; const i=order[k++];
+    fetch(url(i)).then(r=>r.ok?r.blob():null).then(bl=>{ if(bl){ hero.blobs[i]=bl; if(!hero.ready){hero.ready=true; document.documentElement.classList.add('has-3d'); sizeCanvas();} else drawBridge(); } next(); }).catch(next); };
   for(let c=0;c<4;c++) next();
 }).catch(()=>{});
 addEventListener('resize',()=>{ if(hero.ready) sizeCanvas(); });
@@ -1178,8 +1192,9 @@ if(!reduce){
   document.fonts.ready.then(()=>{
     const theme=t=>{ hdr.classList.toggle('day',t==='day'); hdr.classList.toggle('steel',t==='steel'); hdr.classList.toggle('dark-sec',t==='dark'); };
     /* hero scroll (top-most) */
+    let rest; const settle=()=>{ gsap.killTweensOf(hero); hero.k=0; clearTimeout(rest); rest=setTimeout(()=>gsap.to(hero,{k:1,duration:.3,ease:'power1.out',onUpdate:drawBridge}),140); };
     const H=gsap.timeline({defaults:{ease:'none'},scrollTrigger:{trigger:'.hero',start:'top top',end:'bottom bottom',scrub:hero.fixed===null?0.6:false,
-      onUpdate:s=>{ if(hero.fixed===null){hero.p=s.progress; drawBridge();} if(s.isActive) theme(s.progress>.9?'day':'night'); }}});
+      onUpdate:s=>{ if(hero.fixed===null){hero.p=s.progress; settle(); drawBridge();} if(s.isActive) theme(s.progress>.9?'day':'night'); }}});
     H.to('.hero-photo img',{scale:1.32,yPercent:5,duration:.75},0)
      .to('#heroTitle .l1',{xPercent:-14,opacity:0,duration:.33},.42)
      .to('#heroTitle .l2',{xPercent:14,opacity:0,duration:.33},.42)

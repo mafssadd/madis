@@ -78,7 +78,6 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
 .hdr.dark-sec{background:rgba(22,23,25,.86);color:var(--night-ink);box-shadow:0 1px 0 var(--night-line)}
 .hdr.steel{background:rgba(35,87,112,.9);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);color:#fff;box-shadow:0 1px 0 rgba(255,255,255,.15)}
 .no-x .hero{height:auto}
-.no-x .hero-day{display:none}
 @media (max-width:900px){
   .hdr-row{height:58px;gap:12px}
   .logo img{height:28px} .logo b{font-size:19px}
@@ -92,8 +91,10 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
 
 /* ---------- hero ---------- */
 .hero{position:relative;background:var(--night);color:var(--night-ink)}
-.js .hero{height:220vh}
-@media (max-width:900px){ .js .hero{height:180vh} }
+/* высота = путь облёта + экран + 100vh, на которые «Услуги» наезжают поверх закреплённого моста */
+.js .hero{height:320vh}
+.js #services{position:relative;z-index:1;margin-top:-100vh}
+@media (max-width:900px){ .js .hero{height:280vh} }
 .hero-pin{position:sticky;top:0;height:100vh;height:100dvh;overflow:hidden;isolation:isolate}
 .hero-sky{position:absolute;inset:0;z-index:-3;background:radial-gradient(120% 70% at 50% 100%,#2b2a2a 0%,#1b1c1e 45%,var(--night) 80%)}
 /* вечернее небо под прозрачными кадрами рендера: горизонт рендера на ~68% высоты */
@@ -114,7 +115,6 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
 .quick b{font:400 21px/1.1 var(--serif);letter-spacing:.01em}
 .quick small{font:300 12.5px/1.3 var(--sans);color:var(--night-mut)}
 .hero-line{position:absolute;left:var(--gut);right:var(--gut);bottom:calc(100% + 18px);height:1px;background:var(--night-line)}
-.hero-day{position:absolute;inset:0;z-index:4;background:var(--paper);transform:translateY(101%);pointer-events:none}
 @media (max-width:900px){
   .hero-title{top:calc(var(--hdr) + 4vh);font-size:clamp(40px,12vw,80px);line-height:.95}
   .hero-title .l2{white-space:normal}
@@ -261,6 +261,7 @@ section{position:relative}
 @media (max-width:900px){
   .xp-h{font-size:clamp(34px,10.6vw,64px)}
   .xp-slot{width:2.2em}
+  .xp-cap{right:var(--gut);bottom:calc(96px + env(safe-area-inset-bottom))} /* выше нижней панели с кнопками */
   .stats{grid-template-columns:1fr 1fr;gap:36px 18px;padding:64px 0 56px}
   .grid{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;gap:14px;margin:0 calc(var(--gut) * -1);padding:0 var(--gut) 8px;scrollbar-width:none}
   .grid::-webkit-scrollbar{display:none}
@@ -530,7 +531,6 @@ fieldset.fld{border:0}
         <a href="#svc-exp"><b>Экспертизы</b><small>ГГЭ, МГЭ, МОГЭ</small></a>
       </nav>
     </div>
-    <div class="hero-day" id="heroDay"></div>
   </div>
 </section>
 
@@ -1193,24 +1193,22 @@ if(!reduce){
     const theme=t=>{ hdr.classList.toggle('day',t==='day'); hdr.classList.toggle('steel',t==='steel'); hdr.classList.toggle('dark-sec',t==='dark'); };
     /* hero scroll (top-most) */
     let rest; const settle=()=>{ gsap.killTweensOf(hero); hero.k=0; clearTimeout(rest); rest=setTimeout(()=>gsap.to(hero,{k:1,duration:.3,ease:'power1.out',onUpdate:drawBridge}),140); };
-    const H=gsap.timeline({defaults:{ease:'none'},scrollTrigger:{trigger:'.hero',start:'top top',end:'bottom bottom',scrub:hero.fixed===null?0.6:false,
-      onUpdate:s=>{ if(hero.fixed===null){hero.p=s.progress; settle(); drawBridge();} if(s.isActive) theme(s.progress>.9?'day':'night'); }}});
+    const H=gsap.timeline({defaults:{ease:'none'},scrollTrigger:{trigger:'.hero',start:'top top',endTrigger:'#services',end:'top bottom',scrub:hero.fixed===null?0.6:false,
+      onUpdate:s=>{ if(hero.fixed===null){hero.p=s.progress; settle(); drawBridge();} if(s.isActive) theme('night'); }}});
     H.to('.hero-photo img',{scale:1.32,yPercent:5,duration:.75},0)
      .to('#heroTitle .l1',{xPercent:-14,opacity:0,duration:.33},.42)
      .to('#heroTitle .l2',{xPercent:14,opacity:0,duration:.33},.42)
      .to('.hero-foot',{opacity:0,y:30,duration:.2},.3)
-     .to('#bridge',{scale:1.06,duration:.3},.7)
-     .to('#heroDay',{yPercent:-101,duration:.28,ease:'power1.inOut'},.72)
-     .to({},{duration:.0},1);
+     .to('#bridge',{scale:1.06,duration:.3},.7);
     if(hero.fixed!==null){ hero.p=hero.fixed; H.progress(hero.fixed); drawBridge(); }
 
     /* header theme follows the section under it + progress */
     [['#services','day'],['#objects','day'],['#examples','day'],['#process','steel'],['#clients','day'],['#landscape','day'],['#contacts','dark'],['.ft','dark']].forEach(([sel,t])=>
       ScrollTrigger.create({trigger:sel,start:'top 70px',end:'bottom 70px',refreshPriority:-1,onToggle:s=>{ if(s.isActive) theme(t); }}));
-    ScrollTrigger.create({trigger:'.hero',start:'top top',end:'bottom 70px',onToggle:s=>{ if(s.isActive) theme('night'); }});
+    ScrollTrigger.create({trigger:'.hero',start:'top top',endTrigger:'#services',end:'top 70px',onToggle:s=>{ if(s.isActive) theme('night'); }});
     ScrollTrigger.create({start:0,end:'max',onUpdate:s=>$('#hdrProg').style.transform=`scaleX(${s.progress})`});
     ['services','objects','examples','process','clients','landscape','contacts'].forEach(id=>ScrollTrigger.create({trigger:'#'+id,start:'top 45%',end:'bottom 45%',refreshPriority:-1,onToggle:s=>s.isActive&&markNav(id)}));
-    ScrollTrigger.create({trigger:'.hero',start:'top top',end:'bottom 45%',refreshPriority:-1,onToggle:s=>s.isActive&&markNav('top')});
+    ScrollTrigger.create({trigger:'.hero',start:'top top',endTrigger:'#services',end:'top 45%',refreshPriority:-1,onToggle:s=>s.isActive&&markNav('top')});
 
     /* marquee: drifts with time and scroll */
     const mq=$('#marq'), mq2=$('#marq2'); const half=()=>mq.scrollWidth/2; let mx=0, vel=0;
@@ -1228,14 +1226,15 @@ if(!reduce){
     const mm=gsap.matchMedia();
     const xpInset=()=>{ const s=$('#xpSlot').getBoundingClientRect(), b=$('#xp').getBoundingClientRect();
       return `inset(${s.top-b.top}px ${b.right-s.right}px ${b.bottom-s.bottom}px ${s.left-b.left}px round 6px)`; };
-    const X=gsap.timeline({scrollTrigger:{trigger:'#xp',start:'top top',end:()=>'+='+innerHeight*(isMob()?1.2:1.6),pin:true,scrub:.6,invalidateOnRefresh:true}});
-    X.fromTo('#xpMedia',{clipPath:xpInset},{clipPath:'inset(0px 0px 0px 0px round 0px)',ease:'power2.inOut',duration:.6},0)
-     .to('.xp-h .l1',{xPercent:-30,opacity:0,duration:.45,ease:'power1.in'},.08)
-     .to('.xp-h .l3',{xPercent:30,opacity:0,duration:.45,ease:'power1.in'},.08)
+    const X=gsap.timeline({scrollTrigger:{trigger:'#xp',start:'top top',end:()=>'+='+innerHeight*(isMob()?1:1.3),pin:true,scrub:.6,invalidateOnRefresh:true}});
+    /* подпись входит, пока заголовок ещё уходит: фото без текста не остаётся */
+    X.fromTo('#xpMedia',{clipPath:xpInset},{clipPath:'inset(0px 0px 0px 0px round 0px)',ease:'power2.inOut',duration:.5},0)
+     .to('.xp-h .l1',{xPercent:-30,opacity:0,duration:.4,ease:'power1.in'},.08)
+     .to('.xp-h .l3',{xPercent:30,opacity:0,duration:.4,ease:'power1.in'},.08)
      .to('.xp-h .l2',{opacity:0,duration:.3},.2)
-     .fromTo('#xpMedia img',{scale:1.25},{scale:1,duration:.7,ease:'power2.out'},0)
-     .to('#xpMedia',{'--shade':1,duration:.2},.6)
-     .fromTo('#xpCap',{opacity:0,y:30},{opacity:1,y:0,duration:.25},.66)
+     .fromTo('#xpMedia img',{scale:1.25},{scale:1,duration:.6,ease:'power2.out'},0)
+     .to('#xpMedia',{'--shade':1,duration:.2},.28)
+     .fromTo('#xpCap',{opacity:0,y:30},{opacity:1,y:0,duration:.25},.32)
      .to({},{duration:.15});
 
     /* stats count up */

@@ -7,20 +7,26 @@
 <meta name="description" content="Проектная организация: проекты производства работ, ПОС и ТКР с сопровождением в экспертизе, СВСиУ и ВЗиС, BIM-модели для мостов, путепроводов и дорог. Волга, Кама, Нева, Волхов, Москва-река.">
 <meta name="robots" content="noindex, nofollow">
 <meta name="author" content="Денис Стрепенюк">
-<meta property="og:title" content="МАДИС Инжиниринг — знаем, как построить мост">
+<meta property="og:title" content="МАДИС Инжиниринг — знаем, как спроектировать мост">
 <meta property="og:description" content="ППР, ПОС, СВСиУ, ВЗиС и BIM для мостов и путепроводов.">
 <meta property="og:image" content="og.jpg">
 <meta name="theme-color" content="#161719">
 <link rel="icon" href="img/logo-mark.png">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Forum&family=Onest:wght@300;400;500&display=swap" rel="stylesheet">
+<link rel="preload" href="fonts/onest-cyrillic.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="fonts/forum-cyrillic.woff2" as="font" type="font/woff2" crossorigin>
 <!-- Сайт ООО «МАДИС Инжиниринг». Дизайн и разработка — Денис Стрепенюк, +7 977 393-80-33 -->
 <script>
   try { if (!sessionStorage.getItem('madis-pre') && !matchMedia('(prefers-reduced-motion: reduce)').matches) { document.documentElement.classList.add('js-loading'); sessionStorage.setItem('madis-pre','1'); setTimeout(()=>document.documentElement.classList.remove('js-loading'),6000); } } catch(e) {}
   document.documentElement.classList.add('js');
 </script>
 <style>
+/* Forum и Onest лежат локально в fonts/ (OFL), без запросов к Google */
+@font-face{font-family:'Forum';font-style:normal;font-weight:400;font-display:swap;src:url(fonts/forum-cyrillic.woff2) format('woff2');unicode-range:U+0301,U+0400-045F,U+0490-0491,U+04B0-04B1,U+2116}
+@font-face{font-family:'Forum';font-style:normal;font-weight:400;font-display:swap;src:url(fonts/forum-latin.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+@font-face{font-family:'Onest';font-style:normal;font-weight:300 500;font-display:swap;src:url(fonts/onest-cyrillic.woff2) format('woff2');unicode-range:U+0301,U+0400-045F,U+0490-0491,U+04B0-04B1,U+2116}
+@font-face{font-family:'Onest';font-style:normal;font-weight:300 500;font-display:swap;src:url(fonts/onest-math.woff2) format('woff2');unicode-range:U+0302-0303,U+0305,U+0307-0308,U+0310,U+0312,U+0315,U+031A,U+0326-0327,U+032C,U+032F-0330,U+0332-0333,U+0338,U+033A,U+0346,U+034D,U+0391-03A1,U+03A3-03A9,U+03B1-03C9,U+03D1,U+03D5-03D6,U+03F0-03F1,U+03F4-03F5,U+2016-2017,U+2034-2038,U+203C,U+2040,U+2043,U+2047,U+2050,U+2057,U+205F,U+2070-2071,U+2074-209F,U+20D0-20DC,U+20E1,U+20E5-20EF,U+2100-2112,U+2114-2115,U+2117-2121,U+2123-214F,U+2190,U+2192,U+2194-21AE,U+21B0-21E5,U+21F1-21F2,U+21F4-2211,U+2213-2214,U+2216-22FF,U+2308-230B,U+2310,U+2319,U+231C-2321,U+2336-237A,U+237C,U+2395,U+239B-23B7,U+23D0,U+23DC-23E1,U+2474-2475,U+25AF,U+25B3,U+25B7,U+25BD,U+25C1,U+25CA,U+25CC,U+25FB,U+266D-266F,U+27C0-27FF,U+2900-2AFF,U+2B0E-2B11,U+2B30-2B4C,U+2BFE,U+3030,U+FF5B,U+FF5D,U+1D400-1D7FF,U+1EE00-1EEFF}
+@font-face{font-family:'Onest';font-style:normal;font-weight:300 500;font-display:swap;src:url(fonts/onest-symbols.woff2) format('woff2');unicode-range:U+0001-000C,U+000E-001F,U+007F-009F,U+20DD-20E0,U+20E2-20E4,U+2150-218F,U+2190,U+2192,U+2194-2199,U+21AF,U+21E6-21F0,U+21F3,U+2218-2219,U+2299,U+22C4-22C6,U+2300-243F,U+2440-244A,U+2460-24FF,U+25A0-27BF,U+2800-28FF,U+2921-2922,U+2981,U+29BF,U+29EB,U+2B00-2BFF,U+4DC0-4DFF,U+FFF9-FFFB,U+10140-1018E,U+10190-1019C,U+101A0,U+101D0-101FD,U+102E0-102FB,U+10E60-10E7E,U+1D2C0-1D2D3,U+1D2E0-1D37F,U+1F000-1F0FF,U+1F100-1F1AE,U+1F1E6-1F1FF,U+1F30D-1F30F,U+1F315,U+1F31C,U+1F31E,U+1F320-1F32C,U+1F336,U+1F378,U+1F37D,U+1F382,U+1F393-1F39F,U+1F3A7-1F3A8,U+1F3AC-1F3AF,U+1F3C2,U+1F3C4-1F3C6,U+1F3CA-1F3CE,U+1F3D4-1F3E0,U+1F3ED,U+1F3F1-1F3F3,U+1F3F5-1F3F7,U+1F408,U+1F415,U+1F41F,U+1F426,U+1F43F,U+1F441-1F442,U+1F444,U+1F446-1F449,U+1F44C-1F44E,U+1F453,U+1F46A,U+1F47D,U+1F4A3,U+1F4B0,U+1F4B3,U+1F4B9,U+1F4BB,U+1F4BF,U+1F4C8-1F4CB,U+1F4D6,U+1F4DA,U+1F4DF,U+1F4E3-1F4E6,U+1F4EA-1F4ED,U+1F4F7,U+1F4F9-1F4FB,U+1F4FD-1F4FE,U+1F503,U+1F507-1F50B,U+1F50D,U+1F512-1F513,U+1F53E-1F54A,U+1F54F-1F5FA,U+1F610,U+1F650-1F67F,U+1F687,U+1F68D,U+1F691,U+1F694,U+1F698,U+1F6AD,U+1F6B2,U+1F6B9-1F6BA,U+1F6BC,U+1F6C6-1F6CF,U+1F6D3-1F6D7,U+1F6E0-1F6EA,U+1F6F0-1F6F3,U+1F6F7-1F6FC,U+1F700-1F80B,U+1F810-1F847,U+1F850-1F859,U+1F860-1F887,U+1F890-1F8AD,U+1F8B0-1F8BB,U+1F8C0-1F8C1,U+1F8D0-1F8D8,U+1F900-1F90B,U+1F93B,U+1F946,U+1F984,U+1F996,U+1F9E9,U+1FA00-1FA6F,U+1FA70-1FA7C,U+1FA80-1FAC6,U+1FAC8,U+1FACC-1FADD,U+1FADF-1FAEB,U+1FAEF-1FAFA,U+1FB00-1FBFF}
+@font-face{font-family:'Onest';font-style:normal;font-weight:300 500;font-display:swap;src:url(fonts/onest-latin.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
 :root{
   --night:#161719; --night2:#1f2023; --night-ink:#ECEAE5; --night-mut:#8E8C87; --night-line:rgba(236,234,229,.14);
   --paper:#F1F2F2; --white:#fff; --ink:#141516; --mut:#5F6366; --line:#D9DBDC;
@@ -105,7 +111,7 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
 .hero-photo img{width:100%;height:100%;object-fit:cover;object-position:40% 55%;transform-origin:55% 60%;filter:saturate(.85) brightness(.82)}
 .hero-photo::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(22,23,25,.78) 0%,rgba(22,23,25,.25) 38%,rgba(22,23,25,.35) 70%,rgba(22,23,25,.92) 100%)}
 .has-3d .hero-photo{display:none}
-.hero-title{position:absolute;left:0;right:0;top:calc(var(--hdr) + 3vh);z-index:-1;text-align:center;font:400 clamp(54px,10.6vw,200px)/.9 var(--serif);text-transform:uppercase;letter-spacing:.005em;pointer-events:none}
+.hero-title{position:absolute;left:0;right:0;top:calc(var(--hdr) + 3vh);z-index:-1;text-align:center;font:400 clamp(40px,7.9vw,150px)/.9 var(--serif);text-transform:uppercase;letter-spacing:.005em;pointer-events:none}
 .hero-title span{display:block;white-space:nowrap}
 .hero-bridge{position:absolute;inset:0;width:100%;height:100%;z-index:0;pointer-events:none;display:none}
 .has-3d .hero-bridge{display:block}
@@ -118,7 +124,7 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
 .quick small{font:300 12.5px/1.3 var(--sans);color:var(--night-mut)}
 .hero-line{position:absolute;left:var(--gut);right:var(--gut);bottom:calc(100% + 18px);height:1px;background:var(--night-line)}
 @media (max-width:900px){
-  .hero-title{top:calc(var(--hdr) + 4vh);font-size:clamp(40px,12vw,80px);line-height:.95}
+  .hero-title{top:calc(var(--hdr) + 4vh);font-size:clamp(30px,10vw,80px);line-height:.95}
   .hero-title .l2{white-space:normal}
   .hero-foot{flex-direction:column;align-items:stretch;gap:16px;padding-bottom:calc(84px + env(safe-area-inset-bottom))}
   .hero-lead{font-size:14.5px}
@@ -175,11 +181,20 @@ section{position:relative}
   .svc-b ul{columns:1}
 }
 
-.svc-more{display:none}
-@media (max-width:900px){
-  .svc-b ul:not(.open) li:nth-child(n+4){display:none}
-  .svc-more{display:inline-block;margin-top:12px;font:400 14px var(--sans);color:var(--ink);border-bottom:1px solid currentColor;padding-bottom:2px}
-}
+.tray{margin-top:16px}
+.tray summary{display:inline-block;cursor:pointer;list-style:none;font:400 14px var(--sans);color:var(--steel);border-bottom:1px solid currentColor;padding-bottom:2px}
+.tray summary::-webkit-details-marker{display:none}
+.tray summary::after{content:" +"}
+.tray[open] summary::after{content:" −"}
+.tray[open] summary{margin-bottom:18px}
+.tray > p{font-size:16px;max-width:720px}
+.tray > p ~ p{margin-top:28px}
+.scope-tray{margin:0 0 40px}
+.scope-tray .scope{margin-bottom:24px}
+.tabs{display:flex;gap:32px;margin:72px 0 56px;border-bottom:1px solid var(--line)}
+.tabs button{font:400 clamp(20px,2vw,30px)/1 var(--serif);text-transform:uppercase;padding-bottom:14px;margin-bottom:-1px;color:var(--mut);border-bottom:2px solid transparent}
+.tabs button[aria-selected=true]{color:var(--ink);border-bottom-color:var(--red)}
+@media (max-width:900px){ .tabs{gap:20px;margin:48px 0 36px} }
 /* ---------- objects ---------- */
 #objects{background:var(--white)}
 .xp{position:relative;height:100vh;height:100dvh;overflow:hidden;background:var(--white)}
@@ -346,12 +361,11 @@ section{position:relative}
 }
 
 /* ---------- examples ---------- */
-#examples{background:var(--white)}
-#examples .ba{margin-top:0}
-#examples .ba-txt small{display:block;font-size:13px;color:var(--mut);margin-bottom:12px}
-#examples .ba-txt h3{font-size:clamp(30px,2.8vw,40px)}
-#examples .ba-txt p{color:var(--mut)}
-#examples .ba-box{border:1px solid var(--line)}
+#exPane .ba{margin-top:0}
+#exPane .ba-txt small{display:block;font-size:13px;color:var(--mut);margin-bottom:12px}
+#exPane .ba-txt h3{font-size:clamp(30px,2.8vw,40px)}
+#exPane .ba-txt p{color:var(--mut)}
+#exPane .ba-box{border:1px solid var(--line)}
 .sheets-h{margin:110px 0 28px;border-bottom:1px solid var(--line);padding-bottom:16px}
 .sheets-h p{margin-top:8px;font-size:14.5px;color:var(--mut)}
 .sheets-h h3{font:400 clamp(26px,2.4vw,36px)/1 var(--serif);text-transform:uppercase}
@@ -391,17 +405,13 @@ section{position:relative}
 }
 
 /* ---------- landscape ---------- */
-#landscape{background:var(--white)}
-.ls{display:grid;grid-template-columns:repeat(12,1fr);gap:24px}
-.ls-photos{grid-column:1 / span 12;display:grid;grid-template-columns:2fr 1fr 1fr;gap:24px;margin-bottom:56px}
+.ls-photos{display:grid;grid-template-columns:2fr 1fr 1fr;gap:24px;margin-bottom:56px}
 .ls-photos figure{border-radius:var(--r);overflow:hidden;aspect-ratio:16/10;cursor:zoom-in;position:relative}
 .ls-photos figure:first-child{aspect-ratio:auto}
 .ls-photos img{width:100%;height:100%;object-fit:cover}
 .ls-photos figcaption{position:absolute;left:12px;bottom:12px;padding:4px 10px;border-radius:30px;background:rgba(255,255,255,.88);font:400 12.5px var(--sans)}
-.ls-svc{grid-column:1 / -1}
 @media (max-width:900px){
-  .ls{grid-template-columns:1fr}
-  .ls-photos{grid-column:1;display:flex;overflow-x:auto;scroll-snap-type:x mandatory;margin:0 calc(var(--gut) * -1) 40px;padding:0 var(--gut);gap:12px;scrollbar-width:none}
+  .ls-photos{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;margin:0 calc(var(--gut) * -1) 40px;padding:0 var(--gut);gap:12px;scrollbar-width:none}
   .ls-photos figure{flex:0 0 82%;scroll-snap-align:start;aspect-ratio:16/10!important}
 }
 
@@ -498,13 +508,11 @@ fieldset.fld{border:0}
     <nav class="nav" aria-label="Разделы">
       <a href="#services">Услуги</a>
       <a href="#objects">Объекты</a>
-      <a href="#examples">Примеры работ</a>
-      <a href="#landscape">Благоустройство</a>
       <a href="#clients">Наши заказчики</a>
       <a href="#contacts">Контакты</a>
     </nav>
     <a class="hdr-tel" href="tel:+74957900992">+7 (495) 790-09-92</a>
-    <a class="pill" href="#contacts">Отправить ТЗ</a>
+    <a class="pill" href="#contacts">Запросить КП</a>
   </div>
   <i class="hdr-prog" id="hdrProg"></i>
 </header>
@@ -515,7 +523,7 @@ fieldset.fld{border:0}
   <div class="hero-pin" id="heroPin">
     <div class="hero-sky"></div>
     <div class="hero-photo"><img src="img/hero-night-1600.webp" srcset="img/hero-night-800.webp 800w, img/hero-night-1600.webp 1600w, img/hero-night-2400.webp 2400w" sizes="100vw" alt="Ночной монтаж пролётного строения краном, трасса Р-22 «Каспий»" fetchpriority="high"></div>
-    <h1 class="hero-title" id="heroTitle"><span class="l1">Знаем, как</span><span class="l2">построить мост</span></h1>
+    <h1 class="hero-title" id="heroTitle"><span class="l1">Знаем, как</span><span class="l2">спроектировать мост</span></h1>
     <canvas class="hero-bridge" id="bridge" aria-hidden="true"></canvas>
     <div class="hero-foot">
       <i class="hero-line"></i>
@@ -542,85 +550,108 @@ fieldset.fld{border:0}
       <h2 id="svcH" class="split">Что мы делаем</h2>
       <p>Основное направление — сопровождение проектирования и строительства мостовых сооружений. Закрываем производственно-технические задачи стройки и инженерного проектирования.</p>
     </div>
-    <div class="scope">
-      <div><small>Объекты</small><p>Линейные объекты капитального строительства: мосты, путепроводы, эстакады, автомобильные и железные дороги, улично-дорожная сеть.</p></div>
-      <div><small>Нормативная база</small><p>Проектную документацию линейных объектов выпускаем в соответствии с постановлением Правительства РФ от 16.02.2008 № 87 «О составе разделов проектной документации и требованиях к их содержанию».</p></div>
-      <div><small>Виды документации</small><p>Проектная (П) и рабочая (Р) документация — ГОСТ Р 21.101. Проекты производства работ — СП 48.13330.2019. Исполнительная документация — приказ Минстроя России № 344/пр.</p></div>
-    </div>
+    <details class="tray scope-tray">
+      <summary>Объекты и нормативная база</summary>
+      <div class="scope">
+        <div><small>Объекты</small><p>Линейные объекты капитального строительства: мосты, путепроводы, эстакады, автомобильные и железные дороги, улично-дорожная сеть.</p></div>
+        <div><small>Нормативная база</small><p>Проектную документацию линейных объектов выпускаем в соответствии с постановлением Правительства РФ от 16.02.2008 № 87 «О составе разделов проектной документации и требованиях к их содержанию».</p></div>
+        <div><small>Виды документации</small><p>Проектная (П) и рабочая (Р) документация — ГОСТ Р 21.101. Проекты производства работ — СП 48.13330.2019. Исполнительная документация — приказ Минстроя России № 344/пр.</p></div>
+      </div>
+    </details>
     <ul class="svc" id="svcList">
       <li id="svc-ppr">
         <h3>Проекты производства работ<small>ППР</small></h3>
         <div class="svc-b">
-          <p>Комплексный ППР на весь объект — от подготовительного периода до завершения работ — или ППР на отдельные виды работ: подготовительный период, земляные и монолитные работы, работу грузоподъёмных механизмов.</p>
-          <p>Строительство, реконструкция и капитальный ремонт искусственных сооружений с учётом техники, плавсредств и ресурсов подрядчика, в том числе:</p>
-          <ul>
-            <li>надвижка пролётных строений, в том числе продольная</li>
-            <li>монтаж пролётных строений кранами и с плавучих систем</li>
-            <li>демонтаж пролётных строений, в том числе с воды</li>
-            <li>замыкание пролётного строения</li>
-            <li>опускание пролётного строения на опорные части</li>
-            <li>сооружение русловых опор, ограждения котлованов</li>
-            <li>расчёты строповки и грузоподъёмных операций</li>
-            <li>планы производства работ на высоте</li>
-            <li>строительные генеральные планы</li>
-            <li>технологические регламенты работы флота и якорных устройств</li>
-          </ul>
-          <a class="more" href="#objects" data-filter="ППР">Объекты с ППР</a>
+          <p>Комплексный ППР на весь объект или на отдельные виды работ: надвижка, монтаж и демонтаж пролётных строений, сооружение опор, работа с воды.</p>
+          <details class="tray">
+            <summary>Подробнее</summary>
+            <p>Комплексный ППР на весь объект — от подготовительного периода до завершения работ — или ППР на отдельные виды работ: подготовительный период, земляные и монолитные работы, работу грузоподъёмных механизмов.</p>
+            <p>Строительство, реконструкция и капитальный ремонт искусственных сооружений с учётом техники, плавсредств и ресурсов подрядчика, в том числе:</p>
+            <ul>
+              <li>надвижка пролётных строений, в том числе продольная</li>
+              <li>монтаж пролётных строений кранами и с плавучих систем</li>
+              <li>демонтаж пролётных строений, в том числе с воды</li>
+              <li>замыкание пролётного строения</li>
+              <li>опускание пролётного строения на опорные части</li>
+              <li>сооружение русловых опор, ограждения котлованов</li>
+              <li>расчёты строповки и грузоподъёмных операций</li>
+              <li>планы производства работ на высоте</li>
+              <li>строительные генеральные планы</li>
+              <li>технологические регламенты работы флота и якорных устройств</li>
+            </ul>
+            <a class="more" href="#objects" data-filter="ППР">Объекты с ППР</a>
+          </details>
         </div>
       </li>
       <li id="svc-id">
         <h3>Исполнительная документация<small>ИД</small></h3>
         <div class="svc-b">
-          <p>Комплект в объёме, достаточном для сдачи объекта в эксплуатацию, по приказу Минстроя России от 16.05.2023 № 344/пр, в том числе:</p>
-          <ul>
-            <li>акты освидетельствования скрытых работ (АОСР)</li>
-            <li>акты освидетельствования строительных конструкций</li>
-            <li>акты разбивки осей и геодезической разбивочной основы</li>
-            <li>исполнительные геодезические схемы</li>
-            <li>исполнительные чертежи</li>
-            <li>общий и специальные журналы работ</li>
-            <li>реестры документов о качестве материалов</li>
-            <li>протоколы испытаний и лабораторного контроля</li>
-          </ul>
+          <p>Комплект для сдачи объекта в эксплуатацию по приказу Минстроя России № 344/пр.</p>
+          <details class="tray">
+            <summary>Подробнее</summary>
+            <p>Комплект в объёме, достаточном для сдачи объекта в эксплуатацию, по приказу Минстроя России от 16.05.2023 № 344/пр, в том числе:</p>
+            <ul>
+              <li>акты освидетельствования скрытых работ (АОСР)</li>
+              <li>акты освидетельствования строительных конструкций</li>
+              <li>акты разбивки осей и геодезической разбивочной основы</li>
+              <li>исполнительные геодезические схемы</li>
+              <li>исполнительные чертежи</li>
+              <li>общий и специальные журналы работ</li>
+              <li>реестры документов о качестве материалов</li>
+              <li>протоколы испытаний и лабораторного контроля</li>
+            </ul>
+          </details>
         </div>
       </li>
       <li id="svc-pos">
         <h3>Проектная документация<small>ПОС, ТКР</small></h3>
         <div class="svc-b">
-          <p>Разделы проектной документации линейных объектов в соответствии с постановлением Правительства РФ № 87, в том числе:</p>
-          <ul>
-            <li>проект организации строительства (ПОС): организация и очерёдность строительства, строительные генеральные планы, потребность в технике и ресурсах</li>
-            <li>организация работ по сносу (демонтажу) существующих сооружений в составе ПОС</li>
-            <li>СВСиУ в составе ПОС: временные рабочие мосты, технологические платформы, временные опоры</li>
-            <li>технологические и конструктивные решения линейного объекта, искусственные сооружения (ТКР)</li>
-          </ul>
-          <a class="more" href="#objects" data-filter="ПОС">Объекты с ПОС</a>
+          <p>ПОС, ТКР и СВСиУ в составе проектной документации линейных объектов.</p>
+          <details class="tray">
+            <summary>Подробнее</summary>
+            <p>Разделы проектной документации линейных объектов в соответствии с постановлением Правительства РФ № 87, в том числе:</p>
+            <ul>
+              <li>проект организации строительства (ПОС): организация и очерёдность строительства, строительные генеральные планы, потребность в технике и ресурсах</li>
+              <li>организация работ по сносу (демонтажу) существующих сооружений в составе ПОС</li>
+              <li>СВСиУ в составе ПОС: временные рабочие мосты, технологические платформы, временные опоры</li>
+              <li>технологические и конструктивные решения линейного объекта, искусственные сооружения (ТКР)</li>
+            </ul>
+            <a class="more" href="#objects" data-filter="ПОС">Объекты с ПОС</a>
+          </details>
         </div>
       </li>
       <li id="svc-exp">
         <h3>Сопровождение в экспертизе</h3>
         <div class="svc-b">
-          <p>Сопровождаем проектную документацию до получения положительного заключения государственной экспертизы федерального и регионального уровня, в том числе ФАУ «Главгосэкспертиза России», и негосударственной экспертизы:</p>
-          <ul>
-            <li>отработка замечаний экспертизы</li>
-            <li>внесение изменений в проектную документацию</li>
-            <li>формирование итоговых томов проектной документации после получения положительного заключения</li>
-          </ul>
+          <p>Сопровождаем проектную документацию до положительного заключения государственной и негосударственной экспертизы.</p>
+          <details class="tray">
+            <summary>Подробнее</summary>
+            <p>Сопровождаем проектную документацию до получения положительного заключения государственной экспертизы федерального и регионального уровня, в том числе ФАУ «Главгосэкспертиза России», и негосударственной экспертизы:</p>
+            <ul>
+              <li>отработка замечаний экспертизы</li>
+              <li>внесение изменений в проектную документацию</li>
+              <li>формирование итоговых томов проектной документации после получения положительного заключения</li>
+            </ul>
+          </details>
         </div>
       </li>
       <li id="svc-rd">
         <h3>Рабочая документация<small>комплекты чертежей</small></h3>
         <div class="svc-b">
-          <p>Комплекты рабочих чертежей для строительства основных и временных сооружений, в том числе:</p>
-          <ul>
-            <li>КР — конструктивные решения</li>
-            <li>КМ — металлические конструкции</li>
-            <li>КЖ — железобетонные конструкции</li>
-            <li>АР — архитектурные решения</li>
-            <li>ВЗиС — временные здания и сооружения</li>
-            <li>СВСиУ — специальные вспомогательные сооружения и устройства</li>
-          </ul>
-          <a class="more" href="#objects" data-filter="СВСиУ">Объекты с СВСиУ и ВЗиС</a>
+          <p>Комплекты рабочих чертежей: КР, КМ, КЖ, АР, ВЗиС, СВСиУ.</p>
+          <details class="tray">
+            <summary>Подробнее</summary>
+            <p>Комплекты рабочих чертежей для строительства основных и временных сооружений, в том числе:</p>
+            <ul>
+              <li>КР — конструктивные решения</li>
+              <li>КМ — металлические конструкции</li>
+              <li>КЖ — железобетонные конструкции</li>
+              <li>АР — архитектурные решения</li>
+              <li>ВЗиС — временные здания и сооружения</li>
+              <li>СВСиУ — специальные вспомогательные сооружения и устройства</li>
+            </ul>
+            <a class="more" href="#objects" data-filter="СВСиУ">Объекты с СВСиУ и ВЗиС</a>
+          </details>
         </div>
       </li>
       <li id="svc-bim">
@@ -633,14 +664,44 @@ fieldset.fld{border:0}
       <li id="svc-agr">
         <h3>Функции технического заказчика</h3>
         <div class="svc-b">
-          <p>Получаем исходно-разрешительную документацию, сопровождаем выполненные проектные решения во всех заинтересованных организациях и обеспечиваем согласования, достаточные для сдачи объекта в эксплуатацию, в том числе:</p>
-          <ul>
-            <li>ППР в полосе отвода железной дороги: акты-допуски, наряды-допуски</li>
-            <li>ППР в ГКУ «Организатор перевозок»</li>
-            <li>изменение движения транспорта в Департаменте транспорта Москвы</li>
-            <li>работы в охранных зонах сетей: МОЭК, Россети, Мосводоканал, Мосгаз и другие</li>
-            <li>получение разрешений и технических условий</li>
-          </ul>
+          <p>Исходно-разрешительная документация и согласования для сдачи объекта: железная дорога, городские сети, Департамент транспорта.</p>
+          <details class="tray">
+            <summary>Подробнее</summary>
+            <p>Получаем исходно-разрешительную документацию, сопровождаем выполненные проектные решения во всех заинтересованных организациях и обеспечиваем согласования, достаточные для сдачи объекта в эксплуатацию, в том числе:</p>
+            <ul>
+              <li>ППР в полосе отвода железной дороги: акты-допуски, наряды-допуски</li>
+              <li>ППР в ГКУ «Организатор перевозок»</li>
+              <li>изменение движения транспорта в Департаменте транспорта Москвы</li>
+              <li>работы в охранных зонах сетей: МОЭК, Россети, Мосводоканал, Мосгаз и другие</li>
+              <li>получение разрешений и технических условий</li>
+            </ul>
+          </details>
+        </div>
+      </li>
+      <li id="svc-land">
+        <h3>Благоустройство территорий<small>Москва</small></h3>
+        <div class="svc-b">
+          <p>Комплексное благоустройство городских кварталов и улиц Москвы: от проектной документации до авторского надзора.</p>
+          <details class="tray">
+            <summary>Подробнее</summary>
+            <div class="ls-photos">
+              <figure data-lb="blag-1"><img src="img/blag-6-1600.webp" srcset="img/blag-6-800.webp 800w, img/blag-6-1600.webp 1600w" sizes="(max-width:900px) 82vw, 50vw" alt="Визуализация благоустройства жилого квартала: дворы, площадки, озеленение" loading="lazy"><figcaption>Благоустройство кварталов</figcaption></figure>
+              <figure data-lb="blag-2"><img src="img/blag-1-800.webp" srcset="img/blag-1-800.webp 800w, img/blag-1-1400.webp 1400w" sizes="(max-width:900px) 82vw, 25vw" alt="Детская площадка во дворе после благоустройства" loading="lazy"><figcaption>Кварталы ВАО</figcaption></figure>
+              <figure data-lb="blag-3"><img src="img/blag-3-800.webp" srcset="img/blag-3-800.webp 800w, img/blag-3-1400.webp 1400w" sizes="(max-width:900px) 82vw, 25vw" alt="Улица Москвы после комплексного благоустройства: новая разметка и тротуары" loading="lazy"><figcaption>Улицы Москвы, 2025–2026</figcaption></figure>
+            </div>
+            <p>Полный цикл документации по программам благоустройства Москвы — от проекта до надзора на объекте, в том числе:</p>
+            <ul>
+              <li>проектная документация в соответствии с постановлением Правительства Москвы № 1013-ПП</li>
+              <li>авторский надзор на объекте во время работ</li>
+              <li>получение разрешений и технических условий</li>
+            </ul>
+            <p>Выполненные работы, в том числе:</p>
+            <ul>
+              <li>благоустройство территорий кварталов Восточного административного округа Москвы</li>
+              <li>проектная документация на комплексное благоустройство улиц и территорий административных округов Москвы, 2025–2026</li>
+              <li>презентационные материалы по программе комплексного благоустройства объектов Москвы</li>
+            </ul>
+          </details>
         </div>
       </li>
     </ul>
@@ -651,17 +712,22 @@ fieldset.fld{border:0}
 <section id="objects" aria-labelledby="objH">
   <div class="xp" id="xp">
     <h2 class="xp-h" id="objH"><span class="l1">Объекты</span><span class="l2">с нашим участием <i class="xp-slot" id="xpSlot"></i></span><span class="l3">по всей стране</span></h2>
-    <div class="xp-media" id="xpMedia"><img src="img/volhov-wide-1600.webp" srcset="img/volhov-wide-800.webp 800w, img/volhov-wide-1600.webp 1600w, img/volhov-wide-2400.webp 2400w" sizes="100vw" alt="Реконструкция моста через Волхов на трассе М-10: плавучие опоры и краны у пролётов" loading="lazy"></div>
-    <div class="xp-cap" id="xpCap"><b>М-10 «Россия», мост через Волхов</b><p>Наш комплексный ППР на капитальный ремонт моста: этапы демонтажа блоков пролётного строения с воды, работа плавсредств, временные опоры.</p></div>
+    <div class="xp-media" id="xpMedia"><img src="img/m11-wide-1600.webp" srcset="img/m11-wide-800.webp 800w, img/m11-wide-1600.webp 1600w" sizes="100vw" alt="Строительство моста через Волгу на трассе М-11: пролётное строение перед продольной надвижкой, вид с воздуха" loading="lazy"></div>
+    <div class="xp-cap" id="xpCap"><b>М-11 «Нева», мост через Волгу</b><p>Наш комплексный ППР на строительство моста, включая продольную надвижку пролётного строения.</p></div>
   </div>
   <div class="wrap">
     <div class="stats" id="stats">
-      <div class="stat"><b data-n="24">24</b><span>объекта в портфолио: мосты, путепроводы, магистрали</span></div>
+      <div class="stat"><b data-n="25">25</b><span>объектов в портфолио: мосты, путепроводы, магистрали</span></div>
       <div class="stat"><b data-n="7">7</b><span>рек — мосты через Волгу, Каму, Неву, Волхов, Мсту, Москву-реку и Суру</span></div>
       <div class="stat"><b data-n="3">3</b><span>уровня экспертизы: государственная федеральная, государственная региональная, негосударственная</span></div>
       <div class="stat"><b data-n="11">11</b><span>владельцев сетей и дорог, с которыми уже согласовывали работы</span></div>
     </div>
 
+    <div class="tabs" role="tablist" aria-label="Портфолио">
+      <button type="button" role="tab" aria-selected="true" data-tab="objPane">Объекты</button>
+      <button type="button" role="tab" aria-selected="false" data-tab="exPane">Примеры документации</button>
+    </div>
+    <div id="objPane">
     <article class="feat" id="feat-vszhm">
       <div class="feat-head">
         <small>Высокоскоростная магистраль · 2 этап, участок Великий Новгород — Валдай</small>
@@ -698,17 +764,8 @@ fieldset.fld{border:0}
         <li><b>Солнцево — Бутово</b><span>проект производства работ</span></li>
       </ul>
     </div>
-  </div>
-  <div style="height:140px"></div>
-</section>
-
-<!-- ============ EXAMPLES ============ -->
-<section class="sec" id="examples" aria-labelledby="exH">
-  <div class="wrap">
-    <div class="sec-head">
-      <h2 id="exH" class="split">Примеры работ</h2>
-      <p>Фрагменты листов из наших ППР и ПОС и тот же объект на стройке. Полные примеры по вашему виду работ покажем при встрече.</p>
     </div>
+    <div id="exPane" hidden>
     <div class="ba">
       <div class="ba-box" id="ba" style="--x:50%">
         <img class="ba-draw" src="img/dem-sheet-1000.webp" alt="Лист ППР: этапы демонтажа блоков пролётного строения моста через Волхов" loading="lazy">
@@ -725,7 +782,9 @@ fieldset.fld{border:0}
 
     <div class="sheets-h"><h3>Листы из проектов</h3><p>Листы показаны в уменьшенном виде. Нужен пример по вашему виду работ — <a href="tel:+74957900992">позвоните</a>, покажем и обсудим.</p></div>
     <div class="sheets" id="sheets"></div>
+    </div>
   </div>
+  <div style="height:140px"></div>
 </section>
 
 <!-- ============ PROCESS ============ -->
@@ -762,47 +821,6 @@ fieldset.fld{border:0}
   </div>
 </section>
 
-<!-- ============ LANDSCAPE ============ -->
-<section class="sec" id="landscape" aria-labelledby="lsH">
-  <div class="wrap">
-    <div class="sec-head">
-      <h2 id="lsH" class="split">Благоустройство территорий</h2>
-      <p>Второе направление — комплексное благоустройство городских кварталов и улиц Москвы: от проекта до авторского надзора.</p>
-    </div>
-    <div class="ls">
-      <div class="ls-photos">
-        <figure data-lb="blag-1"><img src="img/blag-6-1600.webp" srcset="img/blag-6-800.webp 800w, img/blag-6-1600.webp 1600w" sizes="(max-width:900px) 82vw, 50vw" alt="Визуализация благоустройства жилого квартала: дворы, площадки, озеленение" loading="lazy"><figcaption>Благоустройство кварталов</figcaption></figure>
-        <figure data-lb="blag-2"><img src="img/blag-1-800.webp" srcset="img/blag-1-800.webp 800w, img/blag-1-1400.webp 1400w" sizes="(max-width:900px) 82vw, 25vw" alt="Детская площадка во дворе после благоустройства" loading="lazy"><figcaption>Кварталы ВАО</figcaption></figure>
-        <figure data-lb="blag-3"><img src="img/blag-3-800.webp" srcset="img/blag-3-800.webp 800w, img/blag-3-1400.webp 1400w" sizes="(max-width:900px) 82vw, 25vw" alt="Улица Москвы после комплексного благоустройства: новая разметка и тротуары" loading="lazy"><figcaption>Улицы Москвы, 2025–2026</figcaption></figure>
-      </div>
-      <ul class="svc ls-svc">
-        <li>
-          <h3>Услуги</h3>
-          <div class="svc-b">
-            <p>Полный цикл документации по программам благоустройства Москвы — от проекта до надзора на объекте, в том числе:</p>
-            <ul>
-              <li>проектная документация в соответствии с постановлением Правительства Москвы № 1013-ПП</li>
-              <li>авторский надзор на объекте во время работ</li>
-              <li>получение разрешений и технических условий</li>
-            </ul>
-          </div>
-        </li>
-        <li>
-          <h3>Работы</h3>
-          <div class="svc-b">
-            <p>Выполненные работы, в том числе:</p>
-            <ul>
-              <li>благоустройство территорий кварталов Восточного административного округа Москвы</li>
-              <li>проектная документация на комплексное благоустройство улиц и территорий административных округов Москвы, 2025–2026</li>
-              <li>презентационные материалы по программе комплексного благоустройства объектов Москвы</li>
-            </ul>
-          </div>
-        </li>
-      </ul>
-    </div>
-  </div>
-</section>
-
 <!-- ============ CLIENTS ============ -->
 <section class="sec" id="clients" aria-labelledby="clH">
   <div class="wrap">
@@ -827,7 +845,7 @@ fieldset.fld{border:0}
 <section class="sec" id="contacts" aria-labelledby="ctH">
   <div class="wrap">
     <div class="sec-head">
-      <h2 id="ctH" class="split">Обсудим ваш объект</h2>
+      <h2 id="ctH" class="split">Обсудим сотрудничество</h2>
       <p>Пришлите техзадание или опишите задачу — оценим объём и сроки. Цену подбираем под бюджет заказчика.</p>
     </div>
     <div class="ct">
@@ -881,7 +899,7 @@ fieldset.fld{border:0}
 </footer>
 
 <div class="mbar" aria-label="Связаться">
-  <a href="#contacts">Отправить ТЗ</a>
+  <a href="#contacts">Запросить КП</a>
   <a href="tel:+74957900992">Позвонить</a>
   <a href="mailto:post@madis.pro">Написать</a>
 </div>
@@ -935,6 +953,7 @@ const OBJ=[
  {id:'nkamsk',g:'most',t:'Мост через Каму, Нижнекамск',pl:'Обход города Нижнекамска',k:['ППР','СВСиУ'],tx:'Технологический регламент на работу флота и якорных устройств для сооружения русловых опор, СВСиУ для сооружения опор, перевозка бурового оборудования.',im:['nkamsk','nkamsk-2']},
  {id:'myas',g:'most',t:'Мост через Москву-реку',pl:'Москва · створ улицы Мясищева',k:['BIM','ППР','СВСиУ'],tx:'Цифровая информационная (BIM) модель автомобильной дороги и искусственных сооружений. ППР на замыкание пролётного строения и СВСиУ для него.',im:['myas','myas-2']},
  {id:'zlat',g:'most',t:'Велопешеходный мост, Златоуст',pl:'Челябинская область',k:['ПОС'],tx:'Проектная документация: разделы ПОС и ТКР с сопровождением в экспертизе.',im:['zlat','zlat-2'],d:1},
+ {id:'len',g:'most',t:'Мост, Ленинградское шоссе — 3-я Магистральная',pl:'Москва · улично-дорожная сеть, этап 4',k:['ПОС','СВСиУ'],tx:'Разработка ПОС, включая СВСиУ, на строительство моста: участок улично-дорожной сети от Ленинградского шоссе до 3-й Магистральной улицы.',im:['len'],d:1},
  {id:'r22',g:'put',t:'Путепроводы на Р-22',pl:'Трасса Р-22 «Каспий»',k:['ППР','ПОС'],tx:'Комплексная разработка ППР на строительство путепроводов и корректировка проектной документации с сопровождением в Главгосэкспертизе.',im:['r22','r22-2']},
  {id:'m1',g:'put',t:'Развязка на 59 км М-1',pl:'Трасса М-1 «Беларусь» · у парка «Патриот»',k:['СВСиУ'],tx:'Рабочая документация раздела «ВЗиС» для строительства развязки.',im:['m1','m1-2'],vz:1},
  {id:'lub',g:'put',t:'Путепровод в Люберцах',pl:'Московская область · проезд № 4037',k:['ПОС','BIM'],tx:'ПОС и ТКР на путепровод с сопровождением в Мособлгосэкспертизе, ЦИММ-модель объекта.',im:['lub']},
@@ -1068,11 +1087,9 @@ $('#sheets').innerHTML=SHEETS.map((h,i)=>`<button class="sheet" type="button" da
 $('#sheets').addEventListener('click',e=>{ const b=e.target.closest('[data-sheet]'); if(!b) return; const h=SHEETS[+b.dataset.sheet];
   openLb({id:'sheet-'+h.n,t:h.t,pl:h.o,k:[],tx:h.tx+' Полный пример покажем при встрече.',im:[h.n],big:n=>src(n,h.w[1])},null); });
 
-/* ---------------- long lists: first 3 on phones ---------------- */
-$$('.svc-b ul').forEach(ul=>{ const n=ul.children.length; if(n<=3) return;
-  const b=document.createElement('button'); b.type='button'; b.className='svc-more'; b.textContent=`Показать все ${n}`;
-  b.addEventListener('click',()=>{ const o=ul.classList.toggle('open'); b.textContent=o?'Свернуть':`Показать все ${n}`; window.ScrollTrigger&&ScrollTrigger.refresh(); });
-  ul.after(b); });
+/* ---------------- tabs + trays ---------------- */
+$$('.tabs button').forEach(b=>b.addEventListener('click',()=>{ $$('.tabs button').forEach(x=>{ const on=x===b; x.setAttribute('aria-selected',String(on)); $('#'+x.dataset.tab).hidden=!on; }); window.ScrollTrigger&&ScrollTrigger.refresh(); }));
+document.addEventListener('toggle',()=>window.ScrollTrigger&&ScrollTrigger.refresh(),true); // pinned sections below must re-measure
 
 /* ---------------- before / after ---------------- */
 (()=>{const box=$('#ba'); if(!box) return; let drag=false;
@@ -1191,11 +1208,11 @@ if(!reduce){
     if(hero.fixed!==null){ hero.p=hero.fixed; H.progress(hero.fixed); drawBridge(); }
 
     /* header theme follows the section under it + progress */
-    [['#services','day'],['#objects','day'],['#examples','day'],['#clients','day'],['#landscape','day'],['#contacts','dark'],['.ft','dark']].forEach(([sel,t])=>
+    [['#services','day'],['#objects','day'],['#clients','day'],['#contacts','dark'],['.ft','dark']].forEach(([sel,t])=>
       ScrollTrigger.create({trigger:sel,start:'top 70px',end:'bottom 70px',refreshPriority:-1,onToggle:s=>{ if(s.isActive) theme(t); }}));
     ScrollTrigger.create({trigger:'.hero',start:'top top',endTrigger:'#services',end:'top 70px',onToggle:s=>{ if(s.isActive) theme('night'); }});
     ScrollTrigger.create({start:0,end:'max',onUpdate:s=>$('#hdrProg').style.transform=`scaleX(${s.progress})`});
-    ['services','objects','examples','landscape','clients','contacts'].forEach(id=>ScrollTrigger.create({trigger:'#'+id,start:'top 45%',end:'bottom 45%',refreshPriority:-1,onToggle:s=>s.isActive&&markNav(id)}));
+    ['services','objects','clients','contacts'].forEach(id=>ScrollTrigger.create({trigger:'#'+id,start:'top 45%',end:'bottom 45%',refreshPriority:-1,onToggle:s=>s.isActive&&markNav(id)}));
     ScrollTrigger.create({trigger:'.hero',start:'top top',endTrigger:'#services',end:'top 45%',refreshPriority:-1,onToggle:s=>s.isActive&&markNav('top')});
 
     /* marquee: drifts with time and scroll */
@@ -1237,9 +1254,8 @@ if(!reduce){
     /* before/after: hint sweep once */
     ScrollTrigger.create({trigger:'#ba',start:'top 70%',once:true,onEnter:()=>{ if(window.__baTouched) return; const b=$('#ba'), o={x:50}; window.__baHint=gsap.to(o,{x:22,duration:.9,ease:'power2.inOut',yoyo:true,repeat:1,onUpdate:()=>{ if(window.__baTouched){window.__baHint.kill();return;} b.style.setProperty('--x',o.x+'%')}}); }});
 
-    /* clients, license, landscape reveals */
+    /* clients, license reveals */
     gsap.from('.logos li',{opacity:0,y:20,duration:.6,stagger:.04,ease:'power2.out',scrollTrigger:{trigger:'.logos',start:'top 85%'}});
-    gsap.from('.ls-photos figure',{clipPath:'inset(100% 0 0 0)',duration:1.1,ease:'power3.inOut',stagger:.12,scrollTrigger:{trigger:'.ls-photos',start:'top 80%'}});
     gsap.from('.ft-big',{yPercent:40,opacity:0,ease:'none',scrollTrigger:{trigger:'.ft',start:'top bottom',end:'bottom bottom',scrub:true}});
 
     addEventListener('load',()=>ScrollTrigger.refresh());

@@ -388,6 +388,7 @@ section{position:relative}
 .logos li{display:flex;flex-direction:column;gap:10px}
 .lg{position:relative;display:block;aspect-ratio:2/1;border-radius:var(--r);overflow:hidden}
 .lg img{position:absolute;left:10%;top:12%;width:80%;height:76%;object-fit:contain}
+.lg b{position:absolute;inset:0;display:grid;place-items:center;font:400 clamp(18px,1.8vw,26px)/1 var(--serif);text-transform:uppercase;color:var(--mut)}
 .logos small{font-size:13px;color:var(--mut)}
 .rzd{margin-top:48px;padding-top:20px;border-top:1px solid var(--line);font-size:16px;max-width:900px}
 .lic{margin-top:110px;display:grid;grid-template-columns:repeat(12,1fr);gap:24px}
@@ -512,7 +513,7 @@ fieldset.fld{border:0}
       <a href="#contacts">Контакты</a>
     </nav>
     <a class="hdr-tel" href="tel:+74957900992">+7 (495) 790-09-92</a>
-    <a class="pill" href="#contacts">Запросить КП</a>
+    <a class="pill" href="#contacts">Отправить КП</a>
   </div>
   <i class="hdr-prog" id="hdrProg"></i>
 </header>
@@ -756,12 +757,9 @@ fieldset.fld{border:0}
     <div class="more-list">
       <h3>Ещё в портфолио</h3>
       <ul>
-        <li><b>Северо-Восточная хорда, эстакады А и Б</b><span>ППР, опускание пролётного строения на опорные части, СВСиУ</span></li>
-        <li><b>Дублёр Кутузовского проспекта</b><span>проекты производства работ</span></li>
         <li><b>М-5 «Урал», мост через Москву-реку</b><span>надвижка пролётного строения, строповка, демонтаж СВСиУ, план работ на высоте</span></li>
         <li><b>Мост через Суру</b><span>ППР на надвижку пролётного строения</span></li>
         <li><b>«Арена», Новосибирск</b><span>комплексный ППР и СВСиУ</span></li>
-        <li><b>Солнцево — Бутово</b><span>проект производства работ</span></li>
       </ul>
     </div>
     </div>
@@ -828,7 +826,7 @@ fieldset.fld{border:0}
       <h2 id="clH" class="split">Наши заказчики</h2>
       <p>Компании, для которых мы разрабатывали проекты производства работ, ПОС и рабочую документацию.</p>
     </div>
-    <ul class="logos"><li><span class="lg" style="background:#dadbde"><img src="img/logos/nps.webp" alt="АО «Дороги и мосты»" loading="lazy"></span><small>АО «Дороги и мосты»</small></li><li><span class="lg" style="background:#dcdee1"><img src="img/logos/mostdorstroy.webp" alt="ООО «Мостдорстрой»" loading="lazy"></span><small>ООО «Мостдорстрой»</small></li><li><span class="lg" style="background:#ebe0d7"><img src="img/logos/stroyproekt.webp" alt="АО «Институт «Стройпроект»" loading="lazy"></span><small>АО «Институт «Стройпроект»</small></li><li><span class="lg" style="background:#d1d4d7"><img src="img/logos/misk.webp" alt="АО «МИСК»" loading="lazy"></span><small>АО «МИСК»</small></li><li><span class="lg" style="background:#e2e1de"><img src="img/logos/transproekt.webp" alt="ООО «Транспроект»" loading="lazy"></span><small>ООО «Транспроект»</small></li><li><span class="lg" style="background:#d8dbde"><img src="img/logos/icmit.webp" alt="ООО «ИЦ «МиТ»" loading="lazy"></span><small>ООО «ИЦ «МиТ»</small></li><li><span class="lg" style="background:#dddedf"><img src="img/logos/almacor.webp" alt="ООО «АльмакорГруп»" loading="lazy"></span><small>ООО «АльмакорГруп»</small></li><li><span class="lg" style="background:#d2d4d8"><img src="img/logos/geoproekt.webp" alt="ООО «Гео-Проект»" loading="lazy"></span><small>ООО «Гео-Проект»</small></li><li><span class="lg" style="background:#d3d5d8"><img src="img/logos/lider.webp" alt="ООО ПК «ЛИДЕРГРУПП»" loading="lazy"></span><small>ООО ПК «ЛИДЕРГРУПП»</small></li><li><span class="lg" style="background:#d8dade"><img src="img/logos/dmt.webp" alt="DMT Групп" loading="lazy"></span><small>DMT Групп</small></li><li><span class="lg" style="background:#d4d5d9"><img src="img/logos/magistral.webp" alt="ГК «Магистраль»" loading="lazy"></span><small>ГК «Магистраль»</small></li></ul>
+    <ul class="logos"><li><span class="lg" style="background:#dadbde"><img src="img/logos/nps.webp" alt="АО «Дороги и мосты»" loading="lazy"></span><small>АО «Дороги и мосты»</small></li><li><span class="lg" style="background:#dcdee1"><img src="img/logos/mostdorstroy.webp" alt="ООО «Мостдорстрой»" loading="lazy"></span><small>ООО «Мостдорстрой»</small></li><li><span class="lg" style="background:#ebe0d7"><img src="img/logos/stroyproekt.webp" alt="АО «Институт «Стройпроект»" loading="lazy"></span><small>АО «Институт «Стройпроект»</small></li><li><span class="lg" style="background:#d1d4d7"><img src="img/logos/misk.webp" alt="АО «МИСК»" loading="lazy"></span><small>АО «МИСК»</small></li><li><span class="lg" style="background:#e2e1de"><img src="img/logos/transproekt.webp" alt="ООО «Транспроект»" loading="lazy"></span><small>ООО «Транспроект»</small></li><li><span class="lg" style="background:#d8dbde"><img src="img/logos/icmit.webp" alt="ООО «ИЦ «МиТ»" loading="lazy"></span><small>ООО «ИЦ «МиТ»</small></li><li><span class="lg" style="background:#dddedf"><img src="img/logos/almacor.webp" alt="ООО «АльмакорГруп»" loading="lazy"></span><small>ООО «АльмакорГруп»</small></li><li><span class="lg" style="background:#d2d4d8"><img src="img/logos/geoproekt.webp" alt="ООО «Гео-Проект»" loading="lazy"></span><small>ООО «Гео-Проект»</small></li><li><span class="lg" style="background:#d3d5d8"><img src="img/logos/lider.webp" alt="ООО ПК «ЛИДЕРГРУПП»" loading="lazy"></span><small>ООО ПК «ЛИДЕРГРУПП»</small></li><li><span class="lg" style="background:#d8dade"><img src="img/logos/dmt.webp" alt="DMT Групп" loading="lazy"></span><small>DMT Групп</small></li><li><span class="lg" style="background:#d4d5d9"><img src="img/logos/magistral.webp" alt="ГК «Магистраль»" loading="lazy"></span><small>ГК «Магистраль»</small></li><li><span class="lg" style="background:#dadbde"><b>Ещё один</b></span><small>&nbsp;</small></li></ul>
     <p class="rzd">Работаем на объектах инфраструктуры железных дорог — ВСЖМ Санкт-Петербург — Москва, северный обход Перми (5-й этап) — и согласовываем ППР в полосе отвода железной дороги.</p>
     <div class="lic">
       <h3>Допуски</h3>
@@ -899,7 +897,7 @@ fieldset.fld{border:0}
 </footer>
 
 <div class="mbar" aria-label="Связаться">
-  <a href="#contacts">Запросить КП</a>
+  <a href="#contacts">Отправить КП</a>
   <a href="tel:+74957900992">Позвонить</a>
   <a href="mailto:post@madis.pro">Написать</a>
 </div>
@@ -959,10 +957,13 @@ const OBJ=[
  {id:'lub',g:'put',t:'Путепровод в Люберцах',pl:'Московская область · проезд № 4037',k:['ПОС','BIM'],tx:'ПОС и ТКР на путепровод с сопровождением в Мособлгосэкспертизе, ЦИММ-модель объекта.',im:['lub']},
  {id:'tzhk',g:'put',t:'Путепроводы ООО «ТЖК»',pl:'Объекты железнодорожной инфраструктуры',k:['ПОС'],tx:'ПОС и ТКР на путепроводы с сопровождением в Главгосэкспертизе.',im:['tzhk'],d:1},
  {id:'m04',g:'put',t:'Путепроводы на М-04',pl:'Знаменка — Луганск — Изварино',k:['СВСиУ'],tx:'Рабочая документация раздела «ВЗиС» для капремонта путепроводов.',im:['m04'],d:1,vz:1},
+ {id:'svh',g:'put',t:'Северо-Восточная хорда, эстакады А и Б',pl:'Москва',k:['ППР','СВСиУ'],tx:'ППР на монтаж пролётных строений и опускание их на опорные части, СВСиУ для сооружения пролётных строений.',im:['svh'],d:1},
  {id:'tpu',g:'dor',t:'Улично-дорожная сеть ТПУ «Сити»',pl:'Москва',k:['ПОС','BIM'],tx:'ПОС для транспортного обслуживания ТПУ «Сити» с сопровождением в Мосгосэкспертизе, ЦИММ-модель.',im:['tpu']},
  {id:'yuvh',g:'dor',t:'Юго-Восточная хорда',pl:'Москва · от Павелецкого направления МЖД до МКАД',k:['ПОС','СВСиУ'],tx:'Улично-дорожная сеть с искусственными сооружениями и переустройством коммуникаций. Разделы ПОС, ТКР, СВСиУ с сопровождением в Мосгосэкспертизе.',im:['yuvh'],d:1},
  {id:'m4',g:'dor',t:'М-4 «Дон» и Р-217 «Кавказ»',pl:'Автомобильные дороги',k:['ПОС','СВСиУ'],tx:'Раздел ПОС, включая снос и СВСиУ.',im:['m4'],d:1},
  {id:'poch',g:'dor',t:'Террасный парк в Почаинском овраге',pl:'Нижний Новгород',k:['ПОС','СВСиУ'],tx:'ПОС и СВСиУ, проектная и рабочая документация, с сопровождением в региональной экспертизе.',im:['poch'],d:1},
+ {id:'kut',g:'dor',t:'Дублёр Кутузовского проспекта',pl:'Москва · от Молодогвардейской развязки до ММДЦ «Москва-Сити»',k:['ППР'],tx:'Проекты производства работ на сооружение опор: строительный генеральный план, шпунтовые ограждения котлованов, схемы строповки.',im:['kut'],d:1},
+ {id:'sol',g:'dor',t:'Солнцево — Бутово',pl:'Москва',k:['ППР'],tx:'Проект производства работ.',im:['sol'],d:1},
 ];
 const GROUPS=[['most','Мостовые сооружения'],['put','Путепроводы и развязки'],['dor','Объекты дорожной и городской инфраструктуры']];
 const tagLabel=(o)=>o.k.map(k=>k==='СВСиУ'&&o.vz?'ВЗиС':k);

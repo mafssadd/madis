@@ -191,6 +191,12 @@ section{position:relative}
 .tray > p ~ p{margin-top:28px}
 .scope-tray{margin:0 0 40px}
 .scope-tray .scope{margin-bottom:24px}
+/* справка об опыте: кнопки скрыты по решению заказчика 23.11, сам механизм оставлен */
+.add,#lbAdd{display:none}
+.feat-photo{overflow:hidden;border-radius:var(--r);cursor:zoom-in}
+.feat-photo img{width:100%;height:100%;object-fit:cover}
+.all-objs{margin-top:90px;padding-top:28px;border-top:1px solid var(--ink)}
+.all-objs > summary{font:400 clamp(22px,2vw,30px)/1 var(--serif);text-transform:uppercase;color:var(--ink);border:0}
 .tabs{display:flex;gap:32px;margin:72px 0 56px;border-bottom:1px solid var(--line)}
 .tabs button{font:400 clamp(20px,2vw,30px)/1 var(--serif);text-transform:uppercase;padding-bottom:14px;margin-bottom:-1px;color:var(--mut);border-bottom:2px solid transparent}
 .tabs button[aria-selected=true]{color:var(--ink);border-bottom-color:var(--red)}
@@ -387,6 +393,7 @@ section{position:relative}
 .logos{list-style:none;display:grid;grid-template-columns:repeat(4,1fr);gap:28px 24px}
 .logos li{display:flex;flex-direction:column;gap:10px}
 .lg{position:relative;display:block;aspect-ratio:2/1;border-radius:var(--r);overflow:hidden}
+.lg{filter:grayscale(1)}
 .lg img{position:absolute;left:10%;top:12%;width:80%;height:76%;object-fit:contain}
 .lg b{position:absolute;inset:0;display:grid;place-items:center;font:400 clamp(18px,1.8vw,26px)/1 var(--serif);text-transform:uppercase;color:var(--mut)}
 .logos small{font-size:13px;color:var(--mut)}
@@ -513,7 +520,7 @@ fieldset.fld{border:0}
       <a href="#contacts">Контакты</a>
     </nav>
     <a class="hdr-tel" href="tel:+74957900992">+7 (495) 790-09-92</a>
-    <a class="pill" href="#contacts">Отправить КП</a>
+    <a class="pill" href="#contacts">Связаться</a>
   </div>
   <i class="hdr-prog" id="hdrProg"></i>
 </header>
@@ -528,12 +535,12 @@ fieldset.fld{border:0}
     <canvas class="hero-bridge" id="bridge" aria-hidden="true"></canvas>
     <div class="hero-foot">
       <i class="hero-line"></i>
-      <p class="hero-lead">МАДИС Инжиниринг — проектная организация. Основное направление — сопровождение проектирования и строительства мостовых сооружений: ППР, ПОС, исполнительная и рабочая документация.</p>
-      <nav class="quick" aria-label="Коротко об услугах">
+      <p class="hero-lead">МАДИС Инжиниринг — проектная организация. Основное направление — разработка проектной и рабочей документации с сопровождением в органах экспертизы.</p>
+            <nav class="quick" aria-label="Коротко об услугах">
+        <a href="#svc-pos"><b>ПД</b><small>проектная документация</small></a>
+        <a href="#svc-rd"><b>РД</b><small>рабочая документация</small></a>
         <a href="#svc-ppr"><b>ППР</b><small>проекты производства работ</small></a>
-        <a href="#svc-id"><b>ИД</b><small>для сдачи объекта</small></a>
-        <a href="#svc-pos"><b>ПОС и ТКР</b><small>проектная документация</small></a>
-        <a href="#svc-exp"><b>Экспертиза</b><small>сопровождение до заключения</small></a>
+        <a href="#svc-pos"><b>Экспертиза</b><small>сопровождение до заключения</small></a>
       </nav>
     </div>
   </div>
@@ -548,161 +555,74 @@ fieldset.fld{border:0}
   </div>
   <div class="wrap">
     <div class="sec-head">
-      <h2 id="svcH" class="split">Что мы делаем</h2>
-      <p>Основное направление — сопровождение проектирования и строительства мостовых сооружений. Закрываем производственно-технические задачи стройки и инженерного проектирования.</p>
+      <h2 id="svcH" class="split">Наши услуги</h2>
+      <p>Разработка проектной и рабочей документации для мостовых сооружений с сопровождением в органах экспертизы.</p>
     </div>
-    <details class="tray scope-tray">
-      <summary>Объекты и нормативная база</summary>
-      <div class="scope">
-        <div><small>Объекты</small><p>Линейные объекты капитального строительства: мосты, путепроводы, эстакады, автомобильные и железные дороги, улично-дорожная сеть.</p></div>
-        <div><small>Нормативная база</small><p>Проектную документацию линейных объектов выпускаем в соответствии с постановлением Правительства РФ от 16.02.2008 № 87 «О составе разделов проектной документации и требованиях к их содержанию».</p></div>
-        <div><small>Виды документации</small><p>Проектная (П) и рабочая (Р) документация — ГОСТ Р 21.101. Проекты производства работ — СП 48.13330.2019. Исполнительная документация — приказ Минстроя России № 344/пр.</p></div>
-      </div>
-    </details>
     <ul class="svc" id="svcList">
-      <li id="svc-ppr">
-        <h3>Проекты производства работ<small>ППР</small></h3>
-        <div class="svc-b">
-          <p>Комплексный ППР на весь объект или на отдельные виды работ: надвижка, монтаж и демонтаж пролётных строений, сооружение опор, работа с воды.</p>
-          <details class="tray">
-            <summary>Подробнее</summary>
-            <p>Комплексный ППР на весь объект — от подготовительного периода до завершения работ — или ППР на отдельные виды работ: подготовительный период, земляные и монолитные работы, работу грузоподъёмных механизмов.</p>
-            <p>Строительство, реконструкция и капитальный ремонт искусственных сооружений с учётом техники, плавсредств и ресурсов подрядчика, в том числе:</p>
-            <ul>
-              <li>надвижка пролётных строений, в том числе продольная</li>
-              <li>монтаж пролётных строений кранами и с плавучих систем</li>
-              <li>демонтаж пролётных строений, в том числе с воды</li>
-              <li>замыкание пролётного строения</li>
-              <li>опускание пролётного строения на опорные части</li>
-              <li>сооружение русловых опор, ограждения котлованов</li>
-              <li>расчёты строповки и грузоподъёмных операций</li>
-              <li>планы производства работ на высоте</li>
-              <li>строительные генеральные планы</li>
-              <li>технологические регламенты работы флота и якорных устройств</li>
-            </ul>
-            <a class="more" href="#objects" data-filter="ППР">Объекты с ППР</a>
-          </details>
-        </div>
-      </li>
-      <li id="svc-id">
-        <h3>Исполнительная документация<small>ИД</small></h3>
-        <div class="svc-b">
-          <p>Комплект для сдачи объекта в эксплуатацию по приказу Минстроя России № 344/пр.</p>
-          <details class="tray">
-            <summary>Подробнее</summary>
-            <p>Комплект в объёме, достаточном для сдачи объекта в эксплуатацию, по приказу Минстроя России от 16.05.2023 № 344/пр, в том числе:</p>
-            <ul>
-              <li>акты освидетельствования скрытых работ (АОСР)</li>
-              <li>акты освидетельствования строительных конструкций</li>
-              <li>акты разбивки осей и геодезической разбивочной основы</li>
-              <li>исполнительные геодезические схемы</li>
-              <li>исполнительные чертежи</li>
-              <li>общий и специальные журналы работ</li>
-              <li>реестры документов о качестве материалов</li>
-              <li>протоколы испытаний и лабораторного контроля</li>
-            </ul>
-          </details>
-        </div>
-      </li>
       <li id="svc-pos">
-        <h3>Проектная документация<small>ПОС, ТКР</small></h3>
+        <h3>Проектная документация</h3>
         <div class="svc-b">
-          <p>ПОС, ТКР и СВСиУ в составе проектной документации линейных объектов.</p>
-          <details class="tray">
-            <summary>Подробнее</summary>
-            <p>Разделы проектной документации линейных объектов в соответствии с постановлением Правительства РФ № 87, в том числе:</p>
-            <ul>
-              <li>проект организации строительства (ПОС): организация и очерёдность строительства, строительные генеральные планы, потребность в технике и ресурсах</li>
-              <li>организация работ по сносу (демонтажу) существующих сооружений в составе ПОС</li>
-              <li>СВСиУ в составе ПОС: временные рабочие мосты, технологические платформы, временные опоры</li>
-              <li>технологические и конструктивные решения линейного объекта, искусственные сооружения (ТКР)</li>
-            </ul>
-            <a class="more" href="#objects" data-filter="ПОС">Объекты с ПОС</a>
-          </details>
-        </div>
-      </li>
-      <li id="svc-exp">
-        <h3>Сопровождение в экспертизе</h3>
-        <div class="svc-b">
-          <p>Сопровождаем проектную документацию до положительного заключения государственной и негосударственной экспертизы.</p>
-          <details class="tray">
-            <summary>Подробнее</summary>
-            <p>Сопровождаем проектную документацию до получения положительного заключения государственной экспертизы федерального и регионального уровня, в том числе ФАУ «Главгосэкспертиза России», и негосударственной экспертизы:</p>
-            <ul>
-              <li>отработка замечаний экспертизы</li>
-              <li>внесение изменений в проектную документацию</li>
-              <li>формирование итоговых томов проектной документации после получения положительного заключения</li>
-            </ul>
-          </details>
+          <p>Разработка проектной документации в соответствии с постановлением Правительства РФ № 87 с сопровождением в органах экспертизы.</p>
         </div>
       </li>
       <li id="svc-rd">
-        <h3>Рабочая документация<small>комплекты чертежей</small></h3>
+        <h3>Рабочая документация</h3>
         <div class="svc-b">
-          <p>Комплекты рабочих чертежей: КР, КМ, КЖ, АР, ВЗиС, СВСиУ.</p>
-          <details class="tray">
-            <summary>Подробнее</summary>
-            <p>Комплекты рабочих чертежей для строительства основных и временных сооружений, в том числе:</p>
-            <ul>
-              <li>КР — конструктивные решения</li>
-              <li>КМ — металлические конструкции</li>
-              <li>КЖ — железобетонные конструкции</li>
-              <li>АР — архитектурные решения</li>
-              <li>ВЗиС — временные здания и сооружения</li>
-              <li>СВСиУ — специальные вспомогательные сооружения и устройства</li>
-            </ul>
-            <a class="more" href="#objects" data-filter="СВСиУ">Объекты с СВСиУ и ВЗиС</a>
-          </details>
+          <p>Комплекты рабочих чертежей КР, КМ, КЖ, АР, ВЗиС, СВСиУ с последующим согласованием в уполномоченных организациях.</p>
         </div>
       </li>
       <li id="svc-bim">
-        <h3>BIM-проектирование<small>ЦИММ</small></h3>
+        <h3>BIM-проектирование</h3>
         <div class="svc-b">
-          <p>Цифровые информационные модели автомобильных дорог и искусственных сооружений. Работаем в Autodesk Revit.</p>
-          <a class="more" href="#objects" data-filter="BIM">Объекты с BIM</a>
+          <p>Построение низкополигональных и высокополигональных моделей.</p>
+        </div>
+      </li>
+      <li id="svc-ppr">
+        <h3>Проекты производства работ<small>ППР</small></h3>
+        <div class="svc-b">
+          <p>Комплексный ППР на весь объект или ППР на отдельные виды работ с учётом техники, материальной базы и ресурсов подрядчика.</p>
+          <details class="tray">
+            <summary>Подробнее</summary>
+          <ul>
+            <li>устройство фундаментов опор</li>
+            <li>сооружение опор</li>
+            <li>монтаж пролётного строения</li>
+            <li>надвижка пролётного строения</li>
+            <li>опускание пролётного строения на опорные части</li>
+            <li>работа с плавсредств: подача, подъём и опускание пролётов</li>
+            <li>технологические регламенты</li>
+          </ul>
+          </details>
         </div>
       </li>
       <li id="svc-agr">
-        <h3>Функции технического заказчика</h3>
+        <h3>Согласования</h3>
         <div class="svc-b">
-          <p>Исходно-разрешительная документация и согласования для сдачи объекта: железная дорога, городские сети, Департамент транспорта.</p>
+          <p>Согласование документации с заинтересованными службами, в том числе:</p>
           <details class="tray">
             <summary>Подробнее</summary>
-            <p>Получаем исходно-разрешительную документацию, сопровождаем выполненные проектные решения во всех заинтересованных организациях и обеспечиваем согласования, достаточные для сдачи объекта в эксплуатацию, в том числе:</p>
-            <ul>
-              <li>ППР в полосе отвода железной дороги: акты-допуски, наряды-допуски</li>
-              <li>ППР в ГКУ «Организатор перевозок»</li>
-              <li>изменение движения транспорта в Департаменте транспорта Москвы</li>
-              <li>работы в охранных зонах сетей: МОЭК, Россети, Мосводоканал, Мосгаз и другие</li>
-              <li>получение разрешений и технических условий</li>
-            </ul>
+          <ul>
+            <li>ОАО «РЖД»: акты-допуски, наряды-допуски</li>
+            <li>ГКУ «Организатор перевозок»</li>
+            <li>Департамент транспорта Москвы</li>
+            <li>МОЭК, Россети, Мосводоканал, Мосгаз</li>
+            <li>Департамент культурного наследия</li>
+            <li>Департамент природопользования и охраны окружающей среды</li>
+            <li>префектуры и управы</li>
+            <li>получение разрешений и технических условий</li>
+          </ul>
           </details>
         </div>
       </li>
       <li id="svc-land">
-        <h3>Благоустройство территорий<small>Москва</small></h3>
+        <h3>Благоустройство территорий</h3>
         <div class="svc-b">
-          <p>Комплексное благоустройство городских кварталов и улиц Москвы: от проектной документации до авторского надзора.</p>
-          <details class="tray">
-            <summary>Подробнее</summary>
-            <div class="ls-photos">
-              <figure data-lb="blag-1"><img src="img/blag-6-1600.webp" srcset="img/blag-6-800.webp 800w, img/blag-6-1600.webp 1600w" sizes="(max-width:900px) 82vw, 50vw" alt="Визуализация благоустройства жилого квартала: дворы, площадки, озеленение" loading="lazy"><figcaption>Благоустройство кварталов</figcaption></figure>
-              <figure data-lb="blag-2"><img src="img/blag-1-800.webp" srcset="img/blag-1-800.webp 800w, img/blag-1-1400.webp 1400w" sizes="(max-width:900px) 82vw, 25vw" alt="Детская площадка во дворе после благоустройства" loading="lazy"><figcaption>Кварталы ВАО</figcaption></figure>
-              <figure data-lb="blag-3"><img src="img/blag-3-800.webp" srcset="img/blag-3-800.webp 800w, img/blag-3-1400.webp 1400w" sizes="(max-width:900px) 82vw, 25vw" alt="Улица Москвы после комплексного благоустройства: новая разметка и тротуары" loading="lazy"><figcaption>Улицы Москвы, 2025–2026</figcaption></figure>
-            </div>
-            <p>Полный цикл документации по программам благоустройства Москвы — от проекта до надзора на объекте, в том числе:</p>
-            <ul>
-              <li>проектная документация в соответствии с постановлением Правительства Москвы № 1013-ПП</li>
-              <li>авторский надзор на объекте во время работ</li>
-              <li>получение разрешений и технических условий</li>
-            </ul>
-            <p>Выполненные работы, в том числе:</p>
-            <ul>
-              <li>благоустройство территорий кварталов Восточного административного округа Москвы</li>
-              <li>проектная документация на комплексное благоустройство улиц и территорий административных округов Москвы, 2025–2026</li>
-              <li>презентационные материалы по программе комплексного благоустройства объектов Москвы</li>
-            </ul>
-          </details>
+          <p>Разработка комплексного проекта благоустройства территорий в городе Москве:</p>
+          <ul>
+            <li>проектная документация в соответствии с постановлением Правительства Москвы № 1013-ПП</li>
+            <li>авторский надзор на объекте во время работ</li>
+            <li>получение разрешений и технических условий</li>
+          </ul>
         </div>
       </li>
     </ul>
@@ -714,7 +634,7 @@ fieldset.fld{border:0}
   <div class="xp" id="xp">
     <h2 class="xp-h" id="objH"><span class="l1">Объекты</span><span class="l2">с нашим участием <i class="xp-slot" id="xpSlot"></i></span><span class="l3">по всей стране</span></h2>
     <div class="xp-media" id="xpMedia"><img src="img/m11-wide-1600.webp" srcset="img/m11-wide-800.webp 800w, img/m11-wide-1600.webp 1600w" sizes="100vw" alt="Строительство моста через Волгу на трассе М-11: пролётное строение перед продольной надвижкой, вид с воздуха" loading="lazy"></div>
-    <div class="xp-cap" id="xpCap"><b>М-11 «Нева», мост через Волгу</b><p>Наш комплексный ППР на строительство моста, включая продольную надвижку пролётного строения.</p></div>
+    <div class="xp-cap" id="xpCap"><b>М-11 «Нева», мост через Волгу</b><p>Комплексный ППР на строительство моста, включая продольную надвижку пролётного строения.</p></div>
   </div>
   <div class="wrap">
     <div class="stats" id="stats">
@@ -732,11 +652,11 @@ fieldset.fld{border:0}
     <article class="feat" id="feat-vszhm">
       <div class="feat-head">
         <small>Высокоскоростная магистраль · 2 этап, участок Великий Новгород — Валдай</small>
-        <h3>ВСЖМ Санкт-Петербург — Москва</h3>
-        <p>Разработка ПОС, включая СВСиУ, для всех искусственных сооружений участка: ограждения котлованов, временные рабочие мосты с технологическими платформами, схемы монтажа пролётных строений, в том числе сталежелезобетонного пролёта 50 м.</p>
+        <h3>ВСМ Санкт-Петербург — Москва</h3>
+        <p>Разработка ПОС, включая СВСиУ, для 30 искусственных сооружений с сопровождением в ФАУ «Главгосэкспертиза России».</p>
         <div class="card-foot"><span class="code">ПОС</span><span class="code">СВСиУ</span><button class="add" type="button" aria-pressed="false" data-add="vszhm">+ в справку</button></div>
       </div>
-      <button class="feat-fig card-fig draw" type="button" data-open="vszhm" aria-label="Открыть чертежи ВСЖМ"><img src="img/vszhm-1600.webp" srcset="img/vszhm-800.webp 800w, img/vszhm-1600.webp 1600w" sizes="(max-width:900px) 100vw, 66vw" alt="Фасад временного рабочего моста через Мсту: 6 пролётов по 21,34 м на 7 опорах" loading="lazy" data-flip-id="f-vszhm"></button>
+      <button class="feat-fig card-fig draw" type="button" data-open="vszhm" aria-label="Открыть чертежи ВСМ"><img src="img/vszhm-1600.webp" srcset="img/vszhm-800.webp 800w, img/vszhm-1600.webp 1600w" sizes="(max-width:900px) 100vw, 66vw" alt="Фасад временного рабочего моста через Мсту: 6 пролётов по 21,34 м на 7 опорах" loading="lazy" data-flip-id="f-vszhm"></button>
       <dl class="feat-nums">
         <div><dt>30 ИССО</dt><dd>мосты и эстакады на участке трассы около 95 км</dd></div>
         <div><dt>843 опоры</dt><dd>СВСиУ и ограждения котлованов для каждой опоры</dd></div>
@@ -745,14 +665,26 @@ fieldset.fld{border:0}
       </dl>
     </article>
 
-    <div class="flt" id="flt" role="group" aria-label="Фильтр по виду работ">
-      <span>Показать опыт по</span>
-      <button aria-pressed="true" data-f="*">Все</button>
-      <button aria-pressed="false" data-f="ППР">ППР</button>
-      <button aria-pressed="false" data-f="ПОС">ПОС</button>
-      <button aria-pressed="false" data-f="СВСиУ">СВСиУ и ВЗиС</button>
-      <button aria-pressed="false" data-f="BIM">BIM</button>
-    </div>
+    <article class="feat">
+      <div class="feat-head">
+        <small>Санкт-Петербург · створ Б. Смоленского пр. — ул. Коллонтай</small>
+        <h3>Мост через Неву</h3>
+        <p>Комплекс ППР на сооружение моста, в том числе монтаж блоков пролётного строения с плавучих систем.</p>
+        <div class="card-foot"><span class="code">ППР</span></div>
+      </div>
+      <button class="feat-fig card-fig" type="button" data-open="neva" aria-label="Открыть: Мост через Неву"><img src="img/neva-1600.webp" srcset="img/neva-800.webp 800w, img/neva-1600.webp 1600w" sizes="(max-width:900px) 100vw, 66vw" alt="Монтаж блоков пролётного строения моста через Неву с плавучих систем" loading="lazy"></button>
+    </article>
+    <article class="feat">
+      <div class="feat-head">
+        <small>Москва · кварталы и улицы</small>
+        <h3>Благоустройство территорий</h3>
+        <p>Комплексные проекты благоустройства городских кварталов и улиц Москвы: проектная документация и авторский надзор.</p>
+      </div>
+      <figure class="feat-fig feat-photo" data-lb="blag-1"><img src="img/blag-6-1600.webp" srcset="img/blag-6-800.webp 800w, img/blag-6-1600.webp 1600w" sizes="(max-width:900px) 100vw, 66vw" alt="Визуализация благоустройства жилого квартала: дворы, площадки, озеленение" loading="lazy"></figure>
+    </article>
+
+    <details class="tray all-objs">
+      <summary>Все объекты портфолио</summary>
     <div id="groups"></div>
     <div class="more-list">
       <h3>Ещё в портфолио</h3>
@@ -762,6 +694,7 @@ fieldset.fld{border:0}
         <li><b>«Арена», Новосибирск</b><span>комплексный ППР и СВСиУ</span></li>
       </ul>
     </div>
+    </details>
     </div>
     <div id="exPane" hidden>
     <div class="ba">
@@ -827,7 +760,6 @@ fieldset.fld{border:0}
       <p>Компании, для которых мы разрабатывали проекты производства работ, ПОС и рабочую документацию.</p>
     </div>
     <ul class="logos"><li><span class="lg" style="background:#dadbde"><img src="img/logos/nps.webp" alt="АО «Дороги и мосты»" loading="lazy"></span><small>АО «Дороги и мосты»</small></li><li><span class="lg" style="background:#dcdee1"><img src="img/logos/mostdorstroy.webp" alt="ООО «Мостдорстрой»" loading="lazy"></span><small>ООО «Мостдорстрой»</small></li><li><span class="lg" style="background:#ebe0d7"><img src="img/logos/stroyproekt.webp" alt="АО «Институт «Стройпроект»" loading="lazy"></span><small>АО «Институт «Стройпроект»</small></li><li><span class="lg" style="background:#d1d4d7"><img src="img/logos/misk.webp" alt="АО «МИСК»" loading="lazy"></span><small>АО «МИСК»</small></li><li><span class="lg" style="background:#e2e1de"><img src="img/logos/transproekt.webp" alt="ООО «Транспроект»" loading="lazy"></span><small>ООО «Транспроект»</small></li><li><span class="lg" style="background:#d8dbde"><img src="img/logos/icmit.webp" alt="ООО «ИЦ «МиТ»" loading="lazy"></span><small>ООО «ИЦ «МиТ»</small></li><li><span class="lg" style="background:#dddedf"><img src="img/logos/almacor.webp" alt="ООО «АльмакорГруп»" loading="lazy"></span><small>ООО «АльмакорГруп»</small></li><li><span class="lg" style="background:#d2d4d8"><img src="img/logos/geoproekt.webp" alt="ООО «Гео-Проект»" loading="lazy"></span><small>ООО «Гео-Проект»</small></li><li><span class="lg" style="background:#d3d5d8"><img src="img/logos/lider.webp" alt="ООО ПК «ЛИДЕРГРУПП»" loading="lazy"></span><small>ООО ПК «ЛИДЕРГРУПП»</small></li><li><span class="lg" style="background:#d8dade"><img src="img/logos/dmt.webp" alt="DMT Групп" loading="lazy"></span><small>DMT Групп</small></li><li><span class="lg" style="background:#d4d5d9"><img src="img/logos/magistral.webp" alt="ГК «Магистраль»" loading="lazy"></span><small>ГК «Магистраль»</small></li><li><span class="lg" style="background:#dadbde"><b>Ещё один</b></span><small>&nbsp;</small></li></ul>
-    <p class="rzd">Работаем на объектах инфраструктуры железных дорог — ВСЖМ Санкт-Петербург — Москва, северный обход Перми (5-й этап) — и согласовываем ППР в полосе отвода железной дороги.</p>
     <div class="lic">
       <h3>Допуски</h3>
       <div class="lic-cards">
@@ -850,24 +782,8 @@ fieldset.fld{border:0}
       <form class="form" id="form" novalidate>
         <div class="fld"><label for="fName">Как к вам обращаться</label><input id="fName" name="name" autocomplete="name"></div>
         <div class="fld"><label for="fOrg">Компания</label><input id="fOrg" name="org" autocomplete="organization"></div>
-        <div class="fld w"><label for="fObj">Объект</label><input id="fObj" name="obj" placeholder="Например: путепровод на км 42, капремонт"></div>
-        <fieldset class="fld w"><legend>Что нужно</legend>
-          <div class="chips">
-            <label><input type="checkbox" name="need" value="ППР"><span>ППР</span></label>
-            <label><input type="checkbox" name="need" value="Исполнительная документация"><span>ИД</span></label>
-            <label><input type="checkbox" name="need" value="ПОС и ТКР"><span>ПОС и ТКР</span></label>
-            <label><input type="checkbox" name="need" value="СВСиУ"><span>СВСиУ</span></label>
-            <label><input type="checkbox" name="need" value="ВЗиС"><span>ВЗиС</span></label>
-            <label><input type="checkbox" name="need" value="Рабочая документация"><span>Рабочая документация</span></label>
-            <label><input type="checkbox" name="need" value="Экспертиза"><span>Экспертиза</span></label>
-            <label><input type="checkbox" name="need" value="BIM-модель"><span>BIM-модель</span></label>
-            <label><input type="checkbox" name="need" value="Согласования"><span>Согласования</span></label>
-            <label><input type="checkbox" name="need" value="Благоустройство"><span>Благоустройство</span></label>
-          </div>
-        </fieldset>
-        <div class="fld"><label for="fWhen">Сроки</label><input id="fWhen" name="when" placeholder="к какой дате нужен проект"></div>
-        <div class="fld"><label for="fCt">Телефон или почта</label><input id="fCt" name="ct" autocomplete="tel"></div>
-        <div class="fld w"><label for="fMsg">Комментарий</label><textarea id="fMsg" name="msg"></textarea></div>
+        <div class="fld w"><label for="fCt">Телефон или почта</label><input id="fCt" name="ct" autocomplete="tel"></div>
+        <div class="fld w"><label for="fMsg">Ваш запрос</label><textarea id="fMsg" name="msg"></textarea></div>
         <div class="form-act">
           <button class="pill solid" type="submit">Отправить письмо с запросом</button>
           <small id="formNote">Откроется ваша почта с готовым письмом на post@madis.pro — останется приложить ТЗ.</small>
@@ -897,7 +813,7 @@ fieldset.fld{border:0}
 </footer>
 
 <div class="mbar" aria-label="Связаться">
-  <a href="#contacts">Отправить КП</a>
+  <a href="#contacts">Связаться</a>
   <a href="tel:+74957900992">Позвонить</a>
   <a href="mailto:post@madis.pro">Написать</a>
 </div>
@@ -942,7 +858,7 @@ const Q=new URLSearchParams(location.search);
 
 /* ---------------- data ---------------- */
 const OBJ=[
- {id:'vszhm',g:'feat',t:'ВСЖМ Санкт-Петербург — Москва',pl:'ВСЖМ Санкт-Петербург — Москва · 2 этап, участок Великий Новгород — Валдай',k:['ПОС','СВСиУ'],tx:'Разработка ПОС, включая СВСиУ: 30 искусственных сооружений, 843 опоры, 26,9 км. Ограждения котлованов, временные рабочие мосты, схемы монтажа пролётных строений — в том числе ж/б балок L = 32,6 м массой 698,5 т краном грузоподъёмностью 900 т.',im:['vszhm','vszhm-2','vszhm-3','vszhm-4','vszhm-kotl']},
+ {id:'vszhm',g:'feat',t:'ВСМ Санкт-Петербург — Москва',pl:'ВСМ Санкт-Петербург — Москва · 2 этап, участок Великий Новгород — Валдай',k:['ПОС','СВСиУ'],tx:'Разработка ПОС, включая СВСиУ: 30 искусственных сооружений, 843 опоры, 26,9 км. Ограждения котлованов, временные рабочие мосты, схемы монтажа пролётных строений — в том числе ж/б балок L = 32,6 м массой 698,5 т краном грузоподъёмностью 900 т.',im:['vszhm','vszhm-2','vszhm-3','vszhm-4','vszhm-kotl']},
  {id:'neva',g:'most',t:'Мост через Неву',pl:'Санкт-Петербург · створ Б. Смоленского пр. — ул. Коллонтай',k:['ППР'],tx:'Новая транспортная магистраль с мостом через Неву, 1-й и 2-й этапы. Комплекс ППР на сооружение моста, в том числе монтаж блоков пролётного строения с плавучих систем.',im:['neva','neva-2']},
  {id:'kama',g:'most',t:'Мост через Каму, Пермь',pl:'Северный ж/д обход Перми · 5-й этап',k:['ППР'],tx:'Мостовой переход через Каму на северном железнодорожном обходе Перми. Комплекс ППР на сооружение моста, в том числе надвижка пролётного строения.',im:['kama','kama-2']},
  {id:'m12',g:'most',t:'Мост через Волгу, М-12',pl:'Трасса М-12 «Восток»',k:['ППР'],tx:'Комплексная разработка ППР на строительство моста через Волгу.',im:['m12','m12-2']},
@@ -1075,9 +991,9 @@ $$('[data-lb]').forEach(f=>{ f.tabIndex=0; f.setAttribute('role','button');
 
 /* ---------------- sheets (examples) ---------------- */
 const SHEETS=[
- {n:'vszhm-4',w:[800,1600],o:'ВСЖМ, переход через Мсту',t:'Временный рабочий мост: фасад, план, разрезы',tx:'ПОС, включая СВСиУ. Временный рабочий мост длиной 128 м: 6 пролётов по 21,34 м, 7 опор на сваях, технологические платформы для сооружения опор основного моста.'},
- {n:'vszhm-3',w:[800,1600],o:'ВСЖМ, переход через Мсту',t:'Монтаж пролётных строений консольно-шлюзовым краном',tx:'Организационно-технологическая схема: три схемы монтажа ж/б балок L = 32,6 м массой 698,5 т краном грузоподъёмностью 900 т, по стадиям.'},
- {n:'vszhm-kotl',w:[800,1600],o:'ВСЖМ, переход через Мсту',t:'СВСиУ для сооружения опор: ограждения котлованов',tx:'Проектирование и расчёт СВСиУ для сооружения опор: фасады ограждений по группам опор, таблица переменных величин для 41 опоры, ведомость объёмов работ.'},
+ {n:'vszhm-4',w:[800,1600],o:'ВСМ, переход через Мсту',t:'Временный рабочий мост: фасад, план, разрезы',tx:'ПОС, включая СВСиУ. Временный рабочий мост длиной 128 м: 6 пролётов по 21,34 м, 7 опор на сваях, технологические платформы для сооружения опор основного моста.'},
+ {n:'vszhm-3',w:[800,1600],o:'ВСМ, переход через Мсту',t:'Монтаж пролётных строений консольно-шлюзовым краном',tx:'Организационно-технологическая схема: три схемы монтажа ж/б балок L = 32,6 м массой 698,5 т краном грузоподъёмностью 900 т, по стадиям.'},
+ {n:'vszhm-kotl',w:[800,1600],o:'ВСМ, переход через Мсту',t:'СВСиУ для сооружения опор: ограждения котлованов',tx:'Проектирование и расчёт СВСиУ для сооружения опор: фасады ограждений по группам опор, таблица переменных величин для 41 опоры, ведомость объёмов работ.'},
  {n:'kama-sheet',w:[800,1600],o:'Мост через Каму, Пермь',t:'Монтаж раскосов пролётного строения',tx:'Комплекс ППР на сооружение моста: технологическая схема монтажа раскосов и связей пролётного строения гусеничными кранами, таблица монтажных элементов, грузовые характеристики кранов.'},
  {n:'dem-sheet',w:[1000,1000],o:'М-10 «Россия», мост через Волхов',t:'Этапы демонтажа блоков пролётного строения',tx:'Проект производства работ на капитальный ремонт моста: последовательность демонтажа блоков с воды.'},
  {n:'zlat',w:[800,1600],o:'Велопешеходный мост, Златоуст',t:'Проектная документация: ПОС и ТКР',tx:'Разделы проектной документации с сопровождением в экспертизе.'},
@@ -1104,10 +1020,9 @@ document.addEventListener('toggle',()=>window.ScrollTrigger&&ScrollTrigger.refre
 /* ---------------- form → mailto ---------------- */
 $('#form').addEventListener('submit',e=>{
   e.preventDefault(); const f=e.target; const v=n=>(f.elements[n]&&f.elements[n].value||'').trim();
-  const need=$$('input[name=need]:checked',f).map(i=>i.value).join(', ');
   if(!v('ct')){ $('#formNote').textContent='Оставьте телефон или почту — иначе нам некуда ответить.'; $('#fCt').focus(); return; }
-  const body=`Здравствуйте!\n\nИмя: ${v('name')}\nКомпания: ${v('org')}\nОбъект: ${v('obj')}\nЧто нужно: ${need||'—'}\nСроки: ${v('when')}\nКонтакт: ${v('ct')}\n\n${v('msg')}\n\n(ТЗ прикладываю к письму)`;
-  location.href='mailto:post@madis.pro?subject='+encodeURIComponent('Запрос с сайта: '+(v('obj')||'новый объект'))+'&body='+encodeURIComponent(body);
+  const body=`Здравствуйте!\n\nИмя: ${v('name')}\nКомпания: ${v('org')}\nКонтакт: ${v('ct')}\n\n${v('msg')}\n\n(ТЗ прикладываю к письму)`;
+  location.href='mailto:post@madis.pro?subject='+encodeURIComponent('Запрос с сайта'+(v('org')?': '+v('org'):''))+'&body='+encodeURIComponent(body);
   $('#formNote').textContent='Письмо готово в вашей почте — приложите ТЗ и отправьте.';
 });
 
